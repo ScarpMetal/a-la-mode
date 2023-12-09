@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddlfij2ghida2"]
+
+[ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
+[ext_resource type="Texture2D" uid="uid://df65gtq2fjqgb" path="res://assets/sponge.png" id="2_25axp"]
+[ext_resource type="Script" path="res://scenes/Arm.gd" id="4_pca41"]
+[ext_resource type="Texture2D" uid="uid://o5tipy6ctuvy" path="res://assets/dishes/salmon.png" id="4_pi2bv"]
+[ext_resource type="Texture2D" uid="uid://co15l6n25h7ao" path="res://assets/arm-scooper.png" id="4_y3grb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7thja"]
+radius = 549.491
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhmnd"]
+radius = 57.0351
+
+[node name="PlatingScreen" type="Node2D"]
+script = ExtResource("1_ebmj5")
+
+[node name="Sponge" type="Sprite2D" parent="."]
+position = Vector2(592, 322)
+texture = ExtResource("2_25axp")
+
+[node name="Dish" type="CharacterBody2D" parent="."]
+position = Vector2(1018, 155)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dish"]
+scale = Vector2(0.262067, 0.262067)
+texture = ExtResource("4_pi2bv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dish"]
+visible = false
+scale = Vector2(0.262067, 0.262067)
+shape = SubResource("CircleShape2D_7thja")
+
+[node name="Arm" type="CharacterBody2D" parent="."]
+position = Vector2(1005, 544)
+scale = Vector2(0.262067, 0.262067)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_pca41")
+
+[node name="Sprite2D" type="Sprite2D" parent="Arm"]
+position = Vector2(404.477, 480.793)
+scale = Vector2(2.53192, 2.39222)
+texture = ExtResource("4_y3grb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm"]
+scale = Vector2(3.81582, 3.81582)
+shape = SubResource("CircleShape2D_vhmnd")
