@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddlfij2ghida2"]
+
+[ext_resource type="Texture2D" uid="uid://df65gtq2fjqgb" path="res://assets/sponge.png" id="1_n2y2a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sponge" type="Sprite2D" parent="."]
+position = Vector2(592, 322)
+texture = ExtResource("1_n2y2a")
