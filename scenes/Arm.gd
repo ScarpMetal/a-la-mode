@@ -7,6 +7,10 @@ extends CharacterBody2D
 @export var min_scale := 0.2
 @export var max_scale := 1.0
 
+@onready var animationStateMachine: AnimationNodeStateMachinePlayback = $AnimationTree.get(
+	"parameters/playback"
+)
+
 
 func _physics_process(_delta: float) -> void:
 	var mouse_position := get_viewport().get_mouse_position()
@@ -26,7 +30,17 @@ func _physics_process(_delta: float) -> void:
 	)
 	scale = Vector2(scale_factor, scale_factor)
 
+	pick_animation_state()
 	move_and_slide()
+
+
+func pick_animation_state() -> void:
+	var currentNode: String = animationStateMachine.get_current_node()
+	match currentNode:
+		"idle":
+			if Input.is_action_just_pressed("scoop"):
+				animationStateMachine.travel("dumping_scoop")
+				return
 
 
 func map_value(
