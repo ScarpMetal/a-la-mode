@@ -14,3 +14,7 @@ config/name="a-la-mode"
 run/main_scene="res://scenes/plating_screen.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://assets/icon.png"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
