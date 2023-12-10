@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbplp3i6vttjq"]
+
+[ext_resource type="Texture2D" uid="uid://cnfctlo3osvq2" path="res://assets/ui/credits.png" id="1_lrfmk"]
+[ext_resource type="Script" path="res://scenes/credits.gd" id="1_u1hmi"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1hmi")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Credits" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_lrfmk")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 553.0
+offset_top = 436.0
+offset_right = 598.0
+offset_bottom = 467.0
+
+[node name="Back" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer2/Back" to="." method="_on_back_pressed"]
