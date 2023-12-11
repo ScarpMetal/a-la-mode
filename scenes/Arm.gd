@@ -30,17 +30,7 @@ func _physics_process(_delta: float) -> void:
 	)
 	scale = Vector2(scale_factor, scale_factor)
 
-	pick_animation_state()
 	move_and_slide()
-
-
-func pick_animation_state() -> void:
-	var currentNode: String = animationStateMachine.get_current_node()
-	match currentNode:
-		"idle":
-			if Input.is_action_just_pressed("scoop"):
-				animationStateMachine.travel("dumping_scoop")
-				return
 
 
 func map_value(
@@ -48,3 +38,10 @@ func map_value(
 ) -> float:
 	var clamped_value := clampf(value, from_min, from_max)
 	return to_min + (to_max - to_min) * ((clamped_value - from_min) / (from_max - from_min))
+
+
+func _on_bucket_pressed() -> void:
+	var currentNode: String = animationStateMachine.get_current_node()
+	match currentNode:
+		"idle":
+			animationStateMachine.travel("dumping_scoop")
