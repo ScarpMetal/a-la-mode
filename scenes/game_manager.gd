@@ -3,6 +3,7 @@ extends Node
 class_name GameManager
 
 var health: int
+var selected_flavor: String
 @onready var order_manager: Node = $OrderManager
 
 signal toggle_game_paused(is_paused: bool)

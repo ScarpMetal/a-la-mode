@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://kwn52rs7xqc"]
+
+[ext_resource type="Script" path="res://scenes/bucket.gd" id="1_0svvq"]
+[ext_resource type="Texture2D" uid="uid://dgecr1gjt437b" path="res://assets/ice-cream/FLAVOR_1_BIN.svg" id="2_aw2sr"]
+
+[node name="Bucket" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0svvq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -332.0
+offset_top = -12.0
+offset_right = 325.0
+offset_bottom = 354.0
+
+[node name="Bucket" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("2_aw2sr")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="mouse_entered" from="VBoxContainer/Bucket" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Bucket" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Bucket" to="." method="_on_texture_button_pressed"]

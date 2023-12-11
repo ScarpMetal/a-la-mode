@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=28 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/ice-cream/bucket.png" id="10_rn2rc"]
 [ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
+[ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 
 [sub_resource type="Animation" id="Animation_y5ysc"]
 length = 0.001
@@ -327,54 +328,6 @@ script = ExtResource("1_ebmj5")
 position = Vector2(961, 541)
 texture = ExtResource("2_xlgi4")
 
-[node name="Arm" type="CharacterBody2D" parent="."]
-position = Vector2(746, 501)
-scale = Vector2(0.262067, 0.262067)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("3_u1wtm")
-
-[node name="IdleSprite" type="Sprite2D" parent="Arm"]
-visible = false
-position = Vector2(496.056, 408.292)
-texture = ExtResource("7_ln5n8")
-
-[node name="DumpingScoopSprite" type="Sprite2D" parent="Arm"]
-position = Vector2(435.003, -476.977)
-scale = Vector2(4.9612, 4.65371)
-texture = ExtResource("6_7mufn")
-
-[node name="IdleEmptySprite" type="Sprite2D" parent="Arm"]
-visible = false
-position = Vector2(526.583, 396.845)
-texture = ExtResource("9_87dj2")
-
-[node name="ScoopingSprite" type="Sprite2D" parent="Arm"]
-visible = false
-position = Vector2(396.845, -457.898)
-scale = Vector2(2.532, 2.532)
-texture = ExtResource("7_vawaa")
-
-[node name="AnimationTree" type="AnimationTree" parent="Arm"]
-libraries = {
-"": SubResource("AnimationLibrary_qq2nt")
-}
-tree_root = SubResource("AnimationNodeStateMachine_0mvhy")
-anim_player = NodePath("../AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Arm"]
-libraries = {
-"": SubResource("AnimationLibrary_qq2nt")
-}
-
-[node name="Bucket" type="TextureButton" parent="."]
-offset_left = 1576.0
-offset_top = 770.0
-offset_right = 2494.0
-offset_bottom = 1670.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("10_rn2rc")
-
 [node name="Heart1" type="Sprite2D" parent="."]
 position = Vector2(124.333, 140)
 scale = Vector2(0.222222, 0.222222)
@@ -390,43 +343,133 @@ position = Vector2(412.333, 216)
 scale = Vector2(0.222222, 0.222222)
 texture = ExtResource("11_shn2n")
 
-[node name="DishesCompleteHud" type="Sprite2D" parent="."]
-position = Vector2(1698.22, 146.5)
-scale = Vector2(0.247222, 0.247222)
-texture = ExtResource("13_qcccd")
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 1544.0
-offset_top = 96.0
-offset_right = 1852.0
-offset_bottom = 250.0
+[node name="Dishes Complete HUD" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.779
+anchor_right = 1.0
+anchor_bottom = 0.255
+grow_horizontal = 0
+texture = ExtResource("13_qcccd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/Dishes Complete HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.334
+anchor_right = 0.852
+anchor_bottom = 0.852
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Dishes Complete HUD/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="Number" type="Label" parent="Control/Dishes Complete HUD/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 
-[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="Slash" type="Label" parent="Control/Dishes Complete HUD/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "/"
 
-[node name="Label3" type="Label" parent="CenterContainer/HBoxContainer"]
+[node name="OutOf" type="Label" parent="Control/Dishes Complete HUD/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 
-[connection signal="pressed" from="Bucket" to="Arm" method="_on_bucket_pressed"]
+[node name="Bucket" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 1576.0
+offset_top = 770.0
+offset_right = 2494.0
+offset_bottom = 1670.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("10_rn2rc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Bucket2" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bucket3" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bucket4" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bucket5" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bucket6" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Arm" type="CharacterBody2D" parent="."]
+position = Vector2(746, 501)
+scale = Vector2(0.262067, 0.262067)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_u1wtm")
+
+[node name="IdleSprite" type="Sprite2D" parent="Arm"]
+visible = false
+position = Vector2(226.35, 256.583)
+scale = Vector2(0.719056, 0.719056)
+texture = ExtResource("7_ln5n8")
+
+[node name="DumpingScoopSprite" type="Sprite2D" parent="Arm"]
+position = Vector2(221.317, -362.503)
+scale = Vector2(3.55536, 3.335)
+texture = ExtResource("6_7mufn")
+
+[node name="IdleEmptySprite" type="Sprite2D" parent="Arm"]
+visible = false
+position = Vector2(290.795, 264.215)
+scale = Vector2(0.754388, 0.754388)
+texture = ExtResource("9_87dj2")
+
+[node name="ScoopingSprite" type="Sprite2D" parent="Arm"]
+visible = false
+position = Vector2(213.686, -393.029)
+scale = Vector2(1.92423, 1.92423)
+texture = ExtResource("7_vawaa")
+
+[node name="AnimationTree" type="AnimationTree" parent="Arm"]
+libraries = {
+"": SubResource("AnimationLibrary_qq2nt")
+}
+tree_root = SubResource("AnimationNodeStateMachine_0mvhy")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arm"]
+libraries = {
+"": SubResource("AnimationLibrary_qq2nt")
+}
+
+[connection signal="pressed" from="Control/Bucket" to="Arm" method="_on_bucket_pressed"]
