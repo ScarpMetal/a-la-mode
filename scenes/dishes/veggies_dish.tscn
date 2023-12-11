@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7i0tqt31j4j7"]
+
+[ext_resource type="PackedScene" uid="uid://bq7omtq0fmhoq" path="res://scenes/dishes/base_dish.tscn" id="1_r43x1"]
+[ext_resource type="Texture2D" uid="uid://c5hxlav00gjm4" path="res://assets/dishes/veggies.png" id="2_0oyfy"]
+
+[node name="VeggiesDish" instance=ExtResource("1_r43x1")]
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(2, -3)
+scale = Vector2(0.30427, 0.306691)
+texture = ExtResource("2_0oyfy")

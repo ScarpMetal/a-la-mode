@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://burw6hoh1sqq5"]
+
+[ext_resource type="PackedScene" uid="uid://bq7omtq0fmhoq" path="res://scenes/dishes/base_dish.tscn" id="1_kwjqk"]
+[ext_resource type="Texture2D" uid="uid://u0wbpp3q5qw4" path="res://assets/dishes/steak.png" id="2_pxhrw"]
+
+[node name="SteakDish" instance=ExtResource("1_kwjqk")]
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.4264, 0.4264)
+texture = ExtResource("2_pxhrw")
