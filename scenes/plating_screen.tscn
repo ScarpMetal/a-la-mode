@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=31 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
 [ext_resource type="Script" path="res://scenes/Dish.gd" id="2_owwmn"]
+[ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
 [ext_resource type="Texture2D" uid="uid://ba3xjt6pgyt3y" path="res://assets/dishes/salmon_a_la_mode.png" id="3_sjeer"]
 [ext_resource type="Script" path="res://scenes/Arm.gd" id="4_pca41"]
 [ext_resource type="Texture2D" uid="uid://o5tipy6ctuvy" path="res://assets/dishes/salmon.png" id="4_pi2bv"]
@@ -11,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b77fjie6defs0" path="res://assets/arm-scooper-empty-flipped.png" id="7_vawaa"]
 [ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/ice-cream/bucket.png" id="10_rn2rc"]
 [ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
-[ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="12_12gmc"]
+[ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7thja"]
 radius = 549.491
@@ -328,6 +329,10 @@ graph_offset = Vector2(-484.75, 39.2828)
 [node name="PlatingScreen" type="Node2D"]
 script = ExtResource("1_ebmj5")
 
+[node name="ConveyerBelt" type="Sprite2D" parent="."]
+position = Vector2(961, 541)
+texture = ExtResource("2_xlgi4")
+
 [node name="Dish" type="CharacterBody2D" parent="."]
 position = Vector2(134, 447)
 script = ExtResource("2_owwmn")
@@ -418,7 +423,7 @@ texture = ExtResource("11_shn2n")
 [node name="DishesCompleteHud" type="Sprite2D" parent="."]
 position = Vector2(1698.22, 146.5)
 scale = Vector2(0.247222, 0.247222)
-texture = ExtResource("12_12gmc")
+texture = ExtResource("13_qcccd")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 8

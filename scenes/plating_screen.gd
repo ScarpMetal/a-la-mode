@@ -2,8 +2,8 @@ extends Node2D
 
 @export var game_manager: GameManager
 
-var full_heart_texture: Resource = preload("res://assets/HEART_FULL.svg")
-var empty_heart_texture: Resource = preload("res://assets/HEART_EMPTY.svg")
+var full_heart_texture: Resource = preload("res://assets/ui/HEART_FULL.svg")
+var empty_heart_texture: Resource = preload("res://assets/ui/HEART_EMPTY.svg")
 
 func _ready() -> void:
 	pass
