@@ -1,0 +1,90 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="1920px" height="1080px" viewBox="0 0 1920 1080">
+<defs>
+<linearGradient id="Gradient_1" gradientUnits="userSpaceOnUse" x1="993.65" y1="-59.31250000000006" x2="993.65" y2="607.2125000000001" spreadMethod="pad">
+<stop  offset="0%" stop-color="#3233AF"/>
+
+<stop  offset="100%" stop-color="#131357"/>
+</linearGradient>
+</defs>
+
+<g id="Layer_2"/>
+
+<g id="Layer_1"/>
+
+<g id="Layer_3"/>
+
+<g id="Layer_5"/>
+
+<g id="Layer_4">
+<g id="Layer_1" transform="matrix( 1, 0, 0, 1, -410.35,414.1) ">
+<g id="Layer_1">
+<g id="Layer_1">
+<g id="Layer_1" transform="matrix( 1, 0, 0, 1, 381.15,233.55) ">
+<g>
+<g>
+<g>
+<path fill="url(#Gradient_1)" stroke="none" d="
+M 1990.7 469.2
+L 1990.7 0 0 0 0 469.2 1990.7 469.2 Z"/>
+</g>
+</g>
+</g>
+</g>
+
+<g id="Layer_1" transform="matrix( 1, 0, 0, 1.2566986083984375, 366.55,0) ">
+<g>
+<g>
+<g>
+<path fill="#4343E8" stroke="none" d="
+M 2007.65 221.55
+L 2007.65 0 0 0 0 221.55 2007.65 221.55 Z"/>
+</g>
+</g>
+</g>
+</g>
+
+<g id="Layer_1" transform="matrix( 1, 0, 0, 1.050628662109375, 315,35.6) ">
+<g>
+<g>
+<g>
+<path fill="#090965" stroke="none" d="
+M 2110.7 169.25
+L 2110.7 0 0 0 0 169.25 2110.7 169.25 Z"/>
+</g>
+</g>
+</g>
+</g>
+
+<g id="Layer_2" transform="matrix( 1, 0, 0, 1.050628662109375, 315,35.6) ">
+<g>
+<g>
+<g>
+<path fill="#8080CC" stroke="none" d="
+M -315 162.4
+L -283.45 162.4 19.55 5.05 -3.35 5.05 -315 162.4
+M 220.45 5.05
+L 196.85 5.05 -17.3 162.4 15.25 162.4 220.45 5.05
+M 464.75 5.05
+L 440.4 5.05 326.9 162.4 360.5 162.4 464.75 5.05
+M 688.55 162.4
+L 716.6 162.4 737.1 5.05 712.55 5.05 688.55 162.4
+M 1072.4 5.05
+L 1049.2 5.05 1049.2 162.4 1072.4 162.4 1072.4 5.05
+M 1409.05 5.05
+L 1384.5 5.05 1405 162.4 1433.05 162.4 1409.05 5.05
+M 1681.2 5.05
+L 1656.85 5.05 1761.1 162.4 1794.7 162.4 1681.2 5.05
+M 2106.35 162.4
+L 2138.9 162.4 1924.75 5.05 1901.15 5.05 2106.35 162.4
+M 2405.05 162.4
+L 2436.6 162.4 2124.95 5.05 2102.05 5.05 2405.05 162.4 Z"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg>
