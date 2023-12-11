@@ -1,6 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=28 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
+[ext_resource type="Script" path="res://scenes/Dish.gd" id="2_owwmn"]
+[ext_resource type="Texture2D" uid="uid://ba3xjt6pgyt3y" path="res://assets/dishes/salmon_a_la_mode.png" id="3_sjeer"]
 [ext_resource type="Script" path="res://scenes/Arm.gd" id="4_pca41"]
 [ext_resource type="Texture2D" uid="uid://o5tipy6ctuvy" path="res://assets/dishes/salmon.png" id="4_pi2bv"]
 [ext_resource type="Texture2D" uid="uid://co15l6n25h7ao" path="res://assets/arm-scooper.png" id="4_y3grb"]
@@ -325,16 +327,23 @@ graph_offset = Vector2(-484.75, 39.2828)
 script = ExtResource("1_ebmj5")
 
 [node name="Dish" type="CharacterBody2D" parent="."]
-position = Vector2(529, 434)
-
-[node name="Sprite2D" type="Sprite2D" parent="Dish"]
-scale = Vector2(0.262067, 0.262067)
-texture = ExtResource("4_pi2bv")
+position = Vector2(134, 447)
+script = ExtResource("2_owwmn")
+a_la_mode_texture = ExtResource("3_sjeer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dish"]
 visible = false
 scale = Vector2(0.262067, 0.262067)
 shape = SubResource("CircleShape2D_7thja")
+
+[node name="DishButton" type="TextureButton" parent="Dish"]
+offset_left = -190.0
+offset_top = -132.0
+offset_right = 185.0
+offset_bottom = 133.0
+texture_normal = ExtResource("4_pi2bv")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Arm" type="CharacterBody2D" parent="."]
 position = Vector2(746, 501)
@@ -389,4 +398,5 @@ offset_bottom = 1670.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("6_nlkm8")
 
+[connection signal="pressed" from="Dish/DishButton" to="Dish" method="_on_dish_button_pressed"]
 [connection signal="pressed" from="Bucket" to="Arm" method="_on_bucket_pressed"]
