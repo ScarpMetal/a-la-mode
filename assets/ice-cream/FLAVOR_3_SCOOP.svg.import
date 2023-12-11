@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2vd68jh4qdxj"
-path="res://.godot/imported/HEART_FULL.svg-0c940813b283eb140c45f403289bf53d.ctex"
+uid="uid://d0faopg31i0ii"
+path="res://.godot/imported/FLAVOR_3_SCOOP.svg-db133ae98760f17a1c83e40dad7756c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HEART_FULL.svg"
-dest_files=["res://.godot/imported/HEART_FULL.svg-0c940813b283eb140c45f403289bf53d.ctex"]
+source_file="res://assets/ice-cream/FLAVOR_3_SCOOP.svg"
+dest_files=["res://.godot/imported/FLAVOR_3_SCOOP.svg-db133ae98760f17a1c83e40dad7756c3.ctex"]
 
 [params]
 

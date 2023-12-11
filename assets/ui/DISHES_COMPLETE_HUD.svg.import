@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://25728ms3x8vq"
-path="res://.godot/imported/DISH_1.svg-3baccc7883017c255a062db3b7c1b835.ctex"
+uid="uid://b1g4mjandw03k"
+path="res://.godot/imported/DISHES_COMPLETE_HUD.svg-c3b262d3aa6e5f88fa6dc02d4c69bc84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/DISH_1.svg"
-dest_files=["res://.godot/imported/DISH_1.svg-3baccc7883017c255a062db3b7c1b835.ctex"]
+source_file="res://assets/ui/DISHES_COMPLETE_HUD.svg"
+dest_files=["res://.godot/imported/DISHES_COMPLETE_HUD.svg-c3b262d3aa6e5f88fa6dc02d4c69bc84.ctex"]
 
 [params]
 

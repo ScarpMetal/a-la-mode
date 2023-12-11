@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb88o356a8hwx"
-path="res://.godot/imported/FLAVOR_2_BIN.svg-68c4bbe227faa61a08535d19e5bda54b.ctex"
+uid="uid://bndj38h5cjbuc"
+path="res://.godot/imported/DISH_HUD.svg-9002cd8e108ed13a1a3774bb1573351e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FLAVOR_2_BIN.svg"
-dest_files=["res://.godot/imported/FLAVOR_2_BIN.svg-68c4bbe227faa61a08535d19e5bda54b.ctex"]
+source_file="res://assets/ui/DISH_HUD.svg"
+dest_files=["res://.godot/imported/DISH_HUD.svg-9002cd8e108ed13a1a3774bb1573351e.ctex"]
 
 [params]
 

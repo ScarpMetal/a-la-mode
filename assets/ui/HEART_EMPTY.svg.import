@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clvdorghpqwbq"
-path="res://.godot/imported/FLAVOR_3_BIN.svg-58916dd2d8730ac82e3165f2643da02a.ctex"
+uid="uid://cwd61p8wrg7ph"
+path="res://.godot/imported/HEART_EMPTY.svg-335a8d9a60deec2a45276f1b762db285.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FLAVOR_3_BIN.svg"
-dest_files=["res://.godot/imported/FLAVOR_3_BIN.svg-58916dd2d8730ac82e3165f2643da02a.ctex"]
+source_file="res://assets/ui/HEART_EMPTY.svg"
+dest_files=["res://.godot/imported/HEART_EMPTY.svg-335a8d9a60deec2a45276f1b762db285.ctex"]
 
 [params]
 

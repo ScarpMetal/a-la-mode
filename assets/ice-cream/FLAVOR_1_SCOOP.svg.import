@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpwrm34rixr4i"
-path="res://.godot/imported/FLAVOR_2_SCOOP.svg-6fc8a70d5481c7192954e7ea451a84c9.ctex"
+uid="uid://n58rjonnlh8j"
+path="res://.godot/imported/FLAVOR_1_SCOOP.svg-bab2f754ade7bdb22fc3628c770506b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/FLAVOR_2_SCOOP.svg"
-dest_files=["res://.godot/imported/FLAVOR_2_SCOOP.svg-6fc8a70d5481c7192954e7ea451a84c9.ctex"]
+source_file="res://assets/ice-cream/FLAVOR_1_SCOOP.svg"
+dest_files=["res://.godot/imported/FLAVOR_1_SCOOP.svg-bab2f754ade7bdb22fc3628c770506b6.ctex"]
 
 [params]
 

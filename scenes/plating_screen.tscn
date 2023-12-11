@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://co15l6n25h7ao" path="res://assets/arm-scooper.png" id="4_y3grb"]
 [ext_resource type="Texture2D" uid="uid://b02088s04jyde" path="res://assets/arm-scooper-flipped.png" id="6_7mufn"]
 [ext_resource type="Texture2D" uid="uid://ysh2fwhbkdve" path="res://assets/arm-scooper-empty.png" id="6_ft2iu"]
-[ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/bucket.png" id="6_nlkm8"]
 [ext_resource type="Texture2D" uid="uid://b77fjie6defs0" path="res://assets/arm-scooper-empty-flipped.png" id="7_vawaa"]
-[ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/HEART_FULL.svg" id="11_3ud6r"]
-[ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/DISHES_COMPLETE_HUD.svg" id="12_12gmc"]
+[ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/ice-cream/bucket.png" id="10_rn2rc"]
+[ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
+[ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="12_12gmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7thja"]
 radius = 549.491
@@ -398,22 +398,22 @@ offset_top = 770.0
 offset_right = 2494.0
 offset_bottom = 1670.0
 scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("6_nlkm8")
+texture_normal = ExtResource("10_rn2rc")
 
 [node name="Heart1" type="Sprite2D" parent="."]
 position = Vector2(124.333, 140)
 scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_3ud6r")
+texture = ExtResource("11_shn2n")
 
 [node name="Heart2" type="Sprite2D" parent="."]
 position = Vector2(259.333, 188)
 scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_3ud6r")
+texture = ExtResource("11_shn2n")
 
 [node name="Heart3" type="Sprite2D" parent="."]
 position = Vector2(412.333, 216)
 scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_3ud6r")
+texture = ExtResource("11_shn2n")
 
 [node name="DishesCompleteHud" type="Sprite2D" parent="."]
 position = Vector2(1698.22, 146.5)
