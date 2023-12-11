@@ -71,7 +71,7 @@ jobs:
           mkdir -v -p ~/.local/share/godot/templates
           mkdir -v -p ~/.local/share/godot/export_templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-          ln -s ~/.local/share/godot/templates ~/.local/share/godot/export_templates
+          cp -r ~/.local/share/godot/templates ~/.local/share/godot/export_templates
       - name: Web Build
         run: |
           mkdir -v -p build/web
