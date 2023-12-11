@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddlfij2ghida2"]
+
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_0heso"]
+[ext_resource type="PackedScene" uid="uid://cjjn6t6cbf382" path="res://scenes/plating_screen.tscn" id="2_pj85b"]
+[ext_resource type="PackedScene" uid="uid://htj0lhrge63u" path="res://scenes/pause_screen.tscn" id="3_c2fa0"]
+
+[node name="GameManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_0heso")
+
+[node name="PlatingScreen" parent="." instance=ExtResource("2_pj85b")]
+process_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseScreen" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("3_c2fa0")]
+process_mode = 3
+game_manager = NodePath("../..")
