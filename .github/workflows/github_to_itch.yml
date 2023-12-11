@@ -91,7 +91,7 @@ jobs:
           branch: gh-pages # The branch the action should deploy to.
           folder: build/web # The folder the action should deploy.
       - name: Deploy Itch.io
-        run: butler push ./build/web $ITCHIO_USERNAME/$ITCHIO_GAME:web
+        run: butler push ./build/web ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:web
 
   # export-mac:
   #   name: Mac Export
