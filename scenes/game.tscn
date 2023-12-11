@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bqs3r54fx7vmx"]
 
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_0heso"]
-[ext_resource type="PackedScene" uid="uid://ddlfij2ghida2" path="res://scenes/plating_screen.tscn" id="2_pj85b"]
+[ext_resource type="PackedScene" uid="uid://ddlfij2ghida2" path="res://scenes/plating_screen.tscn" id="2_l8i3v"]
 [ext_resource type="PackedScene" uid="uid://1gxfsts8uruw" path="res://scenes/ui/pause_screen.tscn" id="3_c2fa0"]
 [ext_resource type="Script" path="res://scenes/OrderManager.gd" id="4_xpy5x"]
 [ext_resource type="Script" path="res://scenes/DishSpawner.gd" id="5_446jf"]
@@ -10,8 +10,7 @@
 process_mode = 3
 script = ExtResource("1_0heso")
 
-[node name="PlatingScreen" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("2_pj85b")]
-process_mode = 1
+[node name="PlatingScreen" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("2_l8i3v")]
 game_manager = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -25,7 +24,7 @@ game_manager = NodePath("../..")
 script = ExtResource("4_xpy5x")
 
 [node name="DishSpawner" type="Node2D" parent="."]
-position = Vector2(-171, 437)
+position = Vector2(-194, 535)
 script = ExtResource("5_446jf")
 
 [connection signal="order_created" from="OrderManager" to="DishSpawner" method="_on_order_created"]

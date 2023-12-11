@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dl4ftlw6ua8s6" path="res://assets/ui/resume.png" id="1_j72ae"]
 [ext_resource type="Texture2D" uid="uid://dwdtvd2dhi8wm" path="res://assets/ui/paused.png" id="2_suqn3"]
 
-
 [node name="PauseScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
