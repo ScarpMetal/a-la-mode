@@ -1,11 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=26 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
 [ext_resource type="Script" path="res://scenes/Arm.gd" id="4_pca41"]
 [ext_resource type="Texture2D" uid="uid://o5tipy6ctuvy" path="res://assets/dishes/salmon.png" id="4_pi2bv"]
 [ext_resource type="Texture2D" uid="uid://co15l6n25h7ao" path="res://assets/arm-scooper.png" id="4_y3grb"]
 [ext_resource type="Texture2D" uid="uid://b02088s04jyde" path="res://assets/arm-scooper-flipped.png" id="6_7mufn"]
+[ext_resource type="Texture2D" uid="uid://ysh2fwhbkdve" path="res://assets/arm-scooper-empty.png" id="6_ft2iu"]
 [ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/bucket.png" id="6_nlkm8"]
+[ext_resource type="Texture2D" uid="uid://b77fjie6defs0" path="res://assets/arm-scooper-empty-flipped.png" id="7_vawaa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7thja"]
 radius = 549.491
@@ -15,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite1:visible")
+tracks/0/path = NodePath("IdleSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2:visible")
+tracks/1/path = NodePath("DumpingScoopSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,14 +37,39 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_85ht2"]
 resource_name = "dumping_scoop"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite1:visible")
+tracks/0/path = NodePath("IdleSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -54,7 +81,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2:visible")
+tracks/1/path = NodePath("DumpingScoopSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -62,6 +89,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_y7mk3"]
@@ -70,7 +121,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite1:visible")
+tracks/0/path = NodePath("IdleSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,10 +133,137 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2:visible")
+tracks/1/path = NodePath("DumpingScoopSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qjtlh"]
+resource_name = "idle_empty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleEmptySprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DumpingScoopSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_c1m28"]
+resource_name = "scooping"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoopingSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DumpingScoopSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -96,7 +274,9 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_y5ysc"),
 "dumping_scoop": SubResource("Animation_85ht2"),
-"idle": SubResource("Animation_y7mk3")
+"idle": SubResource("Animation_y7mk3"),
+"idle_empty": SubResource("Animation_qjtlh"),
+"scooping": SubResource("Animation_c1m28")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gcitr"]
@@ -105,24 +285,41 @@ animation = &"dumping_scoop"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btr16"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_401yo"]
-advance_mode = 2
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbxu1"]
+animation = &"idle_empty"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ae1yv"]
+animation = &"scooping"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n06tl"]
 advance_mode = 0
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7ram1"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mdgpp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_466ja"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q63nx"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3s7l5"]
 switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0mvhy"]
-states/Start/position = Vector2(118, 100)
+states/Start/position = Vector2(-58, 100)
 states/dumping_scoop/node = SubResource("AnimationNodeAnimation_gcitr")
-states/dumping_scoop/position = Vector2(419, 100)
+states/dumping_scoop/position = Vector2(242.25, 202)
 states/idle/node = SubResource("AnimationNodeAnimation_btr16")
-states/idle/position = Vector2(259, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_401yo"), "idle", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_n06tl"), "dumping_scoop", "idle", SubResource("AnimationNodeStateMachineTransition_7ram1")]
-graph_offset = Vector2(0, -10.4754)
+states/idle/position = Vector2(412, 100)
+states/idle_empty/node = SubResource("AnimationNodeAnimation_bbxu1")
+states/idle_empty/position = Vector2(80.25, 100)
+states/scooping/node = SubResource("AnimationNodeAnimation_ae1yv")
+states/scooping/position = Vector2(242.25, 100)
+transitions = ["idle", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_n06tl"), "Start", "idle_empty", SubResource("AnimationNodeStateMachineTransition_mdgpp"), "idle_empty", "scooping", SubResource("AnimationNodeStateMachineTransition_466ja"), "scooping", "idle", SubResource("AnimationNodeStateMachineTransition_q63nx"), "dumping_scoop", "idle_empty", SubResource("AnimationNodeStateMachineTransition_3s7l5")]
+graph_offset = Vector2(-484.75, 39.2828)
 
 [node name="PlatingScreen" type="Node2D"]
 script = ExtResource("1_ebmj5")
@@ -149,16 +346,28 @@ max_physics_y = 830
 min_scale = 0.3
 max_scale = 0.7
 
-[node name="Sprite1" type="Sprite2D" parent="Arm"]
+[node name="IdleSprite" type="Sprite2D" parent="Arm"]
 visible = false
 position = Vector2(404.477, 480.793)
 scale = Vector2(2.53192, 2.39222)
 texture = ExtResource("4_y3grb")
 
-[node name="Sprite2" type="Sprite2D" parent="Arm"]
+[node name="DumpingScoopSprite" type="Sprite2D" parent="Arm"]
 position = Vector2(325.343, 420.645)
 scale = Vector2(4.9612, 4.65371)
 texture = ExtResource("6_7mufn")
+
+[node name="IdleEmptySprite" type="Sprite2D" parent="Arm"]
+visible = false
+position = Vector2(400.661, 461.714)
+scale = Vector2(2.532, 2.532)
+texture = ExtResource("6_ft2iu")
+
+[node name="ScoopingSprite" type="Sprite2D" parent="Arm"]
+visible = false
+position = Vector2(278.555, 423.556)
+scale = Vector2(2.532, 2.532)
+texture = ExtResource("7_vawaa")
 
 [node name="AnimationTree" type="AnimationTree" parent="Arm"]
 libraries = {

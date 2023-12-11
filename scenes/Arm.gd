@@ -30,6 +30,12 @@ func _physics_process(_delta: float) -> void:
 	)
 	scale = Vector2(scale_factor, scale_factor)
 
+	var currentNode: String = animationStateMachine.get_current_node()
+	match currentNode:
+		"idle":
+			if Input.is_action_just_pressed("left_mouse"):
+				animationStateMachine.travel("dumping_scoop")
+
 	move_and_slide()
 
 
@@ -43,5 +49,5 @@ func map_value(
 func _on_bucket_pressed() -> void:
 	var currentNode: String = animationStateMachine.get_current_node()
 	match currentNode:
-		"idle":
-			animationStateMachine.travel("dumping_scoop")
+		"idle_empty":
+			animationStateMachine.travel("scooping")
