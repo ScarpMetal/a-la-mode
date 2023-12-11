@@ -2,11 +2,10 @@ extends Node
 
 class_name GameManager
 
+var health: int
 @onready var order_manager: Node = $OrderManager
 
 signal toggle_game_paused(is_paused: bool)
-
-var health: int = 4
 
 var game_paused: bool = false:
 	get:
@@ -18,8 +17,13 @@ var game_paused: bool = false:
 		emit_signal("toggle_game_paused", game_paused)
 
 func _ready() -> void:
+	health = 3
 	order_manager.start()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		game_paused = !game_paused
+		
+func _process(_delta: float) -> void:
+	if (health <= 0):
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

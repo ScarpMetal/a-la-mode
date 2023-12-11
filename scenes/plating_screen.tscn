@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
 [ext_resource type="Script" path="res://scenes/Arm.gd" id="4_pca41"]
 [ext_resource type="Texture2D" uid="uid://co15l6n25h7ao" path="res://assets/arm-scooper.png" id="4_y3grb"]
+[ext_resource type="Texture2D" uid="uid://o5tipy6ctuvy" path="res://assets/dishes/salmon.png" id="4_pi2bv"]
 [ext_resource type="Texture2D" uid="uid://b02088s04jyde" path="res://assets/arm-scooper-flipped.png" id="6_7mufn"]
-[ext_resource type="Texture2D" uid="uid://ysh2fwhbkdve" path="res://assets/arm-scooper-empty.png" id="6_ft2iu"]
+[ext_resource type="Texture2D" uid="uid://pj05jpgisuvo" path="res://assets/CURSOR_FULL.svg" id="7_ln5n8"]
 [ext_resource type="Texture2D" uid="uid://b77fjie6defs0" path="res://assets/arm-scooper-empty-flipped.png" id="7_vawaa"]
+[ext_resource type="Texture2D" uid="uid://bva8im0j1p2jl" path="res://assets/CURSOR_EMPTY.svg" id="9_87dj2"]
 [ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/ice-cream/bucket.png" id="10_rn2rc"]
 [ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
@@ -354,24 +356,22 @@ max_scale = 0.7
 
 [node name="IdleSprite" type="Sprite2D" parent="Arm"]
 visible = false
-position = Vector2(404.477, 480.793)
-scale = Vector2(2.53192, 2.39222)
-texture = ExtResource("4_y3grb")
+position = Vector2(496.056, 408.292)
+texture = ExtResource("7_ln5n8")
 
 [node name="DumpingScoopSprite" type="Sprite2D" parent="Arm"]
-position = Vector2(325.343, 420.645)
+position = Vector2(435.003, -476.977)
 scale = Vector2(4.9612, 4.65371)
 texture = ExtResource("6_7mufn")
 
 [node name="IdleEmptySprite" type="Sprite2D" parent="Arm"]
 visible = false
-position = Vector2(400.661, 461.714)
-scale = Vector2(2.532, 2.532)
-texture = ExtResource("6_ft2iu")
+position = Vector2(526.583, 396.845)
+texture = ExtResource("9_87dj2")
 
 [node name="ScoopingSprite" type="Sprite2D" parent="Arm"]
 visible = false
-position = Vector2(278.555, 423.556)
+position = Vector2(396.845, -457.898)
 scale = Vector2(2.532, 2.532)
 texture = ExtResource("7_vawaa")
 
