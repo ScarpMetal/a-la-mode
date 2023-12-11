@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=30 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
 [ext_resource type="Script" path="res://scenes/Dish.gd" id="2_owwmn"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ysh2fwhbkdve" path="res://assets/arm-scooper-empty.png" id="6_ft2iu"]
 [ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/bucket.png" id="6_nlkm8"]
 [ext_resource type="Texture2D" uid="uid://b77fjie6defs0" path="res://assets/arm-scooper-empty-flipped.png" id="7_vawaa"]
+[ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/HEART_FULL.svg" id="11_3ud6r"]
+[ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/DISHES_COMPLETE_HUD.svg" id="12_12gmc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7thja"]
 radius = 549.491
@@ -397,6 +399,60 @@ offset_right = 2494.0
 offset_bottom = 1670.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("6_nlkm8")
+
+[node name="Heart1" type="Sprite2D" parent="."]
+position = Vector2(124.333, 140)
+scale = Vector2(0.222222, 0.222222)
+texture = ExtResource("11_3ud6r")
+
+[node name="Heart2" type="Sprite2D" parent="."]
+position = Vector2(259.333, 188)
+scale = Vector2(0.222222, 0.222222)
+texture = ExtResource("11_3ud6r")
+
+[node name="Heart3" type="Sprite2D" parent="."]
+position = Vector2(412.333, 216)
+scale = Vector2(0.222222, 0.222222)
+texture = ExtResource("11_3ud6r")
+
+[node name="DishesCompleteHud" type="Sprite2D" parent="."]
+position = Vector2(1698.22, 146.5)
+scale = Vector2(0.247222, 0.247222)
+texture = ExtResource("12_12gmc")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1544.0
+offset_top = 96.0
+offset_right = 1852.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0"
+
+[node name="Label2" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "/"
+
+[node name="Label3" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0"
 
 [connection signal="pressed" from="Dish/DishButton" to="Dish" method="_on_dish_button_pressed"]
 [connection signal="pressed" from="Bucket" to="Arm" method="_on_bucket_pressed"]

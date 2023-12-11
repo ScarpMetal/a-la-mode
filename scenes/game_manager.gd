@@ -6,10 +6,7 @@ class_name GameManager
 
 signal toggle_game_paused(is_paused: bool)
 
-
-func _ready() -> void:
-	order_manager.start()
-
+var health: int = 4
 
 var game_paused: bool = false:
 	get:
@@ -20,6 +17,8 @@ var game_paused: bool = false:
 		order_manager.pause() if game_paused else order_manager.resume()
 		emit_signal("toggle_game_paused", game_paused)
 
+func _ready() -> void:
+	order_manager.start()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
