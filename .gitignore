@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Other ignores
 .vscode
+dist
+dist.zip
+build
