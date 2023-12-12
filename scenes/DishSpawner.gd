@@ -8,6 +8,7 @@ var dish_scenes: Dictionary = {
 	"salmon": preload("res://scenes/dishes/salmon_dish.tscn"),
 }
 
+signal dish_spawned(dish_instance: Dish)
 
 func _ready() -> void:
 	pass
@@ -31,5 +32,6 @@ func check_queue() -> void:
 
 func spawn_dish(dish_name: String) -> void:
 	print("spawning dish: ", dish_name)
-	var dish_instance: CharacterBody2D = dish_scenes[dish_name].instantiate()
+	var dish_instance: Dish = dish_scenes[dish_name].instantiate()
 	add_child(dish_instance)
+	emit_signal("dish_spawned", dish_instance)
