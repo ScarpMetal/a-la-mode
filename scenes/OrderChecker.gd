@@ -24,8 +24,8 @@ func _on_dish_ice_cream_hit(hit_flavor: String, required_flavors: Array[String])
 
 func _on_dish_destroy(current_flavors: Array[String], required_flavors: Array[String]) -> void:
 	if current_flavors.all(func(flavor: String) -> bool: return flavor in required_flavors):
-		print("hi")
+		print("complete")
 		# increase completed dishes
 	else:
-		print("hi")
+		print("you fucked up")
 		# decrease health

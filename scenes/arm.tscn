@@ -1,0 +1,358 @@
+[gd_scene load_steps=22 format=3 uid="uid://7p0hiou31hvy"]
+
+[ext_resource type="Script" path="res://scenes/Arm.gd" id="1_jquy8"]
+[ext_resource type="Texture2D" uid="uid://pj05jpgisuvo" path="res://assets/CURSOR_FULL.svg" id="2_oyans"]
+[ext_resource type="Texture2D" uid="uid://b02088s04jyde" path="res://assets/arm-scooper-flipped.png" id="3_d1o0h"]
+[ext_resource type="Texture2D" uid="uid://bva8im0j1p2jl" path="res://assets/CURSOR_EMPTY.svg" id="4_40swc"]
+[ext_resource type="Texture2D" uid="uid://b77fjie6defs0" path="res://assets/arm-scooper-empty-flipped.png" id="5_nnnqw"]
+
+[sub_resource type="Animation" id="Animation_y5ysc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DumpingScoopSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_85ht2"]
+resource_name = "dumping_scoop"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DumpingScoopSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y7mk3"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DumpingScoopSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qjtlh"]
+resource_name = "idle_empty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IdleEmptySprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DumpingScoopSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScoopingSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_c1m28"]
+resource_name = "scooping"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoopingSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IdleSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IdleEmptySprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DumpingScoopSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qq2nt"]
+_data = {
+"RESET": SubResource("Animation_y5ysc"),
+"dumping_scoop": SubResource("Animation_85ht2"),
+"idle": SubResource("Animation_y7mk3"),
+"idle_empty": SubResource("Animation_qjtlh"),
+"scooping": SubResource("Animation_c1m28")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gcitr"]
+animation = &"dumping_scoop"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btr16"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbxu1"]
+animation = &"idle_empty"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ae1yv"]
+animation = &"scooping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n06tl"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mdgpp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_466ja"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q63nx"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3s7l5"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0mvhy"]
+states/Start/position = Vector2(-58, 100)
+states/dumping_scoop/node = SubResource("AnimationNodeAnimation_gcitr")
+states/dumping_scoop/position = Vector2(242.25, 202)
+states/idle/node = SubResource("AnimationNodeAnimation_btr16")
+states/idle/position = Vector2(412, 100)
+states/idle_empty/node = SubResource("AnimationNodeAnimation_bbxu1")
+states/idle_empty/position = Vector2(80.25, 100)
+states/scooping/node = SubResource("AnimationNodeAnimation_ae1yv")
+states/scooping/position = Vector2(242.25, 100)
+transitions = ["idle", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_n06tl"), "Start", "idle_empty", SubResource("AnimationNodeStateMachineTransition_mdgpp"), "idle_empty", "scooping", SubResource("AnimationNodeStateMachineTransition_466ja"), "scooping", "idle", SubResource("AnimationNodeStateMachineTransition_q63nx"), "dumping_scoop", "idle_empty", SubResource("AnimationNodeStateMachineTransition_3s7l5")]
+graph_offset = Vector2(-484.75, 39.2828)
+
+[node name="Arm" type="CharacterBody2D"]
+position = Vector2(746, 501)
+scale = Vector2(0.262067, 0.262067)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_jquy8")
+
+[node name="IdleSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(226.35, 256.583)
+scale = Vector2(0.719056, 0.719056)
+texture = ExtResource("2_oyans")
+
+[node name="DumpingScoopSprite" type="Sprite2D" parent="."]
+position = Vector2(221.317, -362.503)
+scale = Vector2(3.55536, 3.335)
+texture = ExtResource("3_d1o0h")
+
+[node name="IdleEmptySprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(290.795, 264.215)
+scale = Vector2(0.754388, 0.754388)
+texture = ExtResource("4_40swc")
+
+[node name="ScoopingSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(213.686, -393.029)
+scale = Vector2(1.92423, 1.92423)
+texture = ExtResource("5_nnnqw")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qq2nt")
+}
+tree_root = SubResource("AnimationNodeStateMachine_0mvhy")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qq2nt")
+}

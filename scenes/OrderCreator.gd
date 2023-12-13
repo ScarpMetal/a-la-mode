@@ -1,5 +1,7 @@
 extends Node
 
+class_name OrderCreator
+
 @export var dish_names: Array[String] = ["steak", "veggies", "salmon"]
 @export var ice_cream_flavor_names: Array[String] = ["vanilla", "chocolate", "strawberry"]
 @export var time_to_first_order_sec: int = 3
