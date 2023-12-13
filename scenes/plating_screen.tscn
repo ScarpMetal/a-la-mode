@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=14 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/ice-cream/bucket.png" id="10_rn2rc"]
 [ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
 [ext_resource type="Script" path="res://scenes/OrderChecker.gd" id="11_vvbne"]
+[ext_resource type="Script" path="res://scenes/BucketManager.gd" id="12_1qpeg"]
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 
@@ -94,35 +95,22 @@ offset_bottom = 1670.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("10_rn2rc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.8
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="BucketManager" type="Node" parent="Control"]
+script = ExtResource("12_1qpeg")
 
-[node name="Bucket2" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="VanillaBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
 
-[node name="Bucket3" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="PistachioBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+flavor = "pistachio"
 
-[node name="Bucket4" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="StrawberryBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+flavor = "strawberry"
 
-[node name="Bucket5" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="ChocolateBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+flavor = "chocolate"
 
-[node name="Bucket6" parent="Control/HBoxContainer" instance=ExtResource("14_xpari")]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="BlueberryBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+flavor = "blueberry"
 
 [node name="Arm" parent="." instance=ExtResource("7_5vehc")]
 

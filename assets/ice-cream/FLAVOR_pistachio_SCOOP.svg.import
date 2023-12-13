@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b26kes60qm3xu"
-path="res://.godot/imported/FLAVOR_4_SCOOP.svg-3637153119f13b1b6afb38d67ca0aeba.ctex"
+uid="uid://cpwrm34rixr4i"
+path="res://.godot/imported/FLAVOR_pistachio_SCOOP.svg-4005f472c66d2a79e825985faa9bd807.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice-cream/FLAVOR_4_SCOOP.svg"
-dest_files=["res://.godot/imported/FLAVOR_4_SCOOP.svg-3637153119f13b1b6afb38d67ca0aeba.ctex"]
+source_file="res://assets/ice-cream/FLAVOR_pistachio_SCOOP.svg"
+dest_files=["res://.godot/imported/FLAVOR_pistachio_SCOOP.svg-4005f472c66d2a79e825985faa9bd807.ctex"]
 
 [params]
 

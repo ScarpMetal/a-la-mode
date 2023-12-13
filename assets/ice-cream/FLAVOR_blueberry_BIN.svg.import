@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n58rjonnlh8j"
-path="res://.godot/imported/FLAVOR_1_SCOOP.svg-bab2f754ade7bdb22fc3628c770506b6.ctex"
+uid="uid://bbrkwbey2jsiv"
+path="res://.godot/imported/FLAVOR_blueberry_BIN.svg-899b86e54ccdcf030a97bfc43209a190.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice-cream/FLAVOR_1_SCOOP.svg"
-dest_files=["res://.godot/imported/FLAVOR_1_SCOOP.svg-bab2f754ade7bdb22fc3628c770506b6.ctex"]
+source_file="res://assets/ice-cream/FLAVOR_blueberry_BIN.svg"
+dest_files=["res://.godot/imported/FLAVOR_blueberry_BIN.svg-899b86e54ccdcf030a97bfc43209a190.ctex"]
 
 [params]
 
