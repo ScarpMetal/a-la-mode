@@ -1,6 +1,16 @@
 extends Node2D
 
-var dish_queue: Array[String] = []
+
+class DishQueueItem:
+	var name: String
+	var flavors: Array[String]
+
+	func _init(p_name: String, p_flavors: Array[String]) -> void:
+		name = p_name
+		flavors = p_flavors
+
+
+var dish_queue: Array[DishQueueItem] = []
 var can_spawn: bool = true
 var dish_scenes: Dictionary = {
 	"steak": preload("res://scenes/dishes/steak_dish.tscn"),
@@ -10,12 +20,13 @@ var dish_scenes: Dictionary = {
 
 signal dish_spawned(dish_instance: Dish)
 
+
 func _ready() -> void:
 	pass
 
 
-func _on_order_created(dish_name: String, _flavors: Array) -> void:
-	dish_queue.append(dish_name)
+func _on_order_created(dish_name: String, flavors: Array) -> void:
+	dish_queue.append(DishQueueItem.new(dish_name, flavors))
 	check_queue()
 
 
@@ -30,8 +41,9 @@ func check_queue() -> void:
 	check_queue()
 
 
-func spawn_dish(dish_name: String) -> void:
-	print("spawning dish: ", dish_name)
-	var dish_instance: Dish = dish_scenes[dish_name].instantiate()
+func spawn_dish(item: DishQueueItem) -> void:
+	print("spawning dish: ", item.name)
+	var dish_instance: Dish = dish_scenes[item.name].instantiate()
+	dish_instance.required_flavors = item.flavors
 	add_child(dish_instance)
 	emit_signal("dish_spawned", dish_instance)

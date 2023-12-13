@@ -1,5 +1,8 @@
 extends Node
 
+signal dish_completed
+signal dish_failed
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,14 +21,16 @@ func _on_dish_spawned(dish_instance: Dish) -> void:
 
 func _on_dish_ice_cream_hit(hit_flavor: String, required_flavors: Array[String]) -> void:
 	if hit_flavor not in required_flavors:
-		pass
-		# descrease health
+		emit_signal("dish_failed")
 
 
 func _on_dish_destroy(current_flavors: Array[String], required_flavors: Array[String]) -> void:
-	if current_flavors.all(func(flavor: String) -> bool: return flavor in required_flavors):
-		print("complete")
-		# increase completed dishes
+	if (
+		len(current_flavors)
+		and current_flavors.all(func(flavor: String) -> bool: return flavor in required_flavors)
+	):
+		print("dish completed")
+		emit_signal("dish_completed")
 	else:
-		print("you fucked up")
-		# decrease health
+		print("dish failed")
+		emit_signal("dish_failed")
