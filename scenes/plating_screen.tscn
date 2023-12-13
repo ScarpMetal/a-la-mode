@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=17 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="3_e1km0"]
+[ext_resource type="Script" path="res://scenes/Dishes Complete HUD.gd" id="5_aqaj3"]
 [ext_resource type="PackedScene" uid="uid://7p0hiou31hvy" path="res://scenes/arm.tscn" id="7_5vehc"]
 [ext_resource type="Script" path="res://scenes/DishSpawner.gd" id="8_7sonv"]
 [ext_resource type="Script" path="res://scenes/DishDoneBoundary.gd" id="9_g40te"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/HealthManager.gd" id="13_itq5x"]
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
+[ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ljdgw"]
 normal = Vector2(-1, 0)
@@ -47,7 +49,7 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Dishes Complete HUD" type="TextureRect" parent="Control"]
+[node name="DishesCompleteHUD" type="TextureRect" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.779
@@ -57,8 +59,9 @@ grow_horizontal = 0
 texture = ExtResource("13_qcccd")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("5_aqaj3")
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/Dishes Complete HUD"]
+[node name="CenterContainer" type="CenterContainer" parent="Control/DishesCompleteHUD"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.148
@@ -68,22 +71,22 @@ anchor_bottom = 0.852
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Dishes Complete HUD/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/DishesCompleteHUD/CenterContainer"]
 layout_mode = 2
 
-[node name="Number" type="Label" parent="Control/Dishes Complete HUD/CenterContainer/HBoxContainer"]
+[node name="Number" type="Label" parent="Control/DishesCompleteHUD/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 
-[node name="Slash" type="Label" parent="Control/Dishes Complete HUD/CenterContainer/HBoxContainer"]
+[node name="Slash" type="Label" parent="Control/DishesCompleteHUD/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "/"
 
-[node name="OutOf" type="Label" parent="Control/Dishes Complete HUD/CenterContainer/HBoxContainer"]
+[node name="OutOf" type="Label" parent="Control/DishesCompleteHUD/CenterContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
@@ -138,7 +141,13 @@ script = ExtResource("11_vvbne")
 script = ExtResource("13_itq5x")
 hearts = NodePath("../Hearts")
 
+[node name="ScoreManager" type="Node" parent="." node_paths=PackedStringArray("dishes_complete_hud")]
+script = ExtResource("15_i7s2b")
+dishes_complete_hud = NodePath("../Control/DishesCompleteHUD")
+
 [connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
 [connection signal="body_entered" from="DishDoneBoundary" to="DishDoneBoundary" method="_on_body_entered"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]
+[connection signal="order_created" from="OrderCreator" to="ScoreManager" method="_on_order_created"]
+[connection signal="dish_completed" from="OrderChecker" to="ScoreManager" method="_on_dish_completed"]
 [connection signal="dish_failed" from="OrderChecker" to="HealthManager" method="_on_dish_failed"]
