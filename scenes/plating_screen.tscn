@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ddlfij2ghida2"]
 
-[ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_ebmj5"]
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
+[ext_resource type="Script" path="res://scenes/Hearts.gd" id="3_e1km0"]
 [ext_resource type="PackedScene" uid="uid://7p0hiou31hvy" path="res://scenes/arm.tscn" id="7_5vehc"]
 [ext_resource type="Script" path="res://scenes/DishSpawner.gd" id="8_7sonv"]
 [ext_resource type="Script" path="res://scenes/DishDoneBoundary.gd" id="9_g40te"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
 [ext_resource type="Script" path="res://scenes/OrderChecker.gd" id="11_vvbne"]
 [ext_resource type="Script" path="res://scenes/BucketManager.gd" id="12_1qpeg"]
+[ext_resource type="Script" path="res://scenes/HealthManager.gd" id="13_itq5x"]
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 
@@ -17,23 +18,25 @@
 normal = Vector2(-1, 0)
 
 [node name="PlatingScreen" type="Node2D"]
-script = ExtResource("1_ebmj5")
 
 [node name="ConveyerBelt" type="Sprite2D" parent="."]
 position = Vector2(961, 541)
 texture = ExtResource("2_xlgi4")
 
-[node name="Heart1" type="Sprite2D" parent="."]
+[node name="Hearts" type="Node2D" parent="."]
+script = ExtResource("3_e1km0")
+
+[node name="Heart1" type="Sprite2D" parent="Hearts"]
 position = Vector2(124.333, 140)
 scale = Vector2(0.222222, 0.222222)
 texture = ExtResource("11_shn2n")
 
-[node name="Heart2" type="Sprite2D" parent="."]
+[node name="Heart2" type="Sprite2D" parent="Hearts"]
 position = Vector2(259.333, 188)
 scale = Vector2(0.222222, 0.222222)
 texture = ExtResource("11_shn2n")
 
-[node name="Heart3" type="Sprite2D" parent="."]
+[node name="Heart3" type="Sprite2D" parent="Hearts"]
 position = Vector2(412.333, 216)
 scale = Vector2(0.222222, 0.222222)
 texture = ExtResource("11_shn2n")
@@ -119,7 +122,7 @@ position = Vector2(-194, 535)
 script = ExtResource("8_7sonv")
 
 [node name="DishDoneBoundary" type="Area2D" parent="."]
-position = Vector2(414, 534)
+position = Vector2(2170, 528)
 script = ExtResource("9_g40te")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DishDoneBoundary"]
@@ -131,6 +134,11 @@ script = ExtResource("10_gie43")
 [node name="OrderChecker" type="Node" parent="."]
 script = ExtResource("11_vvbne")
 
+[node name="HealthManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
+script = ExtResource("13_itq5x")
+hearts = NodePath("../Hearts")
+
 [connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
 [connection signal="body_entered" from="DishDoneBoundary" to="DishDoneBoundary" method="_on_body_entered"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]
+[connection signal="dish_failed" from="OrderChecker" to="HealthManager" method="_on_dish_failed"]

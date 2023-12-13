@@ -8,8 +8,7 @@
 process_mode = 3
 script = ExtResource("1_0heso")
 
-[node name="PlatingScreen" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("2_l8i3v")]
-game_manager = NodePath("..")
+[node name="PlatingScreen" parent="." instance=ExtResource("2_l8i3v")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

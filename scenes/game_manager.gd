@@ -2,9 +2,8 @@ extends Node
 
 class_name GameManager
 
-var health: int
-var selected_flavor: String
 @onready var order_creator: OrderCreator = $PlatingScreen.get_node("OrderCreator")
+@onready var health_manager: HealthManager = $PlatingScreen.get_node("HealthManager")
 
 signal toggle_game_paused(is_paused: bool)
 
@@ -19,7 +18,8 @@ var game_paused: bool = false:
 
 
 func _ready() -> void:
-	health = 3
+	print("connecting")
+	health_manager.connect("health_changed", _on_health_changed)
 	order_creator.start()
 
 
@@ -28,6 +28,8 @@ func _input(event: InputEvent) -> void:
 		game_paused = !game_paused
 
 
-func _process(_delta: float) -> void:
-	if health <= 0:
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+func _on_health_changed(health: int) -> void:
+	print(health)
+	if health == 0:
+		await get_tree().create_timer(1.0).timeout
+		get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
