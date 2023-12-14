@@ -18,3 +18,4 @@ stretch_mode = 5
 
 [connection signal="mouse_entered" from="Bucket" to="." method="_on_bucket_mouse_entered"]
 [connection signal="mouse_exited" from="Bucket" to="." method="_on_bucket_mouse_exited"]
+[connection signal="pressed" from="Bucket" to="." method="_on_bucket_pressed"]

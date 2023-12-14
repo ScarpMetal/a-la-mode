@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=16 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="3_e1km0"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/DishSpawner.gd" id="8_7sonv"]
 [ext_resource type="Script" path="res://scenes/DishDoneBoundary.gd" id="9_g40te"]
 [ext_resource type="Script" path="res://scenes/OrderCreator.gd" id="10_gie43"]
-[ext_resource type="Texture2D" uid="uid://ci7hidq471wwn" path="res://assets/ice-cream/bucket.png" id="10_rn2rc"]
 [ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
 [ext_resource type="Script" path="res://scenes/OrderChecker.gd" id="11_vvbne"]
 [ext_resource type="Script" path="res://scenes/BucketManager.gd" id="12_1qpeg"]
@@ -92,15 +91,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 
-[node name="Bucket" type="TextureButton" parent="Control"]
-layout_mode = 0
-offset_left = 1576.0
-offset_top = 770.0
-offset_right = 2494.0
-offset_bottom = 1670.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("10_rn2rc")
-
 [node name="BucketManager" type="Node" parent="Control"]
 script = ExtResource("12_1qpeg")
 
@@ -145,6 +135,11 @@ hearts = NodePath("../Hearts")
 script = ExtResource("15_i7s2b")
 dishes_complete_hud = NodePath("../Control/DishesCompleteHUD")
 
+[connection signal="bucket_pressed" from="Control/BucketManager/VanillaBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="Control/BucketManager/PistachioBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="Control/BucketManager/StrawberryBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="Control/BucketManager/ChocolateBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="Control/BucketManager/BlueberryBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
 [connection signal="body_entered" from="DishDoneBoundary" to="DishDoneBoundary" method="_on_body_entered"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]

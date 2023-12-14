@@ -9,12 +9,17 @@ class_name Bucket
 	set(value):
 		print("position changed", value, flavor)
 		position = value
-		create_tween().tween_property(texture_button, "position", value, 1).set_trans(Tween.TRANS_SPRING)
+		create_tween().tween_property(texture_button, "position", value, 1).set_trans(
+			Tween.TRANS_SPRING
+		)
+
+signal bucket_pressed(flavor: String)
 
 var screen: Vector2
 var offscreen_position: Vector2
 var tween: Tween
 var texture_button: TextureButton
+
 
 func _ready() -> void:
 	texture_button = $Bucket
@@ -24,15 +29,25 @@ func _ready() -> void:
 	screen = get_viewport().get_visible_rect().size
 	offscreen_position = Vector2(screen.x + 100, screen.y)
 	tween = create_tween()
-	
+
+
 func go_to_position(value: Vector2) -> void:
 	texture_button.position = value
 
-func _on_texture_button_pressed() -> void:
-	pass # send a signal that this flavor was chosen
 
 func _on_bucket_mouse_entered() -> void:
-	create_tween().tween_property(texture_button, "position", position + Vector2(0, -60), .2).set_trans(Tween.TRANS_SPRING)
+	(
+		create_tween()
+		. tween_property(texture_button, "position", position + Vector2(0, -60), .2)
+		. set_trans(Tween.TRANS_SPRING)
+	)
+
 
 func _on_bucket_mouse_exited() -> void:
-	create_tween().tween_property(texture_button, "position", position, .2).set_trans(Tween.TRANS_SPRING)
+	create_tween().tween_property(texture_button, "position", position, .2).set_trans(
+		Tween.TRANS_SPRING
+	)
+
+
+func _on_bucket_pressed() -> void:
+	emit_signal("bucket_pressed", flavor)

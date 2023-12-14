@@ -11,6 +11,8 @@ extends CharacterBody2D
 	"parameters/playback"
 )
 
+var holding_flavor := ""
+
 
 func _physics_process(_delta: float) -> void:
 	var mouse_position := get_viewport().get_mouse_position()
@@ -34,7 +36,12 @@ func _physics_process(_delta: float) -> void:
 	match currentNode:
 		"idle":
 			if Input.is_action_just_pressed("left_mouse"):
+				print("dumping", holding_flavor)
+				holding_flavor = ""
 				animationStateMachine.travel("dumping_scoop")
+		"idle_empty":
+			if Input.is_action_just_pressed("left_mouse"):
+				animationStateMachine.travel("scooping")
 
 	move_and_slide()
 
@@ -46,8 +53,12 @@ func map_value(
 	return to_min + (to_max - to_min) * ((clamped_value - from_min) / (from_max - from_min))
 
 
-func _on_bucket_pressed() -> void:
-	var currentNode: String = animationStateMachine.get_current_node()
-	match currentNode:
-		"idle_empty":
-			animationStateMachine.travel("scooping")
+func _on_bucket_pressed(flavor: String) -> void:
+	holding_flavor = flavor
+
+
+func _on_animation_finished(anim_name:StringName) -> void:
+	if anim_name == "scooping":
+		animationStateMachine.travel(
+			"idle" if holding_flavor else "idle_empty"
+		)

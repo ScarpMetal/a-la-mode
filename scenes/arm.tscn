@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://7p0hiou31hvy"]
+[gd_scene load_steps=23 format=3 uid="uid://7p0hiou31hvy"]
 
 [ext_resource type="Script" path="res://scenes/Arm.gd" id="1_jquy8"]
 [ext_resource type="Texture2D" uid="uid://pj05jpgisuvo" path="res://assets/CURSOR_FULL.svg" id="2_oyans"]
@@ -296,11 +296,13 @@ advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q63nx"]
 switch_mode = 2
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3s7l5"]
 switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h7nc1"]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0mvhy"]
 states/Start/position = Vector2(-58, 100)
@@ -311,9 +313,9 @@ states/idle/position = Vector2(412, 100)
 states/idle_empty/node = SubResource("AnimationNodeAnimation_bbxu1")
 states/idle_empty/position = Vector2(80.25, 100)
 states/scooping/node = SubResource("AnimationNodeAnimation_ae1yv")
-states/scooping/position = Vector2(242.25, 100)
-transitions = ["idle", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_n06tl"), "Start", "idle_empty", SubResource("AnimationNodeStateMachineTransition_mdgpp"), "idle_empty", "scooping", SubResource("AnimationNodeStateMachineTransition_466ja"), "scooping", "idle", SubResource("AnimationNodeStateMachineTransition_q63nx"), "dumping_scoop", "idle_empty", SubResource("AnimationNodeStateMachineTransition_3s7l5")]
-graph_offset = Vector2(-484.75, 39.2828)
+states/scooping/position = Vector2(242.25, -1)
+transitions = ["idle", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_n06tl"), "Start", "idle_empty", SubResource("AnimationNodeStateMachineTransition_mdgpp"), "idle_empty", "scooping", SubResource("AnimationNodeStateMachineTransition_466ja"), "scooping", "idle", SubResource("AnimationNodeStateMachineTransition_q63nx"), "dumping_scoop", "idle_empty", SubResource("AnimationNodeStateMachineTransition_3s7l5"), "scooping", "idle_empty", SubResource("AnimationNodeStateMachineTransition_h7nc1")]
+graph_offset = Vector2(-138.75, -121.717)
 
 [node name="Arm" type="CharacterBody2D"]
 position = Vector2(746, 501)
@@ -356,3 +358,5 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_qq2nt")
 }
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]
