@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=17 format=3 uid="uid://ddlfij2ghida2"]
 
+[ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_2sqmg"]
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="3_e1km0"]
 [ext_resource type="Script" path="res://scenes/Dishes Complete HUD.gd" id="5_aqaj3"]
@@ -19,6 +20,7 @@
 normal = Vector2(-1, 0)
 
 [node name="PlatingScreen" type="Node2D"]
+script = ExtResource("1_2sqmg")
 
 [node name="ConveyerBelt" type="Sprite2D" parent="."]
 position = Vector2(961, 541)
@@ -140,6 +142,7 @@ dishes_complete_hud = NodePath("../Control/DishesCompleteHUD")
 [connection signal="bucket_pressed" from="Control/BucketManager/StrawberryBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="bucket_pressed" from="Control/BucketManager/ChocolateBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="bucket_pressed" from="Control/BucketManager/BlueberryBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="spawn_node" from="Arm" to="." method="_on_spawn_node"]
 [connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
 [connection signal="body_entered" from="DishDoneBoundary" to="DishDoneBoundary" method="_on_body_entered"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]

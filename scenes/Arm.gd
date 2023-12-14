@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var min_scale := 0.2
 @export var max_scale := 1.0
 
+signal spawn_node(node: Node, position: Node)
+
 @onready var animationStateMachine: AnimationNodeStateMachinePlayback = $AnimationTree.get(
 	"parameters/playback"
 )
@@ -56,9 +58,17 @@ func _input(event: InputEvent) -> void:
 func dump_scoop(flavor: String) -> void:
 	var falling_scoop: Scoop = scoop_scene.instantiate()
 	falling_scoop.flavor = flavor
-	falling_scoop.rotation_degrees = 180  # turn it upside down
-	falling_scoop.position += Vector2(0, 350)
-	add_child(falling_scoop)
+	# get corrent transform for screen space
+	var scoop_transform := transform * held_scoop.transform
+	falling_scoop.transform = scoop_transform
+	# turn it upside down
+	falling_scoop.rotation_degrees = 180
+	# make it not spawn on top of itself
+	falling_scoop.position += Vector2(
+		0, (held_scoop.get_node("CurrentScoop").texture.get_size() * scoop_transform.get_scale()).y
+	)
+	create_tween().tween_property(falling_scoop, "position", position + Vector2(0, 1080), 3)
+	emit_signal("spawn_node", falling_scoop)
 
 
 func _on_bucket_pressed(flavor: String) -> void:
