@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/bucket.gd" id="1_0svvq"]
 [ext_resource type="Texture2D" uid="uid://dgecr1gjt437b" path="res://assets/ice-cream/FLAVOR_vanilla_BIN.svg" id="2_6y5la"]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node2D"]
 script = ExtResource("1_0svvq")
 
 [node name="Bucket" type="TextureButton" parent="."]

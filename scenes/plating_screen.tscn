@@ -1,11 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=24 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_2sqmg"]
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="3_e1km0"]
+[ext_resource type="Texture2D" uid="uid://dgecr1gjt437b" path="res://assets/ice-cream/FLAVOR_vanilla_BIN.svg" id="4_t8bqa"]
 [ext_resource type="Script" path="res://scenes/Dishes Complete HUD.gd" id="5_aqaj3"]
+[ext_resource type="Texture2D" uid="uid://bb88o356a8hwx" path="res://assets/ice-cream/FLAVOR_pistachio_BIN.svg" id="5_vipyv"]
+[ext_resource type="Texture2D" uid="uid://clvdorghpqwbq" path="res://assets/ice-cream/FLAVOR_strawberry_BIN.svg" id="6_suhf6"]
+[ext_resource type="Texture2D" uid="uid://0mea735ci4qp" path="res://assets/ice-cream/FLAVOR_chocolate_BIN.svg" id="7_3feuo"]
 [ext_resource type="PackedScene" uid="uid://7p0hiou31hvy" path="res://scenes/arm.tscn" id="7_5vehc"]
 [ext_resource type="Script" path="res://scenes/DishSpawner.gd" id="8_7sonv"]
+[ext_resource type="Texture2D" uid="uid://bbrkwbey2jsiv" path="res://assets/ice-cream/FLAVOR_blueberry_BIN.svg" id="8_8l2xf"]
 [ext_resource type="Script" path="res://scenes/DishDoneBoundary.gd" id="9_g40te"]
 [ext_resource type="Script" path="res://scenes/OrderCreator.gd" id="10_gie43"]
 [ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
@@ -30,23 +35,9 @@ script = ExtResource("1_2sqmg")
 position = Vector2(961, 541)
 texture = ExtResource("2_xlgi4")
 
-[node name="Hearts" type="Node2D" parent="."]
-script = ExtResource("3_e1km0")
-
-[node name="Heart1" type="Sprite2D" parent="Hearts"]
-position = Vector2(124.333, 140)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
-
-[node name="Heart2" type="Sprite2D" parent="Hearts"]
-position = Vector2(259.333, 188)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
-
-[node name="Heart3" type="Sprite2D" parent="Hearts"]
-position = Vector2(412.333, 216)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
+[node name="DishSpawner" type="Node2D" parent="."]
+position = Vector2(-194, 535)
+script = ExtResource("8_7sonv")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -101,24 +92,25 @@ text = "0"
 script = ExtResource("12_1qpeg")
 
 [node name="VanillaBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+texture = ExtResource("4_t8bqa")
 
 [node name="PistachioBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+texture = ExtResource("5_vipyv")
 flavor = "pistachio"
 
 [node name="StrawberryBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+texture = ExtResource("6_suhf6")
 flavor = "strawberry"
 
 [node name="ChocolateBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+texture = ExtResource("7_3feuo")
 flavor = "chocolate"
 
 [node name="BlueberryBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+texture = ExtResource("8_8l2xf")
 flavor = "blueberry"
 
 [node name="Arm" parent="." instance=ExtResource("7_5vehc")]
-
-[node name="DishSpawner" type="Node2D" parent="."]
-position = Vector2(-194, 535)
-script = ExtResource("8_7sonv")
 
 [node name="DishDoneBoundary" type="Area2D" parent="."]
 position = Vector2(2170, 528)
@@ -135,6 +127,24 @@ script = ExtResource("12_hld8h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallingScoopBoundary"]
 shape = SubResource("WorldBoundaryShape2D_2h1kr")
 
+[node name="Hearts" type="Node2D" parent="."]
+script = ExtResource("3_e1km0")
+
+[node name="Heart1" type="Sprite2D" parent="Hearts"]
+position = Vector2(124.333, 140)
+scale = Vector2(0.222222, 0.222222)
+texture = ExtResource("11_shn2n")
+
+[node name="Heart2" type="Sprite2D" parent="Hearts"]
+position = Vector2(259.333, 188)
+scale = Vector2(0.222222, 0.222222)
+texture = ExtResource("11_shn2n")
+
+[node name="Heart3" type="Sprite2D" parent="Hearts"]
+position = Vector2(412.333, 216)
+scale = Vector2(0.222222, 0.222222)
+texture = ExtResource("11_shn2n")
+
 [node name="OrderCreator" type="Node" parent="."]
 script = ExtResource("10_gie43")
 
@@ -149,13 +159,13 @@ hearts = NodePath("../Hearts")
 script = ExtResource("15_i7s2b")
 dishes_complete_hud = NodePath("../Control/DishesCompleteHUD")
 
+[connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
 [connection signal="bucket_pressed" from="Control/BucketManager/VanillaBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="bucket_pressed" from="Control/BucketManager/PistachioBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="bucket_pressed" from="Control/BucketManager/StrawberryBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="bucket_pressed" from="Control/BucketManager/ChocolateBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="bucket_pressed" from="Control/BucketManager/BlueberryBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="spawn_node" from="Arm" to="." method="_on_spawn_node"]
-[connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
 [connection signal="area_entered" from="DishDoneBoundary" to="DishDoneBoundary" method="_on_area_entered"]
 [connection signal="area_entered" from="FallingScoopBoundary" to="FallingScoopBoundary" method="_on_area_entered"]
 [connection signal="active_flavors_changed" from="OrderCreator" to="Control/BucketManager" method="_on_active_flavors_changed"]

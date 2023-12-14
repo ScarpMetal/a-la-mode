@@ -2,6 +2,7 @@ extends Node
 
 class_name Bucket
 
+@export var texture: Texture
 @export var flavor: String = "vanilla"
 @export var position: Vector2:
 	get:
@@ -18,14 +19,15 @@ signal bucket_pressed(flavor: String)
 var screen: Vector2
 var offscreen_position: Vector2
 var tween: Tween
-var texture_button: TextureButton
+
+@onready var texture_button: TextureButton = $Bucket
 
 
 func _ready() -> void:
-	texture_button = $Bucket
-	texture_button.texture_normal = ImageTexture.create_from_image(
-		Image.load_from_file("res://assets/ice-cream/FLAVOR_" + flavor + "_BIN.svg")
-	)
+	texture_button.texture_normal = texture
+	# texture_button.texture_normal = ImageTexture.create_from_image(
+	# 	Image.load_from_file("res://assets/ice-cream/FLAVOR_" + flavor + "_BIN.svg")
+	# )
 	screen = get_viewport().get_visible_rect().size
 	offscreen_position = Vector2(screen.x + 100, screen.y)
 	tween = create_tween()

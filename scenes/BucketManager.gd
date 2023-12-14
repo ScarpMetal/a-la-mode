@@ -37,12 +37,9 @@ func _ready() -> void:
 
 
 func get_bucket_positions(num_buckets: int) -> Array[Vector2]:
-	var s: Vector2 = get_viewport().get_size()
 	var bcw: float = 900
 	var bw: float = 340
 	var bh: float = 440
-	if num_buckets <= 0 or num_buckets > 5:
-		assert("Should have between 1 and 5 buckets")
 
 	var positions: Array[Vector2] = []
 	if num_buckets >= 1:
