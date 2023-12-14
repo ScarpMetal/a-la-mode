@@ -35,4 +35,5 @@ func _on_area_entered(maybe_scoop: Area2D) -> void:
 		call_deferred("stick_on", maybe_scoop)
 
 		var flavor: String = maybe_scoop.get_node("ScoopSprite").flavor
+		current_flavors.append(flavor)
 		emit_signal("ice_cream_hit", flavor, required_flavors)

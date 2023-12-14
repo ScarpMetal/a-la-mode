@@ -2,8 +2,13 @@ extends Node
 
 class_name OrderCreator
 
+signal difficulty_changed(new_difficulty_level: int)
+signal active_flavors_changed(new_flavors: Array[String])
+
 @export var dish_names: Array[String] = ["steak", "veggies", "salmon"]
-@export var ice_cream_flavor_names: Array[String] = ["vanilla", "chocolate", "strawberry"]
+@export var ice_cream_flavor_names: Array[String] = [
+	"vanilla", "chocolate", "strawberry", "pistachio", "blueberry"
+]
 @export var time_to_first_order_sec: int = 3
 
 const DIFFICULTY_INTERVALS_SEC: Array[int] = [10, 60, 600]
@@ -47,10 +52,16 @@ func stop() -> void:
 
 
 func update_difficulty_level() -> void:
+	var new_difficulty_level := difficulty_level
 	for i in range(len(DIFFICULTY_INTERVALS_SEC)):
 		if time_since_start < DIFFICULTY_INTERVALS_SEC[i]:
-			difficulty_level = i
+			new_difficulty_level = i
 			break
+
+	if difficulty_level != new_difficulty_level:
+		difficulty_level = new_difficulty_level
+		emit_signal("difficulty_changed", new_difficulty_level)
+		emit_signal("active_flavors_changed", get_active_flavors())
 
 
 func _on_order_timeout() -> void:
@@ -71,12 +82,21 @@ func get_time_to_next_order() -> int:
 	return 1
 
 
+func get_active_flavors() -> Array[String]:
+	var active_flavors: Array[String] = ["vanilla", "chocolate"]
+	active_flavors.append_array(
+		ice_cream_flavor_names.slice(len(active_flavors), len(active_flavors) + difficulty_level)
+	)
+	return active_flavors
+
+
 func generate_order() -> void:
 	var dish: String = dish_names[randi_range(0, dish_names.size() - 1)]
 	var max_flavors: int = difficulty_level + 1
+	var active_flavors := get_active_flavors()
 	var flavors: Array[String] = []
 	for i in randi_range(1, max_flavors):
-		flavors.append(ice_cream_flavor_names[randi_range(0, ice_cream_flavor_names.size() - 1)])
+		flavors.append(active_flavors[randi_range(0, active_flavors.size() - 1)])
 
 	print("created order: ", dish, flavors)
 	emit_signal("order_created", dish, flavors)
