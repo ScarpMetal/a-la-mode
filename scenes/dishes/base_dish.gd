@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 class_name Dish
 
@@ -11,10 +11,8 @@ signal destroyed(current_flavors: Array[String], required_flavors: Array[String]
 var current_flavors: Array[String] = []
 
 
-func _physics_process(_delta: float) -> void:
-	velocity = Vector2(speed, 0)
-
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	position += Vector2(speed * delta, 0)
 
 
 func destroy() -> void:

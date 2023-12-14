@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://7p0hiou31hvy"]
+[gd_scene load_steps=25 format=3 uid="uid://7p0hiou31hvy"]
 
 [ext_resource type="Script" path="res://scenes/Arm.gd" id="1_jquy8"]
 [ext_resource type="Texture2D" uid="uid://b02088s04jyde" path="res://assets/arm-scooper-flipped.png" id="3_d1o0h"]
 [ext_resource type="Texture2D" uid="uid://bva8im0j1p2jl" path="res://assets/CURSOR_EMPTY.svg" id="4_40swc"]
-[ext_resource type="PackedScene" uid="uid://bgxeontawmtjh" path="res://scenes/scoop.tscn" id="5_a4vj1"]
 [ext_resource type="Texture2D" uid="uid://b77fjie6defs0" path="res://assets/arm-scooper-empty-flipped.png" id="5_nnnqw"]
+[ext_resource type="PackedScene" uid="uid://c3fv4xyswwsy7" path="res://scenes/scoop_sprite.tscn" id="6_funy4"]
 
 [sub_resource type="Animation" id="Animation_y5ysc"]
 length = 0.001
@@ -47,14 +47,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scoop:visible")
+tracks/3/path = NodePath("ScoopSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_85ht2"]
@@ -99,7 +99,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scoop:visible")
+tracks/3/path = NodePath("ScoopSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -151,7 +151,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scoop:visible")
+tracks/3/path = NodePath("ScoopSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -202,7 +202,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scoop:visible")
+tracks/3/path = NodePath("ScoopSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -254,7 +254,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Scoop:visible")
+tracks/3/path = NodePath("ScoopSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -319,6 +319,9 @@ states/scooping/position = Vector2(242.25, -1)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_mdgpp"), "idle", "scooping", SubResource("AnimationNodeStateMachineTransition_466ja"), "dumping_scoop", "idle", SubResource("AnimationNodeStateMachineTransition_3s7l5"), "scooping", "idle", SubResource("AnimationNodeStateMachineTransition_h7nc1"), "idle", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_aht8d"), "scooping", "idle_with_scoop", SubResource("AnimationNodeStateMachineTransition_vef3j"), "idle_with_scoop", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_32gcp")]
 graph_offset = Vector2(-133.75, -43.7172)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4hm6"]
+size = Vector2(1113.03, 745.269)
+
 [node name="Arm" type="CharacterBody2D"]
 position = Vector2(746, 501)
 scale = Vector2(0.262067, 0.262067)
@@ -349,7 +352,10 @@ position = Vector2(213.686, -393.029)
 scale = Vector2(1.92423, 1.92423)
 texture = ExtResource("5_nnnqw")
 
-[node name="Scoop" parent="." instance=ExtResource("5_a4vj1")]
+[node name="ScoopSprite" parent="." instance=ExtResource("6_funy4")]
+visible = false
+position = Vector2(-83.948, -133.554)
+scale = Vector2(0.319, 0.319)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
@@ -362,5 +368,10 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_qq2nt")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(294.41, 287.502)
+shape = SubResource("RectangleShape2D_f4hm6")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_finished"]

@@ -1,10 +1,9 @@
-extends Area2D
+extends Sprite2D
 
-class_name Scoop
+class_name ScoopSprite
 
-@export var flavor: String
+@export var flavor: String = "vanilla"
 
-@onready var current_scoop := $CurrentScoop
 @onready var scoops := {
 	"vanilla": $VanillaScoop,
 	"pistachio": $PistachioScoop,
@@ -19,4 +18,4 @@ func _ready() -> void:
 
 
 func set_flavor(s_flavor: String) -> void:
-	current_scoop.texture = scoops[s_flavor].texture
+	texture = scoops[s_flavor].texture

@@ -13,8 +13,8 @@ signal spawn_node(node: Node, position: Node)
 	"parameters/playback"
 )
 
-@onready var held_scoop: Scoop = $Scoop
-@onready var scoop_scene: Resource = preload("res://scenes/scoop.tscn")
+@onready var held_scoop: ScoopSprite = $ScoopSprite
+@onready var falling_scoop_scene: Resource = preload("res://scenes/FallingScoop.tscn")
 
 var holding_flavor := ""
 
@@ -56,8 +56,8 @@ func _input(event: InputEvent) -> void:
 
 
 func dump_scoop(flavor: String) -> void:
-	var falling_scoop: Scoop = scoop_scene.instantiate()
-	falling_scoop.flavor = flavor
+	var falling_scoop: FallingScoop = falling_scoop_scene.instantiate()
+	falling_scoop.get_node("ScoopSprite").flavor = flavor
 	# get corrent transform for screen space
 	var scoop_transform := transform * held_scoop.transform
 	falling_scoop.transform = scoop_transform
@@ -65,9 +65,8 @@ func dump_scoop(flavor: String) -> void:
 	falling_scoop.rotation_degrees = 180
 	# make it not spawn on top of itself
 	falling_scoop.position += Vector2(
-		0, (held_scoop.get_node("CurrentScoop").texture.get_size() * scoop_transform.get_scale()).y
+		0, (held_scoop.texture.get_size() * scoop_transform.get_scale()).y
 	)
-	create_tween().tween_property(falling_scoop, "position", position + Vector2(0, 1080), 3)
 	emit_signal("spawn_node", falling_scoop)
 
 
