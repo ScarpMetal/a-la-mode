@@ -57,14 +57,13 @@ func get_bucket_positions(num_buckets: int) -> Array[Vector2]:
 		positions.push_front(Vector2(1920 - bw * 5 - bcw * .4, 1080 - bh * .63))
 	return positions
 
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_mouse"):
-		var all_flavors: Array[String] = [
-			"vanilla", "chocolate", "blueberry", "strawberry", "pistachio"
-		]
-		var num_to_remove: int = randi_range(0, 4)
-		for i in num_to_remove:
-			var index_to_remove: int = randi_range(0, all_flavors.size() - 1)
-			all_flavors.remove_at(index_to_remove)
-		flavors = all_flavors
+# func _input(event: InputEvent) -> void:
+# 	if event.is_action_pressed("left_mouse"):
+# 		var all_flavors: Array[String] = [
+# 			"vanilla", "chocolate", "blueberry", "strawberry", "pistachio"
+# 		]
+# 		var num_to_remove: int = randi_range(0, 4)
+# 		for i in num_to_remove:
+# 			var index_to_remove: int = randi_range(0, all_flavors.size() - 1)
+# 			all_flavors.remove_at(index_to_remove)
+# 		flavors = all_flavors

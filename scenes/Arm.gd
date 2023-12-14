@@ -11,7 +11,14 @@ extends CharacterBody2D
 	"parameters/playback"
 )
 
+@onready var held_scoop: Scoop = $Scoop
+@onready var scoop_scene: Resource = preload("res://scenes/scoop.tscn")
+
 var holding_flavor := ""
+
+
+func _ready() -> void:
+	pass
 
 
 func _physics_process(_delta: float) -> void:
@@ -32,18 +39,39 @@ func _physics_process(_delta: float) -> void:
 	)
 	scale = Vector2(scale_factor, scale_factor)
 
-	var currentNode: String = animationStateMachine.get_current_node()
-	match currentNode:
-		"idle":
-			if Input.is_action_just_pressed("left_mouse"):
-				print("dumping", holding_flavor)
+	move_and_slide()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_mouse"):
+		match animationStateMachine.get_current_node():
+			"idle":
+				animationStateMachine.travel("scooping")
+			"idle_with_scoop":
+				dump_scoop(holding_flavor)
 				holding_flavor = ""
 				animationStateMachine.travel("dumping_scoop")
-		"idle_empty":
-			if Input.is_action_just_pressed("left_mouse"):
-				animationStateMachine.travel("scooping")
 
-	move_and_slide()
+
+func dump_scoop(flavor: String) -> void:
+	var falling_scoop: Scoop = scoop_scene.instantiate()
+	falling_scoop.flavor = flavor
+	falling_scoop.rotation_degrees = 180  # turn it upside down
+	falling_scoop.position += Vector2(0, 350)
+	add_child(falling_scoop)
+
+
+func _on_bucket_pressed(flavor: String) -> void:
+	holding_flavor = flavor
+
+
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "scooping":
+		if holding_flavor:
+			held_scoop.set_flavor(holding_flavor)
+			animationStateMachine.travel("idle_with_scoop")
+		else:
+			animationStateMachine.travel("idle")
 
 
 func map_value(
@@ -51,14 +79,3 @@ func map_value(
 ) -> float:
 	var clamped_value := clampf(value, from_min, from_max)
 	return to_min + (to_max - to_min) * ((clamped_value - from_min) / (from_max - from_min))
-
-
-func _on_bucket_pressed(flavor: String) -> void:
-	holding_flavor = flavor
-
-
-func _on_animation_finished(anim_name:StringName) -> void:
-	if anim_name == "scooping":
-		animationStateMachine.travel(
-			"idle" if holding_flavor else "idle_empty"
-		)
