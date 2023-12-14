@@ -18,3 +18,21 @@ func _physics_process(delta: float) -> void:
 func destroy() -> void:
 	queue_free()
 	emit_signal("destroyed", current_flavors, required_flavors)
+
+
+# temp stick the scoop to the dish
+func stick_on(scoop: FallingScoop) -> void:
+	scoop.monitorable = false
+	scoop.freeze()
+	scoop.call_deferred("reparent", self)
+
+
+func _on_area_entered(maybe_scoop: Area2D) -> void:
+	# shouldn't have to do this. It's a likely bug
+	if not maybe_scoop.monitorable:
+		return
+	if maybe_scoop is FallingScoop:
+		call_deferred("stick_on", maybe_scoop)
+
+		var flavor: String = maybe_scoop.get_node("ScoopSprite").flavor
+		emit_signal("ice_cream_hit", flavor, required_flavors)

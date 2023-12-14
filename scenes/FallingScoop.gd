@@ -11,3 +11,8 @@ var velocity := Vector2(0, INITIAL_SPEED)
 func _physics_process(delta: float) -> void:
 	velocity += Vector2(0, GRAVITY * delta)
 	position += velocity * delta
+
+
+func freeze() -> void:
+	velocity = Vector2.ZERO
+	GRAVITY = 0

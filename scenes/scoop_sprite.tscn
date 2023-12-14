@@ -11,7 +11,7 @@
 texture = ExtResource("1_67gqc")
 script = ExtResource("2_w0vhd")
 
-[node name="StawberryScoop" type="Sprite2D" parent="."]
+[node name="StrawberryScoop" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("3_6ra5g")
 
@@ -19,7 +19,7 @@ texture = ExtResource("3_6ra5g")
 visible = false
 texture = ExtResource("1_67gqc")
 
-[node name="PictachioScoop" type="Sprite2D" parent="."]
+[node name="PistachioScoop" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("4_ly3y4")
 
