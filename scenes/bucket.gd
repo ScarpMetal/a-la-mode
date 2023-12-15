@@ -1,18 +1,11 @@
-extends Node
+extends Area2D
 
 class_name Bucket
 
+@onready var bucket_sprite: Sprite2D = $BucketSprite
+
 @export var texture: Texture
 @export var flavor: String = "vanilla"
-@export var position: Vector2:
-	get:
-		return position
-	set(value):
-		print("position changed", value, flavor)
-		position = value
-		create_tween().tween_property(texture_button, "position", value, 1).set_trans(
-			Tween.TRANS_SPRING
-		)
 
 signal bucket_pressed(flavor: String)
 
@@ -20,36 +13,37 @@ var screen: Vector2
 var offscreen_position: Vector2
 var tween: Tween
 
-@onready var texture_button: TextureButton = $Bucket
+@onready var entered_position := global_position
 
 
 func _ready() -> void:
-	texture_button.texture_normal = texture
-	# texture_button.texture_normal = ImageTexture.create_from_image(
-	# 	Image.load_from_file("res://assets/ice-cream/FLAVOR_" + flavor + "_BIN.svg")
-	# )
+	bucket_sprite.texture = texture
+
 	screen = get_viewport().get_visible_rect().size
 	offscreen_position = Vector2(screen.x + 100, screen.y)
 	tween = create_tween()
 
 
-func go_to_position(value: Vector2) -> void:
-	texture_button.position = value
+func tween_to_position(value: Vector2) -> void:
+	print("setting bucket position", value, flavor)
+	entered_position = value
+	create_tween().tween_property(self, "global_position", value, 1).set_trans(Tween.TRANS_SPRING)
 
 
 func _on_bucket_mouse_entered() -> void:
 	(
 		create_tween()
-		. tween_property(texture_button, "position", position + Vector2(0, -60), .2)
+		. tween_property(self, "global_position", entered_position - Vector2(0, 60), .2)
 		. set_trans(Tween.TRANS_SPRING)
 	)
 
 
 func _on_bucket_mouse_exited() -> void:
-	create_tween().tween_property(texture_button, "position", position, .2).set_trans(
+	create_tween().tween_property(self, "global_position", entered_position, .2).set_trans(
 		Tween.TRANS_SPRING
 	)
 
 
-func _on_bucket_pressed() -> void:
-	emit_signal("bucket_pressed", flavor)
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event.is_action_pressed("left_mouse"):
+		emit_signal("bucket_pressed", flavor)

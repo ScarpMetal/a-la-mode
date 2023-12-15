@@ -39,93 +39,30 @@ texture = ExtResource("2_xlgi4")
 position = Vector2(-194, 535)
 script = ExtResource("8_7sonv")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="DishesCompleteHUD" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.779
-anchor_right = 1.0
-anchor_bottom = 0.255
-grow_horizontal = 0
-texture = ExtResource("13_qcccd")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("5_aqaj3")
-
-[node name="CenterContainer" type="CenterContainer" parent="Control/DishesCompleteHUD"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.148
-anchor_top = 0.334
-anchor_right = 0.852
-anchor_bottom = 0.852
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/DishesCompleteHUD/CenterContainer"]
-layout_mode = 2
-
-[node name="Number" type="Label" parent="Control/DishesCompleteHUD/CenterContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "0"
-
-[node name="Slash" type="Label" parent="Control/DishesCompleteHUD/CenterContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "/"
-
-[node name="OutOf" type="Label" parent="Control/DishesCompleteHUD/CenterContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "0"
-
-[node name="BucketManager" type="Node" parent="Control"]
+[node name="BucketManager" type="Node2D" parent="."]
+position = Vector2(2387, 993)
 script = ExtResource("12_1qpeg")
 
-[node name="VanillaBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+[node name="VanillaBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
 texture = ExtResource("4_t8bqa")
 
-[node name="PistachioBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+[node name="PistachioBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
 texture = ExtResource("5_vipyv")
 flavor = "pistachio"
 
-[node name="StrawberryBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+[node name="StrawberryBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
 texture = ExtResource("6_suhf6")
 flavor = "strawberry"
 
-[node name="ChocolateBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+[node name="ChocolateBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
 texture = ExtResource("7_3feuo")
 flavor = "chocolate"
 
-[node name="BlueberryBucket" parent="Control/BucketManager" instance=ExtResource("14_xpari")]
+[node name="BlueberryBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
 texture = ExtResource("8_8l2xf")
 flavor = "blueberry"
 
 [node name="Arm" parent="." instance=ExtResource("7_5vehc")]
-
-[node name="DishDoneBoundary" type="Area2D" parent="."]
-position = Vector2(2170, 528)
-script = ExtResource("9_g40te")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DishDoneBoundary"]
-shape = SubResource("WorldBoundaryShape2D_ljdgw")
-
-[node name="FallingScoopBoundary" type="Area2D" parent="."]
-position = Vector2(872, 1193)
-rotation = 1.57079
-script = ExtResource("12_hld8h")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingScoopBoundary"]
-shape = SubResource("WorldBoundaryShape2D_2h1kr")
 
 [node name="Hearts" type="Node2D" parent="."]
 script = ExtResource("3_e1km0")
@@ -145,6 +82,66 @@ position = Vector2(412.333, 216)
 scale = Vector2(0.222222, 0.222222)
 texture = ExtResource("11_shn2n")
 
+[node name="DishesCompleteHUD" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.779
+anchor_right = 0.779
+offset_left = 1476.0
+offset_top = 3.0
+offset_right = 1919.0
+offset_bottom = 293.0
+grow_horizontal = 0
+texture = ExtResource("13_qcccd")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("5_aqaj3")
+
+[node name="CenterContainer" type="CenterContainer" parent="DishesCompleteHUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.334
+anchor_right = 0.852
+anchor_bottom = 0.852
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DishesCompleteHUD/CenterContainer"]
+layout_mode = 2
+
+[node name="Number" type="Label" parent="DishesCompleteHUD/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0"
+
+[node name="Slash" type="Label" parent="DishesCompleteHUD/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "/"
+
+[node name="OutOf" type="Label" parent="DishesCompleteHUD/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "0"
+
+[node name="DishDoneBoundary" type="Area2D" parent="."]
+position = Vector2(2170, 528)
+script = ExtResource("9_g40te")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DishDoneBoundary"]
+shape = SubResource("WorldBoundaryShape2D_ljdgw")
+
+[node name="FallingScoopBoundary" type="Area2D" parent="."]
+position = Vector2(872, 1193)
+rotation = 1.57079
+script = ExtResource("12_hld8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingScoopBoundary"]
+shape = SubResource("WorldBoundaryShape2D_2h1kr")
+
 [node name="OrderCreator" type="Node" parent="."]
 script = ExtResource("10_gie43")
 
@@ -157,18 +154,18 @@ hearts = NodePath("../Hearts")
 
 [node name="ScoreManager" type="Node" parent="." node_paths=PackedStringArray("dishes_complete_hud")]
 script = ExtResource("15_i7s2b")
-dishes_complete_hud = NodePath("../Control/DishesCompleteHUD")
+dishes_complete_hud = NodePath("../DishesCompleteHUD")
 
 [connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
-[connection signal="bucket_pressed" from="Control/BucketManager/VanillaBucket" to="Arm" method="_on_bucket_pressed"]
-[connection signal="bucket_pressed" from="Control/BucketManager/PistachioBucket" to="Arm" method="_on_bucket_pressed"]
-[connection signal="bucket_pressed" from="Control/BucketManager/StrawberryBucket" to="Arm" method="_on_bucket_pressed"]
-[connection signal="bucket_pressed" from="Control/BucketManager/ChocolateBucket" to="Arm" method="_on_bucket_pressed"]
-[connection signal="bucket_pressed" from="Control/BucketManager/BlueberryBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="BucketManager/VanillaBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="BucketManager/PistachioBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="BucketManager/StrawberryBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="BucketManager/ChocolateBucket" to="Arm" method="_on_bucket_pressed"]
+[connection signal="bucket_pressed" from="BucketManager/BlueberryBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="spawn_node" from="Arm" to="." method="_on_spawn_node"]
 [connection signal="area_entered" from="DishDoneBoundary" to="DishDoneBoundary" method="_on_area_entered"]
 [connection signal="area_entered" from="FallingScoopBoundary" to="FallingScoopBoundary" method="_on_area_entered"]
-[connection signal="active_flavors_changed" from="OrderCreator" to="Control/BucketManager" method="_on_active_flavors_changed"]
+[connection signal="active_flavors_changed" from="OrderCreator" to="BucketManager" method="_on_active_flavors_changed"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]
 [connection signal="order_created" from="OrderCreator" to="ScoreManager" method="_on_order_created"]
 [connection signal="dish_completed" from="OrderChecker" to="ScoreManager" method="_on_dish_completed"]
