@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=26 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_2sqmg"]
 [ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 [ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
+[ext_resource type="PackedScene" uid="uid://bpd4r5owldjbn" path="res://scenes/ui_texture_store.tscn" id="22_ukkan"]
+[ext_resource type="Script" path="res://scenes/OrdersSection.gd" id="31_ug34e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ljdgw"]
 normal = Vector2(-1, 0)
@@ -156,6 +158,28 @@ hearts = NodePath("../Hearts")
 script = ExtResource("15_i7s2b")
 dishes_complete_hud = NodePath("../DishesCompleteHUD")
 
+[node name="UITextureStore" parent="." instance=ExtResource("22_ukkan")]
+visible = false
+
+[node name="OrdersSection" type="Control" parent="." node_paths=PackedStringArray("texture_store")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 530.0
+offset_top = 17.0
+offset_right = 1483.0
+offset_bottom = 285.0
+script = ExtResource("31_ug34e")
+texture_store = NodePath("../UITextureStore")
+
+[node name="OrdersLabel" type="Label" parent="OrdersSection"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 191.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 50
+text = "Orders:"
+
 [connection signal="dish_spawned" from="DishSpawner" to="OrderChecker" method="_on_dish_spawned"]
 [connection signal="bucket_pressed" from="BucketManager/VanillaBucket" to="Arm" method="_on_bucket_pressed"]
 [connection signal="bucket_pressed" from="BucketManager/PistachioBucket" to="Arm" method="_on_bucket_pressed"]
@@ -168,5 +192,6 @@ dishes_complete_hud = NodePath("../DishesCompleteHUD")
 [connection signal="active_flavors_changed" from="OrderCreator" to="BucketManager" method="_on_active_flavors_changed"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]
 [connection signal="order_created" from="OrderCreator" to="ScoreManager" method="_on_order_created"]
+[connection signal="order_created" from="OrderCreator" to="OrdersSection" method="_on_order_created"]
 [connection signal="dish_completed" from="OrderChecker" to="ScoreManager" method="_on_dish_completed"]
 [connection signal="dish_failed" from="OrderChecker" to="HealthManager" method="_on_dish_failed"]

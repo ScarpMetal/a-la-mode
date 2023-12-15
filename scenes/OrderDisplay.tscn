@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://chq0mg7vqunkt"]
+
+[ext_resource type="Script" path="res://scenes/OrderDisplay.gd" id="1_btfe2"]
+[ext_resource type="Texture2D" uid="uid://o5tipy6ctuvy" path="res://assets/dishes/salmon.png" id="2_r56qm"]
+[ext_resource type="Texture2D" uid="uid://b26kes60qm3xu" path="res://assets/ice-cream/FLAVOR_chocolate_SCOOP.svg" id="2_wsup6"]
+
+[node name="OrderDisplay" type="Control"]
+layout_mode = 3
+anchor_left = 0.014
+anchor_top = 0.28
+anchor_right = 0.014
+anchor_bottom = 0.28
+offset_left = -0.342
+offset_top = -0.0400009
+offset_right = 223.658
+offset_bottom = 191.96
+script = ExtResource("1_btfe2")
+
+[node name="Dish" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = 202.0
+offset_bottom = 187.0
+texture = ExtResource("2_r56qm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoopLeft" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -16.0
+offset_top = 117.0
+offset_right = 105.0
+offset_bottom = 185.0
+texture = ExtResource("2_wsup6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ScoopMiddle" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 52.0
+offset_top = 118.0
+offset_right = 173.0
+offset_bottom = 186.0
+texture = ExtResource("2_wsup6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ScoopRight" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 122.0
+offset_top = 119.0
+offset_right = 243.0
+offset_bottom = 187.0
+texture = ExtResource("2_wsup6")
+expand_mode = 1
+stretch_mode = 4

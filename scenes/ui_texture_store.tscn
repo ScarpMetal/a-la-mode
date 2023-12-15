@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpd4r5owldjbn"]
+
+[ext_resource type="Script" path="res://scenes/UITextureStore.gd" id="1_45usm"]
+[ext_resource type="Texture2D" uid="uid://dcxxyi3nocmvp" path="res://assets/ice-cream/FLAVOR_blueberry_SCOOP.svg" id="2_xwq0b"]
+[ext_resource type="Texture2D" uid="uid://d0faopg31i0ii" path="res://assets/ice-cream/FLAVOR_strawberry_SCOOP.svg" id="3_ln5f2"]
+[ext_resource type="Texture2D" uid="uid://n58rjonnlh8j" path="res://assets/ice-cream/FLAVOR_vanilla_SCOOP.svg" id="4_x54s4"]
+[ext_resource type="Texture2D" uid="uid://b26kes60qm3xu" path="res://assets/ice-cream/FLAVOR_chocolate_SCOOP.svg" id="5_qfoel"]
+[ext_resource type="Texture2D" uid="uid://cpwrm34rixr4i" path="res://assets/ice-cream/FLAVOR_pistachio_SCOOP.svg" id="6_6rcls"]
+[ext_resource type="Texture2D" uid="uid://u0wbpp3q5qw4" path="res://assets/dishes/steak.png" id="7_uph78"]
+[ext_resource type="Texture2D" uid="uid://o5tipy6ctuvy" path="res://assets/dishes/salmon.png" id="8_d7uv8"]
+[ext_resource type="Texture2D" uid="uid://c5hxlav00gjm4" path="res://assets/dishes/veggies.png" id="9_5gbg5"]
+
+[node name="UITextureStore" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_45usm")
+
+[node name="ScoopBlueberry" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_xwq0b")
+
+[node name="ScoopStrawberry" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ln5f2")
+
+[node name="ScoopVanilla" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_x54s4")
+
+[node name="ScoopChocolate" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_qfoel")
+
+[node name="ScoopPistachio" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_6rcls")
+
+[node name="DishSteak" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 36.0
+offset_bottom = 38.0
+texture = ExtResource("7_uph78")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DishSalmon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_d7uv8")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="DishVeggies" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 40.0
+texture = ExtResource("9_5gbg5")
+expand_mode = 1
+stretch_mode = 5
