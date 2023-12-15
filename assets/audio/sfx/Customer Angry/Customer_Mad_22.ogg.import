@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bd17wcqw7sgmy"
+path="res://.godot/imported/Customer_Mad_22.ogg-de94c061d42a4d1d731fa20b41981e5d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Customer Angry/Customer_Mad_22.ogg"
+dest_files=["res://.godot/imported/Customer_Mad_22.ogg-de94c061d42a4d1d731fa20b41981e5d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

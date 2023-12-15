@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://qtfkdbaoaxl8"]
+[gd_scene load_steps=4 format=3 uid="uid://qtfkdbaoaxl8"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_p7k0u"]
 [ext_resource type="Texture2D" uid="uid://df65gtq2fjqgb" path="res://assets/sponge.png" id="2_jiylp"]
+[ext_resource type="PackedScene" uid="uid://bmjie6wfb8vn7" path="res://scenes/ui/button.tscn" id="3_s1hc3"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -41,19 +42,18 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Main Menu" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="MainMenu" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_s1hc3")]
 layout_mode = 2
 text = "Main Menu"
 
-[node name="Credits" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Credits" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_s1hc3")]
 layout_mode = 2
 text = "Credits"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Quit" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_s1hc3")]
 layout_mode = 2
-text = "Exit"
+text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_exit_pressed"]

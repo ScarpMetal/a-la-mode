@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cnts4oclvtcui"
+path="res://.godot/imported/Customer_Happy_3.ogg-a631d400726200792210f8aa158bd36b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Customer Happy/Customer_Happy_3.ogg"
+dest_files=["res://.godot/imported/Customer_Happy_3.ogg-a631d400726200792210f8aa158bd36b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
