@@ -135,7 +135,7 @@ script = ExtResource("9_g40te")
 shape = SubResource("WorldBoundaryShape2D_ljdgw")
 
 [node name="FallingScoopBoundary" type="Area2D" parent="."]
-position = Vector2(872, 1193)
+position = Vector2(924, 1533)
 rotation = 1.57079
 script = ExtResource("12_hld8h")
 
