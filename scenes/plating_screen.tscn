@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=25 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_2sqmg"]
-[ext_resource type="Texture2D" uid="uid://b5iqsqpg513r0" path="res://assets/CONVEYER_BELT.svg" id="2_xlgi4"]
+[ext_resource type="Script" path="res://scenes/ConveyerManager.gd" id="2_7qn16"]
+[ext_resource type="Texture2D" uid="uid://c4mmfpo2vhpt7" path="res://assets/conveyer.png" id="3_4cwiw"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="3_e1km0"]
 [ext_resource type="Texture2D" uid="uid://dgecr1gjt437b" path="res://assets/ice-cream/FLAVOR_vanilla_BIN.svg" id="4_t8bqa"]
 [ext_resource type="Script" path="res://scenes/Dishes Complete HUD.gd" id="5_aqaj3"]
@@ -31,9 +32,23 @@ normal = Vector2(-1, -1.60619e-06)
 [node name="PlatingScreen" type="Node2D"]
 script = ExtResource("1_2sqmg")
 
-[node name="ConveyerBelt" type="Sprite2D" parent="."]
-position = Vector2(961, 541)
-texture = ExtResource("2_xlgi4")
+[node name="ConveyerManager" type="Node" parent="."]
+script = ExtResource("2_7qn16")
+
+[node name="ConveyerBelt1" type="Sprite2D" parent="ConveyerManager"]
+position = Vector2(-165, 656)
+scale = Vector2(0.1895, 0.1895)
+texture = ExtResource("3_4cwiw")
+
+[node name="ConveyerBelt2" type="Sprite2D" parent="ConveyerManager"]
+position = Vector2(1312, 656)
+scale = Vector2(0.1895, 0.1895)
+texture = ExtResource("3_4cwiw")
+
+[node name="ConveyerBelt3" type="Sprite2D" parent="ConveyerManager"]
+position = Vector2(2784, 656)
+scale = Vector2(0.1895, 0.1895)
+texture = ExtResource("3_4cwiw")
 
 [node name="DishSpawner" type="Node2D" parent="."]
 position = Vector2(-194, 535)
