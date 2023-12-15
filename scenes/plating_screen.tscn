@@ -32,29 +32,12 @@ normal = Vector2(-1, -1.60619e-06)
 [node name="PlatingScreen" type="Node2D"]
 script = ExtResource("1_2sqmg")
 
-[node name="ConveyerManager" type="Node" parent="."]
-script = ExtResource("2_7qn16")
-
-[node name="ConveyerBelt1" type="Sprite2D" parent="ConveyerManager"]
-position = Vector2(-165, 656)
-scale = Vector2(0.1895, 0.1895)
-texture = ExtResource("3_4cwiw")
-
-[node name="ConveyerBelt2" type="Sprite2D" parent="ConveyerManager"]
-position = Vector2(1312, 656)
-scale = Vector2(0.1895, 0.1895)
-texture = ExtResource("3_4cwiw")
-
-[node name="ConveyerBelt3" type="Sprite2D" parent="ConveyerManager"]
-position = Vector2(2784, 656)
-scale = Vector2(0.1895, 0.1895)
-texture = ExtResource("3_4cwiw")
-
 [node name="DishSpawner" type="Node2D" parent="."]
 position = Vector2(-194, 535)
 script = ExtResource("8_7sonv")
 
 [node name="BucketManager" type="Node2D" parent="."]
+z_index = 4
 position = Vector2(2387, 993)
 script = ExtResource("12_1qpeg")
 
@@ -78,6 +61,25 @@ texture = ExtResource("8_8l2xf")
 flavor = "blueberry"
 
 [node name="Arm" parent="." instance=ExtResource("7_5vehc")]
+z_index = 5
+
+[node name="ConveyerManager" type="Node" parent="."]
+script = ExtResource("2_7qn16")
+
+[node name="ConveyerBelt1" type="Sprite2D" parent="ConveyerManager"]
+position = Vector2(-165, 656)
+scale = Vector2(0.1895, 0.1895)
+texture = ExtResource("3_4cwiw")
+
+[node name="ConveyerBelt2" type="Sprite2D" parent="ConveyerManager"]
+position = Vector2(1312, 656)
+scale = Vector2(0.1895, 0.1895)
+texture = ExtResource("3_4cwiw")
+
+[node name="ConveyerBelt3" type="Sprite2D" parent="ConveyerManager"]
+position = Vector2(2784, 656)
+scale = Vector2(0.1895, 0.1895)
+texture = ExtResource("3_4cwiw")
 
 [node name="Hearts" type="Node2D" parent="."]
 script = ExtResource("3_e1km0")

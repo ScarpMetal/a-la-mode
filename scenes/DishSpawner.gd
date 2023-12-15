@@ -45,5 +45,6 @@ func spawn_dish(item: DishQueueItem) -> void:
 	print("spawning dish: ", item.name)
 	var dish_instance: Dish = dish_scenes[item.name].instantiate()
 	dish_instance.required_flavors = item.flavors
+	dish_instance.z_index = 3
 	add_child(dish_instance)
 	emit_signal("dish_spawned", dish_instance)
