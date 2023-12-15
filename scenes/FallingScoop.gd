@@ -6,6 +6,7 @@ class_name FallingScoop
 @export var GRAVITY := 1000.0
 
 var velocity := Vector2(0, INITIAL_SPEED)
+var can_hit_dish := false
 
 
 func _physics_process(delta: float) -> void:

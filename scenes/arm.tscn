@@ -328,12 +328,6 @@ scale = Vector2(0.262067, 0.262067)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_jquy8")
-max_speed = null
-slow_at_dist = null
-max_physics_y = null
-min_physics_y = null
-min_scale = null
-max_scale = null
 
 [node name="DumpingScoopSprite" type="Sprite2D" parent="."]
 position = Vector2(221.317, -362.503)

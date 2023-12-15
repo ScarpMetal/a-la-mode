@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var min_physics_y := 400
 @export var min_scale := 0.2
 @export var max_scale := 1.0
+@export var min_scoop_y_for_dish_collision := 450
 
 signal spawn_node(node: Node, position: Node)
 
@@ -58,7 +59,7 @@ func _input(event: InputEvent) -> void:
 func dump_scoop(flavor: String) -> void:
 	var falling_scoop: FallingScoop = falling_scoop_scene.instantiate()
 	falling_scoop.get_node("ScoopSprite").flavor = flavor
-	# get corrent transform for screen space
+	# get current transform for screen space
 	var scoop_transform := transform * held_scoop.transform
 	falling_scoop.transform = scoop_transform
 	# turn it upside down
@@ -67,6 +68,8 @@ func dump_scoop(flavor: String) -> void:
 	falling_scoop.position += Vector2(
 		0, (held_scoop.texture.get_size() * scoop_transform.get_scale()).y
 	)
+	# set a min height you need to drop from to recognize the dish collision
+	falling_scoop.can_hit_dish = falling_scoop.global_position.y < min_scoop_y_for_dish_collision
 	emit_signal("spawn_node", falling_scoop)
 
 

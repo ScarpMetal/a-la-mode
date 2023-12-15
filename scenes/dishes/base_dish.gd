@@ -32,6 +32,9 @@ func _on_area_entered(maybe_scoop: Area2D) -> void:
 	if not maybe_scoop.monitorable:
 		return
 	if maybe_scoop is FallingScoop:
+		if not maybe_scoop.can_hit_dish:
+			return
+
 		call_deferred("stick_on", maybe_scoop)
 
 		var flavor: String = maybe_scoop.get_node("ScoopSprite").flavor
