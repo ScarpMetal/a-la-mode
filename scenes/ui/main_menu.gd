@@ -18,7 +18,10 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.location.href='https://scarpmetal.itch.io/a-la-mode'")
+	else:
+		get_tree().quit()
 
 func _on_credits_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/credits.tscn")

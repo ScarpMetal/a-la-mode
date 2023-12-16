@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://1gxfsts8uruw"]
+[gd_scene load_steps=7 format=3 uid="uid://1gxfsts8uruw"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_screen.gd" id="1_ai7cq"]
 [ext_resource type="Texture2D" uid="uid://cp6ptpmjtj7i2" path="res://assets/ui/PAUSE_MENU.png" id="2_lmnvg"]
 [ext_resource type="PackedScene" uid="uid://bmjie6wfb8vn7" path="res://scenes/ui/button.tscn" id="3_0joj7"]
 [ext_resource type="Texture2D" uid="uid://bdk0ce1u78xo7" path="res://assets/ui/quit.png" id="4_qg4v2"]
 [ext_resource type="Texture2D" uid="uid://dehfloehsla33" path="res://assets/ui/quit-hover.png" id="5_gyxkn"]
+[ext_resource type="Texture2D" uid="uid://dxa0yq0fse81i" path="res://assets/ui/menu-hover.png" id="6_r2o11"]
 
 [node name="PauseScreen" type="Control"]
 layout_mode = 3
@@ -20,14 +21,24 @@ position = Vector2(959.111, 536)
 scale = Vector2(1.00741, 1.00741)
 texture = ExtResource("2_lmnvg")
 
-[node name="Button" parent="." instance=ExtResource("3_0joj7")]
+[node name="Quit" parent="." instance=ExtResource("3_0joj7")]
 layout_mode = 0
-offset_left = 1560.0
-offset_top = 886.0
-offset_right = 1969.0
-offset_bottom = 1066.0
+offset_left = 651.0
+offset_top = 880.0
+offset_right = 1084.0
+offset_bottom = 1100.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("4_qg4v2")
 texture_hover = ExtResource("5_gyxkn")
 
-[connection signal="pressed" from="Button" to="." method="_on_quit_pressed"]
+[node name="Menu" parent="." instance=ExtResource("3_0joj7")]
+layout_mode = 0
+offset_left = 979.0
+offset_top = 883.0
+offset_right = 1388.0
+offset_bottom = 1063.0
+scale = Vector2(0.7, 0.7)
+texture_hover = ExtResource("6_r2o11")
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

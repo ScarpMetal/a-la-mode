@@ -22,4 +22,11 @@ func _on_plating_screen_toggle_game_paused(is_paused: bool) -> void:
 	#get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 #
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.location.href='https://scarpmetal.itch.io/a-la-mode'")
+	else:
+		get_tree().quit()
+
+
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
