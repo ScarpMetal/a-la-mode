@@ -19,11 +19,11 @@
 [ext_resource type="Script" path="res://scenes/FallingScoopBoundary.gd" id="12_hld8h"]
 [ext_resource type="Texture2D" uid="uid://dlt8ax0tiipl0" path="res://assets/converyer-lines.png" id="13_0bnd4"]
 [ext_resource type="Script" path="res://scenes/HealthManager.gd" id="13_itq5x"]
-[ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
 [ext_resource type="Texture2D" uid="uid://dvx6tx41vd4lv" path="res://assets/ui/HEART_FULL.png" id="14_p0tsf"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 [ext_resource type="Script" path="res://scenes/OrderDisplaySpawner.gd" id="15_hk6qq"]
 [ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
+[ext_resource type="Texture2D" uid="uid://bhysm3kg8ofi0" path="res://assets/ui/HUD_DISHES_COMPLETE.png" id="18_gok13"]
 [ext_resource type="Texture2D" uid="uid://663y4tihaw7t" path="res://assets/ui/game-background.png" id="21_0u6se"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ljdgw"]
@@ -127,7 +127,7 @@ offset_top = 3.0
 offset_right = 1919.0
 offset_bottom = 293.0
 grow_horizontal = 0
-texture = ExtResource("13_qcccd")
+texture = ExtResource("18_gok13")
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("5_aqaj3")
