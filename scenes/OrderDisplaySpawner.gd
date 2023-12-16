@@ -43,8 +43,7 @@ func process_order_displays() -> void:
 		)
 		add_child(incoming_order)
 
-
-func _on_dish_failed() -> void:
+func dish_removed() -> void:
 	var first_order: OrderContainer = displayed_orders.pop_front()
 	(
 		create_tween()
@@ -52,13 +51,26 @@ func _on_dish_failed() -> void:
 		. set_trans(Tween.TRANS_SPRING)
 		. connect("finished", func() -> void: first_order.queue_free())
 	)
+	for index in range(len(displayed_orders)):
+		var order := displayed_orders[index]
+		(
+			create_tween()
+			. tween_property(order, "position", Vector2(order.position.x - 250, 0), 1)
+			. set_trans(Tween.TRANS_SPRING)
+		)
+	if len(next_orders_queue) > 0:
+		var incoming_order: OrderContainer = next_orders_queue.pop_front()
+		displayed_orders.append(incoming_order)
+		create_tween().tween_property(incoming_order, "position", Vector2.ZERO, 1).set_trans(
+			Tween.TRANS_SPRING
+		)
+		add_child(incoming_order)
+
+
+
+func _on_dish_failed() -> void:
+	dish_removed()
 
 
 func _on_dish_completed() -> void:
-	var first_order: OrderContainer = displayed_orders.pop_front()
-	(
-		create_tween()
-		. tween_property(first_order, "position", Vector2(0, first_order.position.y - 500), 1)
-		. set_trans(Tween.TRANS_SPRING)
-		. connect("finished", func() -> void: first_order.queue_free())
-	)
+	dish_removed()
