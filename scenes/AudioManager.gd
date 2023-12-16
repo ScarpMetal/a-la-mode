@@ -36,8 +36,17 @@ func start_player() -> void:
 
 func _on_order_creator_difficulty_changed(new_difficulty_level: int) -> void:
 	difficulty_level = new_difficulty_level
-	swapActivePlayer(speedIndoorPlayers[difficulty_level])
+	if difficulty_level <= 0:
+		swapActivePlayer(speedIndoorPlayers[0])
+	if difficulty_level >= 4:
+		swapActivePlayer(speedIndoorPlayers[3])
+	else:
+		swapActivePlayer(speedIndoorPlayers[difficulty_level])
 
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("g_debug"):
+		_on_order_creator_difficulty_changed(difficulty_level + 1)
 
 func swapActivePlayer(nextPlayer: AudioStreamPlayer) -> void:
 	var playback_position: float = activePlayer.get_playback_position()
@@ -48,6 +57,16 @@ func swapActivePlayer(nextPlayer: AudioStreamPlayer) -> void:
 
 func _on_game_manager_toggle_game_paused(is_paused: bool) -> void:
 	if (is_paused):
-		swapActivePlayer(speedPlayers[difficulty_level])
+		if difficulty_level <= 0:
+			swapActivePlayer(speedPlayers[0])
+		if difficulty_level >= 4:
+			swapActivePlayer(speedPlayers[3])
+		else:
+			swapActivePlayer(speedPlayers[difficulty_level])
 	else:
-		swapActivePlayer(speedIndoorPlayers[difficulty_level])
+		if difficulty_level <= 0:
+			swapActivePlayer(speedIndoorPlayers[0])
+		if difficulty_level >= 4:
+			swapActivePlayer(speedIndoorPlayers[3])
+		else:
+			swapActivePlayer(speedIndoorPlayers[difficulty_level])
