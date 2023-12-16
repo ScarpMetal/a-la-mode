@@ -14,8 +14,9 @@ var dish_queue: Array[DishQueueItem] = []
 var can_spawn: bool = true
 var dish_scenes: Dictionary = {
 	"steak": preload("res://scenes/dishes/steak_dish.tscn"),
-	"veggies": preload("res://scenes/dishes/veggies_dish.tscn"),
+	"salad": preload("res://scenes/dishes/salad_dish.tscn"),
 	"sandwich": preload("res://scenes/dishes/sandwich_dish.tscn"),
+	"burger": preload("res://scenes/dishes/burger_dish.tscn")
 }
 
 signal dish_spawned(dish_instance: Dish)
