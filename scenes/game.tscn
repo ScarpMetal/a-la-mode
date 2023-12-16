@@ -31,24 +31,34 @@ script = ExtResource("4_g5hsn")
 
 [node name="Speed1Player" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("5_03b2c")
+volume_db = -4.685
 
 [node name="Speed2Player" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("6_shsrt")
+volume_db = -4.685
 
 [node name="Speed3Player" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("7_v8fqr")
+volume_db = -4.685
 
 [node name="Speed4Player" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("8_dus1w")
+volume_db = -4.685
 
 [node name="Speed1IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("9_8s2l5")
+volume_db = -4.685
 
 [node name="Speed2IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("10_p2dey")
+volume_db = -4.685
 
 [node name="Speed3IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("11_nrc0m")
+volume_db = -4.685
 
 [node name="Speed4IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
 stream = ExtResource("12_lfv6k")
+volume_db = -4.685
+
+[connection signal="toggle_game_paused" from="." to="AudioManger" method="_on_game_manager_toggle_game_paused"]

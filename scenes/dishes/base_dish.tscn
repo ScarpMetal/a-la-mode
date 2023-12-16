@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq7omtq0fmhoq"]
+[gd_scene load_steps=7 format=3 uid="uid://bq7omtq0fmhoq"]
 
 [ext_resource type="Script" path="res://scenes/dishes/base_dish.gd" id="1_rji5x"]
 [ext_resource type="Texture2D" uid="uid://m4bouinvunyd" path="res://assets/dishes/PLATE.png" id="2_6ye2f"]
+[ext_resource type="AudioStream" uid="uid://vrew5pc2rkdk" path="res://assets/audio/sfx/Scoop_Incorrect.wav" id="3_xq7mq"]
+[ext_resource type="AudioStream" uid="uid://2wiu227g5de1" path="res://assets/audio/sfx/Scoop_Correct.wav" id="4_apbv2"]
+[ext_resource type="AudioStream" uid="uid://gfpk60gfmpqd" path="res://assets/audio/sfx/Scoop_Plate.wav" id="5_agrv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cskso"]
 size = Vector2(225, 17)
@@ -19,5 +22,16 @@ scale = Vector2(0.0307083, 0.0307083)
 texture = ExtResource("2_6ye2f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ScoopIncorrectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xq7mq")
+
+[node name="ScoopCorrectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_apbv2")
+
+[node name="ScoopPlatePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_agrv8")
+
+[node name="ScoopConveyerPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

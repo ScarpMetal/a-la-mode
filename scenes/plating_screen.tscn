@@ -61,7 +61,8 @@ texture = ExtResource("9_a8bg0")
 flavor = "blueberry"
 
 [node name="Arm" parent="." instance=ExtResource("7_5vehc")]
-z_index = 5
+z_index = 8
+z_as_relative = false
 
 [node name="ConveyerManager" type="Node" parent="."]
 script = ExtResource("2_7qn16")

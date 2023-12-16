@@ -18,10 +18,11 @@ signal spawn_node(node: Node, position: Node)
 @onready var falling_scoop_scene: Resource = preload("res://scenes/FallingScoop.tscn")
 
 var holding_flavor := ""
+var scoop_leave_player: AudioStreamPlayer
 
 
 func _ready() -> void:
-	pass
+	scoop_leave_player = $ScoopLeavePlayer
 
 
 func _physics_process(_delta: float) -> void:
@@ -71,11 +72,13 @@ func dump_scoop(flavor: String) -> void:
 	)
 	# set a min height you need to drop from to recognize the dish collision
 	falling_scoop.can_hit_dish = falling_scoop.global_position.y < min_scoop_y_for_dish_collision
+	scoop_leave_player.play()
 	emit_signal("spawn_node", falling_scoop)
 
 
 func _on_bucket_pressed(flavor: String) -> void:
 	holding_flavor = flavor
+	scoop_leave_player.play()
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
