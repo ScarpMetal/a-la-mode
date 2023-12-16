@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://7p0hiou31hvy"]
+[gd_scene load_steps=25 format=3 uid="uid://7p0hiou31hvy"]
 
 [ext_resource type="Script" path="res://scenes/Arm.gd" id="1_jquy8"]
 [ext_resource type="Texture2D" uid="uid://bbvlsueqqrwlv" path="res://assets/CURSOR_DUMP.png" id="2_8fmh3"]
 [ext_resource type="Texture2D" uid="uid://cf0lcxnpmwwjy" path="res://assets/CURSOR_EMPTY.png" id="3_ntndb"]
+[ext_resource type="Texture2D" uid="uid://bii4dbgp115sw" path="res://assets/ice-cream/SCOOP_WHITE.png" id="5_7pp6n"]
 [ext_resource type="PackedScene" uid="uid://c3fv4xyswwsy7" path="res://scenes/scoop_sprite.tscn" id="6_funy4"]
 
 [sub_resource type="Animation" id="Animation_y5ysc"]
@@ -347,8 +348,9 @@ texture = ExtResource("2_8fmh3")
 
 [node name="ScoopSprite" parent="." instance=ExtResource("6_funy4")]
 visible = false
-position = Vector2(-103.027, -122.106)
-scale = Vector2(0.319, 0.319)
+position = Vector2(-114.475, -122.106)
+scale = Vector2(0.0855484, 0.0855484)
+texture = ExtResource("5_7pp6n")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
