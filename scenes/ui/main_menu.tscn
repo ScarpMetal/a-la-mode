@@ -45,15 +45,12 @@ size_flags_vertical = 4
 
 [node name="Play" parent="Controls/VBoxContainer" instance=ExtResource("3_678qp")]
 layout_mode = 2
-text = "Play"
 
 [node name="Credits" parent="Controls/VBoxContainer" instance=ExtResource("3_678qp")]
 layout_mode = 2
-text = "Credits"
 
 [node name="Quit" parent="Controls/VBoxContainer" instance=ExtResource("3_678qp")]
 layout_mode = 2
-text = "Quit"
 
 [node name="How to Play" type="CenterContainer" parent="."]
 layout_mode = 1

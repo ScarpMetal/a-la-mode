@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://qtfkdbaoaxl8"]
+[gd_scene load_steps=8 format=3 uid="uid://qtfkdbaoaxl8"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_p7k0u"]
 [ext_resource type="Texture2D" uid="uid://df65gtq2fjqgb" path="res://assets/sponge.png" id="2_jiylp"]
+[ext_resource type="Texture2D" uid="uid://da8rr6evi8nf1" path="res://assets/ui/a-la-mode-game-over.png" id="3_iiotj"]
 [ext_resource type="PackedScene" uid="uid://bmjie6wfb8vn7" path="res://scenes/ui/button.tscn" id="3_s1hc3"]
+[ext_resource type="Texture2D" uid="uid://bdk0ce1u78xo7" path="res://assets/ui/quit.png" id="5_7fd5j"]
+[ext_resource type="Texture2D" uid="uid://dehfloehsla33" path="res://assets/ui/quit-hover.png" id="6_ircg8"]
+[ext_resource type="Texture2D" uid="uid://dxa0yq0fse81i" path="res://assets/ui/menu-hover.png" id="7_84tb4"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -14,46 +18,32 @@ grow_vertical = 2
 script = ExtResource("1_p7k0u")
 
 [node name="Sponge" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(965, 482)
 scale = Vector2(1.52802, 1.30891)
 texture = ExtResource("2_jiylp")
 
-[node name="CenterContainer2" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.2
+[node name="A-la-mode-game-over" type="Sprite2D" parent="."]
+position = Vector2(960, 539)
+scale = Vector2(1.01204, 1.01204)
+texture = ExtResource("3_iiotj")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
+[node name="Quit" parent="." instance=ExtResource("3_s1hc3")]
 layout_mode = 2
+offset_left = 973.0
+offset_top = 54.0
+offset_right = 1406.0
+offset_bottom = 274.0
+texture_normal = ExtResource("5_7fd5j")
+texture_hover = ExtResource("6_ircg8")
 
-[node name="Game Over" type="Label" parent="CenterContainer2/VBoxContainer"]
+[node name="MainMenu" parent="." instance=ExtResource("3_s1hc3")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "Game Over"
+offset_left = 1426.0
+offset_top = 55.0
+offset_right = 1835.0
+offset_bottom = 235.0
+texture_hover = ExtResource("7_84tb4")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="MainMenu" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_s1hc3")]
-layout_mode = 2
-text = "Main Menu"
-
-[node name="Credits" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_s1hc3")]
-layout_mode = 2
-text = "Credits"
-
-[node name="Quit" parent="CenterContainer/VBoxContainer" instance=ExtResource("3_s1hc3")]
-layout_mode = 2
-text = "Quit"
-
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

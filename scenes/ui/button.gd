@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 var pressPlayer: AudioStreamPlayer
 var hoverPlayer: AudioStreamPlayer

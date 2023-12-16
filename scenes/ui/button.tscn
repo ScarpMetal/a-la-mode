@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmjie6wfb8vn7"]
+[gd_scene load_steps=6 format=3 uid="uid://bmjie6wfb8vn7"]
 
+[ext_resource type="Texture2D" uid="uid://deyyh773lg0wy" path="res://assets/ui/menu.png" id="1_douqs"]
 [ext_resource type="Script" path="res://scenes/ui/button.gd" id="1_uoeuu"]
 [ext_resource type="AudioStream" uid="uid://bdmhre8d7su17" path="res://assets/audio/sfx/ButtonPress.wav" id="2_pahv7"]
 [ext_resource type="AudioStream" uid="uid://dvtlg3d5dan8r" path="res://assets/audio/sfx/ButtonHover.wav" id="3_18twj"]
 [ext_resource type="AudioStream" uid="uid://c2a5va56ndkhs" path="res://assets/audio/sfx/ButtonMouseCenter.wav" id="4_g7cci"]
 
-[node name="Button" type="Button"]
-text = "Button Text"
+[node name="Button" type="TextureButton"]
+texture_normal = ExtResource("1_douqs")
 script = ExtResource("1_uoeuu")
 
 [node name="PressPlayer" type="AudioStreamPlayer" parent="."]
