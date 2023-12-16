@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddlfij2ghida2"]
+[gd_scene load_steps=26 format=3 uid="uid://ddlfij2ghida2"]
 
 [ext_resource type="Script" path="res://scenes/plating_screen.gd" id="1_2sqmg"]
 [ext_resource type="Script" path="res://scenes/ConveyerManager.gd" id="2_7qn16"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
 [ext_resource type="Texture2D" uid="uid://dvx6tx41vd4lv" path="res://assets/ui/HEART_FULL.png" id="14_p0tsf"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
+[ext_resource type="Script" path="res://scenes/OrderDisplaySpawner.gd" id="15_hk6qq"]
 [ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ljdgw"]
@@ -100,6 +101,10 @@ texture = ExtResource("14_p0tsf")
 position = Vector2(409, 223)
 scale = Vector2(0.0533889, 0.0523333)
 texture = ExtResource("14_p0tsf")
+
+[node name="OrderDisplaySpawner" type="Node2D" parent="."]
+position = Vector2(1295, 156)
+script = ExtResource("15_hk6qq")
 
 [node name="DishesCompleteHUD" type="TextureRect" parent="."]
 anchors_preset = -1
@@ -186,6 +191,7 @@ dishes_complete_hud = NodePath("../DishesCompleteHUD")
 [connection signal="area_entered" from="FallingScoopBoundary" to="FallingScoopBoundary" method="_on_area_entered"]
 [connection signal="active_flavors_changed" from="OrderCreator" to="BucketManager" method="_on_active_flavors_changed"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]
+[connection signal="order_created" from="OrderCreator" to="OrderDisplaySpawner" method="_on_order_created"]
 [connection signal="order_created" from="OrderCreator" to="ScoreManager" method="_on_order_created"]
 [connection signal="dish_completed" from="OrderChecker" to="ScoreManager" method="_on_dish_completed"]
 [connection signal="dish_failed" from="OrderChecker" to="HealthManager" method="_on_dish_failed"]

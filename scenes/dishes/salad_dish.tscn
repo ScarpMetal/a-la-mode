@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7i0tqt31j4j7"]
+
+[ext_resource type="PackedScene" uid="uid://bq7omtq0fmhoq" path="res://scenes/dishes/base_dish.tscn" id="1_0wbnr"]
+[ext_resource type="Texture2D" uid="uid://c7cc0f52ldxmy" path="res://assets/dishes/DISH_SALAD.png" id="2_6soa0"]
+
+[node name="SaladDish" instance=ExtResource("1_0wbnr")]
+
+[node name="DishSprite" parent="." index="1"]
+visible = false
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(2, -10)
+scale = Vector2(0.0361363, 0.0364238)
+texture = ExtResource("2_6soa0")
