@@ -18,16 +18,16 @@ func sort_conveyers(c1: Sprite2D, c2: Sprite2D) -> bool:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	# sort them first so we can set their z_index accordingly
 	conveyers.sort_custom(sort_conveyers)
 
 	# set positions
 	for index in conveyers.size():
 		var conveyer: Sprite2D = conveyers[index]
-		conveyer.position.x += speed
+		conveyer.position.x += speed * delta
 		if conveyer.position.x > wrap_at:
-			conveyer.position.x -= loopback_width
+			conveyer.position.x -= loopback_width * delta
 			conveyer.z_index = index
 
 	# print("====")
