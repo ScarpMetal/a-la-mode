@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgecr1gjt437b"
-path="res://.godot/imported/FLAVOR_vanilla_BIN.svg-e6a01c78cff2687e2ecbae0302fbbf36.ctex"
+uid="uid://bh7cnykhkrqo3"
+path="res://.godot/imported/BUCKET_BLUE.png-f6758f4ee3664a7e5df64de865e1c260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice-cream/FLAVOR_vanilla_BIN.svg"
-dest_files=["res://.godot/imported/FLAVOR_vanilla_BIN.svg-e6a01c78cff2687e2ecbae0302fbbf36.ctex"]
+source_file="res://assets/ice-cream/BUCKET_BLUE.png"
+dest_files=["res://.godot/imported/BUCKET_BLUE.png-f6758f4ee3664a7e5df64de865e1c260.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

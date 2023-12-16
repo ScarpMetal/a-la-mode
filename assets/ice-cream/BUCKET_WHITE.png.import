@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clvdorghpqwbq"
-path="res://.godot/imported/FLAVOR_strawberry_BIN.svg-98e08a926200433f77ac42abfc069069.ctex"
+uid="uid://btkqox8phxjk7"
+path="res://.godot/imported/BUCKET_WHITE.png-d1ebe345d1283632a865c946dffbf7d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice-cream/FLAVOR_strawberry_BIN.svg"
-dest_files=["res://.godot/imported/FLAVOR_strawberry_BIN.svg-98e08a926200433f77ac42abfc069069.ctex"]
+source_file="res://assets/ice-cream/BUCKET_WHITE.png"
+dest_files=["res://.godot/imported/BUCKET_WHITE.png-d1ebe345d1283632a865c946dffbf7d0.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
