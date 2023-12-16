@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://kwn52rs7xqc"]
 
 [ext_resource type="Script" path="res://scenes/bucket.gd" id="1_0svvq"]
-[ext_resource type="Texture2D" uid="uid://dgecr1gjt437b" path="res://assets/ice-cream/FLAVOR_vanilla_BIN.svg" id="2_6y5la"]
+[ext_resource type="Texture2D" uid="uid://btkqox8phxjk7" path="res://assets/ice-cream/BUCKET_WHITE.png" id="2_m1dn0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ra6mw"]
 size = Vector2(338, 429)
@@ -10,8 +10,9 @@ size = Vector2(338, 429)
 script = ExtResource("1_0svvq")
 
 [node name="BucketSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.404977, 0.404977)
-texture = ExtResource("2_6y5la")
+position = Vector2(2, 4)
+scale = Vector2(0.0961331, 0.0961331)
+texture = ExtResource("2_m1dn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ra6mw")

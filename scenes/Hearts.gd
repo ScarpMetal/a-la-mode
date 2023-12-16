@@ -4,8 +4,8 @@ class_name Hearts
 
 @export var num_active_hearts: int
 
-const full_heart_texture: Resource = preload("res://assets/ui/HEART_FULL.svg")
-const empty_heart_texture: Resource = preload("res://assets/ui/HEART_EMPTY.svg")
+const full_heart_texture: Resource = preload("res://assets/ui/HEART_FULL.png")
+const empty_heart_texture: Resource = preload("res://assets/ui/HEART_EMPTY.png")
 
 @onready var heart_1: Sprite2D = $Heart1
 @onready var heart_2: Sprite2D = $Heart2

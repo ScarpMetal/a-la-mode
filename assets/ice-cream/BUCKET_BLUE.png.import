@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci7hidq471wwn"
-path="res://.godot/imported/bucket.png-d42dc515939af17221fdf2d6f0aeb6cf.ctex"
+uid="uid://bh7cnykhkrqo3"
+path="res://.godot/imported/BUCKET_BLUE.png-f6758f4ee3664a7e5df64de865e1c260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice-cream/bucket.png"
-dest_files=["res://.godot/imported/bucket.png-d42dc515939af17221fdf2d6f0aeb6cf.ctex"]
+source_file="res://assets/ice-cream/BUCKET_BLUE.png"
+dest_files=["res://.godot/imported/BUCKET_BLUE.png-f6758f4ee3664a7e5df64de865e1c260.ctex"]
 
 [params]
 

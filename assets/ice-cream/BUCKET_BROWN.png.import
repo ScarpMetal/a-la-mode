@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb88o356a8hwx"
-path="res://.godot/imported/FLAVOR_pistachio_BIN.svg-915b1458aa28559e0a66e0907ff19b7a.ctex"
+uid="uid://cpnnquv2p2gw4"
+path="res://.godot/imported/BUCKET_BROWN.png-a8f2b64655c5c287efddaa359876d3b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ice-cream/FLAVOR_pistachio_BIN.svg"
-dest_files=["res://.godot/imported/FLAVOR_pistachio_BIN.svg-915b1458aa28559e0a66e0907ff19b7a.ctex"]
+source_file="res://assets/ice-cream/BUCKET_BROWN.png"
+dest_files=["res://.godot/imported/BUCKET_BROWN.png-a8f2b64655c5c287efddaa359876d3b0.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

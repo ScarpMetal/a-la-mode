@@ -4,22 +4,22 @@
 [ext_resource type="Script" path="res://scenes/ConveyerManager.gd" id="2_7qn16"]
 [ext_resource type="Texture2D" uid="uid://c4mmfpo2vhpt7" path="res://assets/conveyer.png" id="3_4cwiw"]
 [ext_resource type="Script" path="res://scenes/Hearts.gd" id="3_e1km0"]
-[ext_resource type="Texture2D" uid="uid://dgecr1gjt437b" path="res://assets/ice-cream/FLAVOR_vanilla_BIN.svg" id="4_t8bqa"]
 [ext_resource type="Script" path="res://scenes/Dishes Complete HUD.gd" id="5_aqaj3"]
-[ext_resource type="Texture2D" uid="uid://bb88o356a8hwx" path="res://assets/ice-cream/FLAVOR_pistachio_BIN.svg" id="5_vipyv"]
-[ext_resource type="Texture2D" uid="uid://clvdorghpqwbq" path="res://assets/ice-cream/FLAVOR_strawberry_BIN.svg" id="6_suhf6"]
-[ext_resource type="Texture2D" uid="uid://0mea735ci4qp" path="res://assets/ice-cream/FLAVOR_chocolate_BIN.svg" id="7_3feuo"]
+[ext_resource type="Texture2D" uid="uid://btkqox8phxjk7" path="res://assets/ice-cream/BUCKET_WHITE.png" id="5_bshwo"]
+[ext_resource type="Texture2D" uid="uid://bt5adly4p7hti" path="res://assets/ice-cream/BUCKET_GREEN.png" id="6_5tyrp"]
 [ext_resource type="PackedScene" uid="uid://7p0hiou31hvy" path="res://scenes/arm.tscn" id="7_5vehc"]
+[ext_resource type="Texture2D" uid="uid://dgawyeat8erw6" path="res://assets/ice-cream/BUCKET_PINK.png" id="7_igvql"]
 [ext_resource type="Script" path="res://scenes/DishSpawner.gd" id="8_7sonv"]
-[ext_resource type="Texture2D" uid="uid://bbrkwbey2jsiv" path="res://assets/ice-cream/FLAVOR_blueberry_BIN.svg" id="8_8l2xf"]
+[ext_resource type="Texture2D" uid="uid://cpnnquv2p2gw4" path="res://assets/ice-cream/BUCKET_BROWN.png" id="8_iv8wn"]
+[ext_resource type="Texture2D" uid="uid://bh7cnykhkrqo3" path="res://assets/ice-cream/BUCKET_BLUE.png" id="9_a8bg0"]
 [ext_resource type="Script" path="res://scenes/DishDoneBoundary.gd" id="9_g40te"]
 [ext_resource type="Script" path="res://scenes/OrderCreator.gd" id="10_gie43"]
-[ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
 [ext_resource type="Script" path="res://scenes/OrderChecker.gd" id="11_vvbne"]
 [ext_resource type="Script" path="res://scenes/BucketManager.gd" id="12_1qpeg"]
 [ext_resource type="Script" path="res://scenes/FallingScoopBoundary.gd" id="12_hld8h"]
 [ext_resource type="Script" path="res://scenes/HealthManager.gd" id="13_itq5x"]
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
+[ext_resource type="Texture2D" uid="uid://dvx6tx41vd4lv" path="res://assets/ui/HEART_FULL.png" id="14_p0tsf"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 [ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
 
@@ -42,22 +42,22 @@ position = Vector2(2387, 993)
 script = ExtResource("12_1qpeg")
 
 [node name="VanillaBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
-texture = ExtResource("4_t8bqa")
+texture = ExtResource("5_bshwo")
 
 [node name="PistachioBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
-texture = ExtResource("5_vipyv")
+texture = ExtResource("6_5tyrp")
 flavor = "pistachio"
 
 [node name="StrawberryBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
-texture = ExtResource("6_suhf6")
+texture = ExtResource("7_igvql")
 flavor = "strawberry"
 
 [node name="ChocolateBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
-texture = ExtResource("7_3feuo")
+texture = ExtResource("8_iv8wn")
 flavor = "chocolate"
 
 [node name="BlueberryBucket" parent="BucketManager" instance=ExtResource("14_xpari")]
-texture = ExtResource("8_8l2xf")
+texture = ExtResource("9_a8bg0")
 flavor = "blueberry"
 
 [node name="Arm" parent="." instance=ExtResource("7_5vehc")]
@@ -83,21 +83,22 @@ texture = ExtResource("3_4cwiw")
 
 [node name="Hearts" type="Node2D" parent="."]
 script = ExtResource("3_e1km0")
+num_active_hearts = null
 
 [node name="Heart1" type="Sprite2D" parent="Hearts"]
-position = Vector2(124.333, 140)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
+position = Vector2(146, 156)
+scale = Vector2(0.0533889, 0.0523333)
+texture = ExtResource("14_p0tsf")
 
 [node name="Heart2" type="Sprite2D" parent="Hearts"]
-position = Vector2(259.333, 188)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
+position = Vector2(273, 192)
+scale = Vector2(0.0533889, 0.0523333)
+texture = ExtResource("14_p0tsf")
 
 [node name="Heart3" type="Sprite2D" parent="Hearts"]
-position = Vector2(412.333, 216)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
+position = Vector2(409, 223)
+scale = Vector2(0.0533889, 0.0523333)
+texture = ExtResource("14_p0tsf")
 
 [node name="DishesCompleteHUD" type="TextureRect" parent="."]
 anchors_preset = -1
