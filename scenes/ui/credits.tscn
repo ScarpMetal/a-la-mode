@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8humtebspw3a"]
+[gd_scene load_steps=8 format=3 uid="uid://c8humtebspw3a"]
 
-[ext_resource type="Texture2D" uid="uid://cnfctlo3osvq2" path="res://assets/ui/credits.png" id="1_lrfmk"]
 [ext_resource type="Script" path="res://scenes/ui/credits.gd" id="1_u1hmi"]
+[ext_resource type="Texture2D" uid="uid://cyaupimaidffj" path="res://assets/ui/a-la-mode-credits-transparent REAL REAL REAL.png" id="2_ifev8"]
+[ext_resource type="PackedScene" uid="uid://bmjie6wfb8vn7" path="res://scenes/ui/button.tscn" id="3_86ss7"]
+[ext_resource type="Texture2D" uid="uid://buk0j4pgt75k7" path="res://assets/ui/PLAY_BUTTON.png" id="4_k51nm"]
+[ext_resource type="Texture2D" uid="uid://cr62uv7dm7eid" path="res://assets/ui/PLAY_HOVER.png" id="5_5ka73"]
+[ext_resource type="Texture2D" uid="uid://dmtkcnibtw05j" path="res://assets/ui/BACK_BUTTON.png" id="6_j1uil"]
+[ext_resource type="Texture2D" uid="uid://btpv6jhhnmbwr" path="res://assets/ui/BACK_HOVER.png" id="7_dhsiq"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -12,30 +17,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u1hmi")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="A-la-mode-credits-transparentRealRealReal" type="Sprite2D" parent="."]
+position = Vector2(961.222, 539)
+scale = Vector2(1.01481, 1.01481)
+texture = ExtResource("2_ifev8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
+[node name="Play" parent="." instance=ExtResource("3_86ss7")]
+layout_mode = 0
+offset_left = 1183.0
+offset_top = 255.0
+offset_right = 3103.0
+offset_bottom = 1335.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("4_k51nm")
+texture_hover = ExtResource("5_5ka73")
 
-[node name="Credits" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_lrfmk")
+[node name="Back" parent="." instance=ExtResource("3_86ss7")]
+layout_mode = 0
+offset_left = 1199.0
+offset_top = 508.0
+offset_right = 3119.0
+offset_bottom = 1588.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("6_j1uil")
+texture_hover = ExtResource("7_dhsiq")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 928.0
-offset_top = 635.0
-offset_right = 973.0
-offset_bottom = 666.0
-
-[node name="Back" type="Button" parent="VBoxContainer2"]
-layout_mode = 2
-text = "Back"
-
-[connection signal="pressed" from="VBoxContainer2/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

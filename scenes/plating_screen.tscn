@@ -100,17 +100,17 @@ script = ExtResource("3_e1km0")
 num_active_hearts = null
 
 [node name="Heart1" type="Sprite2D" parent="Hearts"]
-position = Vector2(146, 156)
+position = Vector2(127.556, 155.75)
 scale = Vector2(0.0533889, 0.0523333)
 texture = ExtResource("14_p0tsf")
 
 [node name="Heart2" type="Sprite2D" parent="Hearts"]
-position = Vector2(273, 192)
+position = Vector2(254.556, 191.75)
 scale = Vector2(0.0533889, 0.0523333)
 texture = ExtResource("14_p0tsf")
 
 [node name="Heart3" type="Sprite2D" parent="Hearts"]
-position = Vector2(409, 223)
+position = Vector2(390.556, 222.75)
 scale = Vector2(0.0533889, 0.0523333)
 texture = ExtResource("14_p0tsf")
 

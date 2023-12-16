@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_pfvan"]
 [ext_resource type="Texture2D" uid="uid://bdh33jn7kv5he" path="res://assets/ui/main-menu.png" id="2_qn1xv"]
 [ext_resource type="PackedScene" uid="uid://bmjie6wfb8vn7" path="res://scenes/ui/button.tscn" id="3_678qp"]
-[ext_resource type="Texture2D" uid="uid://buk0j4pgt75k7" path="res://assets/ui/PLAY_BUTTON_BITMASKddd.png" id="4_jhm7w"]
+[ext_resource type="Texture2D" uid="uid://buk0j4pgt75k7" path="res://assets/ui/PLAY_BUTTON.png" id="4_jhm7w"]
 [ext_resource type="Texture2D" uid="uid://c8fp0qn4gmrwq" path="res://assets/ui/CREDITS_BUTTON.png" id="4_whd07"]
 [ext_resource type="Texture2D" uid="uid://cr62uv7dm7eid" path="res://assets/ui/PLAY_HOVER.png" id="5_08ecb"]
 [ext_resource type="AudioStream" uid="uid://4846dhdnsdxq" path="res://assets/audio/music/A La Mode! (Intro).wav" id="5_ihg0b"]
