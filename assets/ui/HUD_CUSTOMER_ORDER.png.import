@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bndj38h5cjbuc"
-path="res://.godot/imported/DISH_HUD.svg-9002cd8e108ed13a1a3774bb1573351e.ctex"
+uid="uid://ddon3r17tpqkh"
+path="res://.godot/imported/HUD_CUSTOMER_ORDER.png-8e0a09fcd3b8406569c0aee7f69e5856.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/DISH_HUD.svg"
-dest_files=["res://.godot/imported/DISH_HUD.svg-9002cd8e108ed13a1a3774bb1573351e.ctex"]
+source_file="res://assets/ui/HUD_CUSTOMER_ORDER.png"
+dest_files=["res://.godot/imported/HUD_CUSTOMER_ORDER.png-8e0a09fcd3b8406569c0aee7f69e5856.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
