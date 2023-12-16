@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3fv4xyswwsy7" path="res://scenes/scoop_sprite.tscn" id="2_sgbcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7nw3"]
-size = Vector2(1198.79, 1023.05)
+size = Vector2(4397.4, 3630.89)
 
 [node name="FallingScoop" type="Area2D"]
 position = Vector2(-83.948, -133.554)
@@ -12,7 +12,10 @@ scale = Vector2(0.318654, 0.318655)
 script = ExtResource("1_oim06")
 
 [node name="ScoopSprite" parent="." instance=ExtResource("2_sgbcn")]
+position = Vector2(-0.163177, -7.67601)
+scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-15.8542, -39.058)
+position = Vector2(-52.3357, -219.504)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m7nw3")

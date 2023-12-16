@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5hxlav00gjm4"
-path="res://.godot/imported/veggies.png-94af1fc1ee9c6444c2e96bb81a754826.ctex"
+uid="uid://bii4dbgp115sw"
+path="res://.godot/imported/SCOOP_WHITE.png-a0a8fb39a946da2abf109f04f3e480ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dishes/veggies.png"
-dest_files=["res://.godot/imported/veggies.png-94af1fc1ee9c6444c2e96bb81a754826.ctex"]
+source_file="res://assets/ice-cream/SCOOP_WHITE.png"
+dest_files=["res://.godot/imported/SCOOP_WHITE.png-a0a8fb39a946da2abf109f04f3e480ed.ctex"]
 
 [params]
 

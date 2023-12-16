@@ -1,32 +1,38 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3fv4xyswwsy7"]
 
-[ext_resource type="Texture2D" uid="uid://n58rjonnlh8j" path="res://assets/ice-cream/FLAVOR_vanilla_SCOOP.svg" id="1_67gqc"]
 [ext_resource type="Script" path="res://scenes/ScoopSprite.gd" id="2_w0vhd"]
-[ext_resource type="Texture2D" uid="uid://d0faopg31i0ii" path="res://assets/ice-cream/FLAVOR_strawberry_SCOOP.svg" id="3_6ra5g"]
-[ext_resource type="Texture2D" uid="uid://cpwrm34rixr4i" path="res://assets/ice-cream/FLAVOR_pistachio_SCOOP.svg" id="4_ly3y4"]
-[ext_resource type="Texture2D" uid="uid://b26kes60qm3xu" path="res://assets/ice-cream/FLAVOR_chocolate_SCOOP.svg" id="5_4cl4m"]
-[ext_resource type="Texture2D" uid="uid://dcxxyi3nocmvp" path="res://assets/ice-cream/FLAVOR_blueberry_SCOOP.svg" id="6_r6cpd"]
+[ext_resource type="Texture2D" uid="uid://bckahn4wba2sd" path="res://assets/ice-cream/SCOOP_PINK.png" id="3_7152h"]
+[ext_resource type="Texture2D" uid="uid://bii4dbgp115sw" path="res://assets/ice-cream/SCOOP_WHITE.png" id="4_nbpqa"]
+[ext_resource type="Texture2D" uid="uid://bx5s0diiykact" path="res://assets/ice-cream/SCOOP_GREEN.png" id="5_4npvu"]
+[ext_resource type="Texture2D" uid="uid://coi4t22qja0gh" path="res://assets/ice-cream/SCOOP_BLUE.png" id="6_l3pww"]
+[ext_resource type="Texture2D" uid="uid://d3n3wh0xk6xyu" path="res://assets/ice-cream/SCOOP_BROWN.png" id="7_nsmbj"]
 
 [node name="ScoopSprite" type="Sprite2D"]
-texture = ExtResource("1_67gqc")
+scale = Vector2(0.182, 0.182)
+texture = ExtResource("4_nbpqa")
 script = ExtResource("2_w0vhd")
 
 [node name="StrawberryScoop" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("3_6ra5g")
+position = Vector2(-2, -2)
+texture = ExtResource("3_7152h")
 
 [node name="VanillaScoop" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("1_67gqc")
+position = Vector2(-2, -2)
+texture = ExtResource("4_nbpqa")
 
 [node name="PistachioScoop" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("4_ly3y4")
-
-[node name="ChocolateScoop" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("5_4cl4m")
+position = Vector2(-2, -2)
+texture = ExtResource("5_4npvu")
 
 [node name="BlueberryScoop" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("6_r6cpd")
+position = Vector2(-2, -2)
+texture = ExtResource("6_l3pww")
+
+[node name="ChocolateScoop" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2, -2)
+texture = ExtResource("7_nsmbj")
