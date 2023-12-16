@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2vd68jh4qdxj"
-path="res://.godot/imported/HEART_FULL.svg-3747738c2be5049d626476766edd3d3d.ctex"
+uid="uid://dvx6tx41vd4lv"
+path="res://.godot/imported/HEART_FULL.png-f210b4f4806e9c3b6df600bec3cd7c44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/HEART_FULL.svg"
-dest_files=["res://.godot/imported/HEART_FULL.svg-3747738c2be5049d626476766edd3d3d.ctex"]
+source_file="res://assets/ui/HEART_FULL.png"
+dest_files=["res://.godot/imported/HEART_FULL.png-f210b4f4806e9c3b6df600bec3cd7c44.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

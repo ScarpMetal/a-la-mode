@@ -14,12 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://bbrkwbey2jsiv" path="res://assets/ice-cream/FLAVOR_blueberry_BIN.svg" id="8_8l2xf"]
 [ext_resource type="Script" path="res://scenes/DishDoneBoundary.gd" id="9_g40te"]
 [ext_resource type="Script" path="res://scenes/OrderCreator.gd" id="10_gie43"]
-[ext_resource type="Texture2D" uid="uid://b2vd68jh4qdxj" path="res://assets/ui/HEART_FULL.svg" id="11_shn2n"]
 [ext_resource type="Script" path="res://scenes/OrderChecker.gd" id="11_vvbne"]
 [ext_resource type="Script" path="res://scenes/BucketManager.gd" id="12_1qpeg"]
 [ext_resource type="Script" path="res://scenes/FallingScoopBoundary.gd" id="12_hld8h"]
 [ext_resource type="Script" path="res://scenes/HealthManager.gd" id="13_itq5x"]
 [ext_resource type="Texture2D" uid="uid://b1g4mjandw03k" path="res://assets/ui/DISHES_COMPLETE_HUD.svg" id="13_qcccd"]
+[ext_resource type="Texture2D" uid="uid://dvx6tx41vd4lv" path="res://assets/ui/HEART_FULL.png" id="14_p0tsf"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 [ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
 
@@ -85,19 +85,19 @@ texture = ExtResource("3_4cwiw")
 script = ExtResource("3_e1km0")
 
 [node name="Heart1" type="Sprite2D" parent="Hearts"]
-position = Vector2(124.333, 140)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
+position = Vector2(146, 156)
+scale = Vector2(0.0533889, 0.0523333)
+texture = ExtResource("14_p0tsf")
 
 [node name="Heart2" type="Sprite2D" parent="Hearts"]
-position = Vector2(259.333, 188)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
+position = Vector2(273, 192)
+scale = Vector2(0.0533889, 0.0523333)
+texture = ExtResource("14_p0tsf")
 
 [node name="Heart3" type="Sprite2D" parent="Hearts"]
-position = Vector2(412.333, 216)
-scale = Vector2(0.222222, 0.222222)
-texture = ExtResource("11_shn2n")
+position = Vector2(409, 223)
+scale = Vector2(0.0533889, 0.0523333)
+texture = ExtResource("14_p0tsf")
 
 [node name="DishesCompleteHUD" type="TextureRect" parent="."]
 anchors_preset = -1
