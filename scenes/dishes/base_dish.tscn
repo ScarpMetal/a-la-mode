@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq7omtq0fmhoq"]
+[gd_scene load_steps=4 format=3 uid="uid://bq7omtq0fmhoq"]
 
 [ext_resource type="Script" path="res://scenes/dishes/base_dish.gd" id="1_rji5x"]
+[ext_resource type="Texture2D" uid="uid://m4bouinvunyd" path="res://assets/dishes/PLATE.png" id="2_6ye2f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cskso"]
 size = Vector2(225, 17)
@@ -11,6 +12,11 @@ script = ExtResource("1_rji5x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_cskso")
+
+[node name="DishSprite" type="Sprite2D" parent="."]
+position = Vector2(-1, 5)
+scale = Vector2(0.0307083, 0.0307083)
+texture = ExtResource("2_6ye2f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

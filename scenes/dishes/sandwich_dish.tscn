@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfbyn3jsipue"]
+
+[ext_resource type="PackedScene" uid="uid://bq7omtq0fmhoq" path="res://scenes/dishes/base_dish.tscn" id="1_5gghr"]
+[ext_resource type="Texture2D" uid="uid://bid84j7t5q55e" path="res://assets/dishes/DISH_SANDWICH.png" id="2_b71af"]
+
+[node name="SandwichDish" instance=ExtResource("1_5gghr")]
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(-3, -23)
+scale = Vector2(0.01654, 0.01654)
+texture = ExtResource("2_b71af")

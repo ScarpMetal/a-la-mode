@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brg3ih4htihhe"
-path="res://.godot/imported/DISH_2.svg-feedf278c70fcf3ac3844b8a81fe11d6.ctex"
+uid="uid://vhsekv0wfikt"
+path="res://.godot/imported/DISH_STEAK.png-b1d2bb4730cfb1724e22afaa0eae1438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dishes/DISH_2.svg"
-dest_files=["res://.godot/imported/DISH_2.svg-feedf278c70fcf3ac3844b8a81fe11d6.ctex"]
+source_file="res://assets/dishes/DISH_STEAK.png"
+dest_files=["res://.godot/imported/DISH_STEAK.png-b1d2bb4730cfb1724e22afaa0eae1438.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
