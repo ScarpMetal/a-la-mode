@@ -11,7 +11,7 @@ signal active_flavors_changed(new_flavors: Array[String])
 ]
 @export var time_to_first_order_sec: int = 3
 
-const DIFFICULTY_INTERVALS_SEC: Array[int] = [10, 60, 600]
+const DIFFICULTY_INTERVALS_SEC: Array[int] = [20, 40, 60]
 
 var time_since_start := 0.0
 var difficulty_level := 0
