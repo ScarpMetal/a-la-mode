@@ -41,7 +41,7 @@ scale = Vector2(0.242639, 0.242639)
 texture = ExtResource("21_0u6se")
 
 [node name="DishSpawner" type="Node2D" parent="."]
-position = Vector2(-194, 535)
+position = Vector2(-204, 696)
 script = ExtResource("8_7sonv")
 
 [node name="BucketManager" type="Node2D" parent="."]

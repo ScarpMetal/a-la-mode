@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var min_physics_y := 400
 @export var min_scale := 0.2
 @export var max_scale := 1.0
-@export var min_scoop_y_for_dish_collision := 450
+@export var min_scoop_y_for_dish_collision := 550
 
 signal spawn_node(node: Node, position: Node)
 
