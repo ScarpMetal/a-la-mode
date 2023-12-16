@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ba0q2yh8sga58"
+path="res://.godot/imported/Customer_Mad_18.wav-6541cd4f6f9e5738ba31e92d7bf50ef2.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Customer Angry/Customer_Mad_18.wav"
+dest_files=["res://.godot/imported/Customer_Mad_18.wav-6541cd4f6f9e5738ba31e92d7bf50ef2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

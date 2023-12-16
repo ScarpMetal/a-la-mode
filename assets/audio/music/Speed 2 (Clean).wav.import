@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhspvj178es77"
+path="res://.godot/imported/Speed 2 (Clean).wav-3f507ec6288415ec2124d00a55b88982.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Speed 2 (Clean).wav"
+dest_files=["res://.godot/imported/Speed 2 (Clean).wav-3f507ec6288415ec2124d00a55b88982.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,14 +1,19 @@
 extends Button
 
-var buttonPressPlayer: AudioStreamPlayer
-var buttonHoverPlayer: AudioStreamPlayer
+var pressPlayer: AudioStreamPlayer
+var hoverPlayer: AudioStreamPlayer
+var leavePlayer: AudioStreamPlayer
 
 func _ready() -> void:
-	buttonPressPlayer = $ButtonPressPlayer
-	buttonHoverPlayer = $ButtonHoverPlayer
+	pressPlayer = $PressPlayer
+	hoverPlayer = $HoverPlayer
+	leavePlayer = $LeavePlayer
 
 func _on_button_down() -> void:
-	buttonPressPlayer.play()
-	
+	pressPlayer.play()
+
 func _on_button_hover() -> void:
-	buttonHoverPlayer.play()
+	hoverPlayer.play()
+
+func _on_mouse_exited() -> void:
+	leavePlayer.play()

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c028tj483n8nl"]
+[gd_scene load_steps=7 format=3 uid="uid://c028tj483n8nl"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_pfvan"]
 [ext_resource type="Texture2D" uid="uid://7w17dpsekbhh" path="res://assets/ui/logo.png" id="2_rq6we"]
+[ext_resource type="PackedScene" uid="uid://bmjie6wfb8vn7" path="res://scenes/ui/button.tscn" id="3_678qp"]
 [ext_resource type="Texture2D" uid="uid://bbda5i2fbw06n" path="res://assets/ui/how-to-play.png" id="3_i14j2"]
+[ext_resource type="AudioStream" uid="uid://4846dhdnsdxq" path="res://assets/audio/music/A La Mode! (Intro).wav" id="5_ihg0b"]
+[ext_resource type="AudioStream" uid="uid://cj3dsgsiqx3nn" path="res://assets/audio/music/A La Mode! (Loop).wav" id="6_6l73u"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -40,17 +43,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Play" type="Button" parent="Controls/VBoxContainer"]
+[node name="Play" parent="Controls/VBoxContainer" instance=ExtResource("3_678qp")]
 layout_mode = 2
-size_flags_vertical = 3
 text = "Play"
 
-[node name="Credits" type="Button" parent="Controls/VBoxContainer"]
+[node name="Credits" parent="Controls/VBoxContainer" instance=ExtResource("3_678qp")]
 layout_mode = 2
-text = "Credits
-"
+text = "Credits"
 
-[node name="Quit" type="Button" parent="Controls/VBoxContainer"]
+[node name="Quit" parent="Controls/VBoxContainer" instance=ExtResource("3_678qp")]
 layout_mode = 2
 text = "Quit"
 
@@ -69,6 +70,13 @@ layout_mode = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_i14j2")
 
+[node name="IntroPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ihg0b")
+
+[node name="LoopPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6l73u")
+
 [connection signal="pressed" from="Controls/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Controls/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Controls/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="finished" from="IntroPlayer" to="." method="_on_intro_player_finished"]

@@ -1,7 +1,18 @@
 extends Control
 
+var intro_player: AudioStreamPlayer
+var loop_player: AudioStreamPlayer
+
 func _ready() -> void:
-	print("Ready")
+	intro_player = $IntroPlayer
+	loop_player = $LoopPlayer
+	start_intro_player()
+
+func start_intro_player() -> void:
+	intro_player.play()
+	
+func _on_intro_player_finished() -> void:
+	loop_player.play()
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game.tscn")

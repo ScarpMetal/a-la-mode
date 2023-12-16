@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://w2hb6lvrs145"
+path="res://.godot/imported/Customer_Happy_9.wav-25b154df65867c6dab328dd4ac337db2.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Customer Happy/Customer_Happy_9.wav"
+dest_files=["res://.godot/imported/Customer_Happy_9.wav-25b154df65867c6dab328dd4ac337db2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

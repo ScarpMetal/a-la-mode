@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cj3dsgsiqx3nn"
+path="res://.godot/imported/A La Mode! (Loop).wav-677cce88cc19e442372526102575887a.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/A La Mode! (Loop).wav"
+dest_files=["res://.godot/imported/A La Mode! (Loop).wav-677cce88cc19e442372526102575887a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

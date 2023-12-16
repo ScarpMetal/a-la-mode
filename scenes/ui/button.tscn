@@ -1,18 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmjie6wfb8vn7"]
+[gd_scene load_steps=5 format=3 uid="uid://bmjie6wfb8vn7"]
 
 [ext_resource type="Script" path="res://scenes/ui/button.gd" id="1_uoeuu"]
-[ext_resource type="AudioStream" uid="uid://b2r6ryhewni4c" path="res://assets/audio/sfx/ButtonPress.ogg" id="2_dcuec"]
-[ext_resource type="AudioStream" uid="uid://bnc0tg11deybr" path="res://assets/audio/sfx/ButtonHover.ogg" id="3_jicvk"]
+[ext_resource type="AudioStream" uid="uid://bdmhre8d7su17" path="res://assets/audio/sfx/ButtonPress.wav" id="2_pahv7"]
+[ext_resource type="AudioStream" uid="uid://dvtlg3d5dan8r" path="res://assets/audio/sfx/ButtonHover.wav" id="3_18twj"]
+[ext_resource type="AudioStream" uid="uid://c2a5va56ndkhs" path="res://assets/audio/sfx/ButtonMouseCenter.wav" id="4_g7cci"]
 
 [node name="Button" type="Button"]
 text = "Button Text"
 script = ExtResource("1_uoeuu")
 
-[node name="ButtonPressPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_dcuec")
+[node name="PressPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pahv7")
 
-[node name="ButtonHoverPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_jicvk")
+[node name="HoverPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_18twj")
+
+[node name="LeavePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_g7cci")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="." to="." method="_on_button_hover"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

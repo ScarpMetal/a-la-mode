@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6e677nm5bive"
+path="res://.godot/imported/Speed 2 (Indoor).wav-bc63ce7f85f7283377157d200c36acfc.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Speed 2 (Indoor).wav"
+dest_files=["res://.godot/imported/Speed 2 (Indoor).wav-bc63ce7f85f7283377157d200c36acfc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
