@@ -61,6 +61,7 @@ func dump_scoop(flavor: String) -> void:
 	falling_scoop.get_node("ScoopSprite").flavor = flavor
 	# get current transform for screen space
 	var scoop_transform := transform * held_scoop.transform
+	falling_scoop.z_index = 4
 	falling_scoop.transform = scoop_transform
 	# turn it upside down
 	falling_scoop.rotation_degrees = 180
