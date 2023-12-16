@@ -1,6 +1,6 @@
 extends Node
 
-@export var speed: float = 4
+@export var speed: float = 1.4
 var conveyers: Array[Sprite2D]
 var wrap_at: int = 2800
 var loopback_width: int = wrap_at + 879
@@ -18,16 +18,16 @@ func sort_conveyers(c1: Sprite2D, c2: Sprite2D) -> bool:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# sort them first so we can set their z_index accordingly
 	conveyers.sort_custom(sort_conveyers)
 
 	# set positions
 	for index in conveyers.size():
 		var conveyer: Sprite2D = conveyers[index]
-		conveyer.position.x += speed * delta
+		conveyer.position.x += speed
 		if conveyer.position.x > wrap_at:
-			conveyer.position.x -= loopback_width * delta
+			conveyer.position.x -= loopback_width
 			conveyer.z_index = index
 
 	# print("====")
