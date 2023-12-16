@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bi5dy2pmljfci"
+path="res://.godot/imported/PLAY_BUTTON_BITMASK.png-2a2973ad2468e08c5e8b2041d118cfbe.res"
+
+[deps]
+
+source_file="res://assets/ui/PLAY_BUTTON_BITMASK.png"
+dest_files=["res://.godot/imported/PLAY_BUTTON_BITMASK.png-2a2973ad2468e08c5e8b2041d118cfbe.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

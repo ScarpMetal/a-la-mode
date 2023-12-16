@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
 [ext_resource type="Script" path="res://scenes/OrderDisplaySpawner.gd" id="15_hk6qq"]
 [ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
-[ext_resource type="Texture2D" uid="uid://c4tktsxdei3pn" path="res://assets/ui/the background.png" id="21_wmw1f"]
+[ext_resource type="Texture2D" uid="uid://663y4tihaw7t" path="res://assets/ui/game-background.png" id="21_0u6se"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ljdgw"]
 normal = Vector2(-1, 0)
@@ -34,6 +34,11 @@ normal = Vector2(-1, -1.60619e-06)
 
 [node name="PlatingScreen" type="Node2D"]
 script = ExtResource("1_2sqmg")
+
+[node name="TheBackground" type="Sprite2D" parent="."]
+position = Vector2(951, 532)
+scale = Vector2(0.242639, 0.242639)
+texture = ExtResource("21_0u6se")
 
 [node name="DishSpawner" type="Node2D" parent="."]
 position = Vector2(-194, 535)
@@ -71,22 +76,22 @@ z_as_relative = false
 script = ExtResource("2_7qn16")
 
 [node name="ConveyerBase" type="Sprite2D" parent="ConveyerManager"]
-position = Vector2(970, 566)
+position = Vector2(956, 690.75)
 scale = Vector2(0.243889, 0.243889)
 texture = ExtResource("3_4cwiw")
 
 [node name="ConveyerBelt1" type="Sprite2D" parent="ConveyerManager"]
-position = Vector2(-214, 568)
+position = Vector2(-228, 692.75)
 scale = Vector2(0.1895, 0.24)
 texture = ExtResource("13_0bnd4")
 
 [node name="ConveyerBelt2" type="Sprite2D" parent="ConveyerManager"]
-position = Vector2(1263, 568)
+position = Vector2(1249, 692.75)
 scale = Vector2(0.1895, 0.24)
 texture = ExtResource("13_0bnd4")
 
 [node name="ConveyerBelt3" type="Sprite2D" parent="ConveyerManager"]
-position = Vector2(2735, 568)
+position = Vector2(2721, 692.75)
 scale = Vector2(0.1895, 0.24)
 texture = ExtResource("13_0bnd4")
 
@@ -172,11 +177,6 @@ script = ExtResource("12_hld8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallingScoopBoundary"]
 shape = SubResource("WorldBoundaryShape2D_2h1kr")
-
-[node name="TheBackground" type="Sprite2D" parent="."]
-position = Vector2(965, 444)
-scale = Vector2(0.244833, 0.244833)
-texture = ExtResource("21_wmw1f")
 
 [node name="OrderCreator" type="Node" parent="."]
 script = ExtResource("10_gie43")
