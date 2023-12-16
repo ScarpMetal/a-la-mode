@@ -48,7 +48,7 @@ position = Vector2(-282.281, -276.746)
 scale = Vector2(0.0617313, 0.0617313)
 texture = ExtResource("6_4d2wg")
 
-[node name="SpriteMiddle" type="Sprite2D" parent="."]
+[node name="ScoopMiddle" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-0.000882149, -276.746)
 scale = Vector2(0.0617313, 0.0617313)
