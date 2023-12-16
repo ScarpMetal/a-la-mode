@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buk0j4pgt75k7"
-path="res://.godot/imported/PLAY_BUTTON_BITMASKddd.png-9b1ce23d0eb08551484659767dba973a.ctex"
+uid="uid://cp6ptpmjtj7i2"
+path="res://.godot/imported/PAUSE_MENU.png-a5d808a369fe98ce7f4643a4e6427dc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/PLAY_BUTTON_BITMASKddd.png"
-dest_files=["res://.godot/imported/PLAY_BUTTON_BITMASKddd.png-9b1ce23d0eb08551484659767dba973a.ctex"]
+source_file="res://assets/ui/PAUSE_MENU.png"
+dest_files=["res://.godot/imported/PAUSE_MENU.png-a5d808a369fe98ce7f4643a4e6427dc0.ctex"]
 
 [params]
 

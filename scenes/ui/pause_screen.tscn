@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://1gxfsts8uruw"]
+[gd_scene load_steps=6 format=3 uid="uid://1gxfsts8uruw"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_screen.gd" id="1_ai7cq"]
-[ext_resource type="Texture2D" uid="uid://dl4ftlw6ua8s6" path="res://assets/ui/resume.png" id="1_j72ae"]
-[ext_resource type="Texture2D" uid="uid://dwdtvd2dhi8wm" path="res://assets/ui/paused.png" id="2_suqn3"]
+[ext_resource type="Texture2D" uid="uid://cp6ptpmjtj7i2" path="res://assets/ui/PAUSE_MENU.png" id="2_lmnvg"]
+[ext_resource type="PackedScene" uid="uid://bmjie6wfb8vn7" path="res://scenes/ui/button.tscn" id="3_0joj7"]
+[ext_resource type="Texture2D" uid="uid://bdk0ce1u78xo7" path="res://assets/ui/quit.png" id="4_qg4v2"]
+[ext_resource type="Texture2D" uid="uid://dehfloehsla33" path="res://assets/ui/quit-hover.png" id="5_gyxkn"]
 
 [node name="PauseScreen" type="Control"]
 layout_mode = 3
@@ -13,44 +15,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ai7cq")
 
-[node name="CenterContainer2" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.5
+[node name="pause graphic" type="Sprite2D" parent="."]
+position = Vector2(959.111, 536)
+scale = Vector2(1.00741, 1.00741)
+texture = ExtResource("2_lmnvg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer2"]
-layout_mode = 2
+[node name="Button" parent="." instance=ExtResource("3_0joj7")]
+layout_mode = 0
+offset_left = 1560.0
+offset_top = 886.0
+offset_right = 1969.0
+offset_bottom = 1066.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("4_qg4v2")
+texture_hover = ExtResource("5_gyxkn")
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer2/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_suqn3")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 181.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-icon = ExtResource("1_j72ae")
-
-[node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Main Menu"
-
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_quit_pressed"]

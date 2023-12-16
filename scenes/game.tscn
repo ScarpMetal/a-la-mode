@@ -18,6 +18,7 @@ process_mode = 3
 script = ExtResource("1_0heso")
 
 [node name="PlatingScreen" parent="." instance=ExtResource("2_l8i3v")]
+process_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
