@@ -23,8 +23,8 @@ grow_vertical = 2
 script = ExtResource("1_pfvan")
 
 [node name="A-la-mode-menu" type="Sprite2D" parent="."]
-position = Vector2(958.667, 537.5)
-scale = Vector2(1.01019, 1.01019)
+position = Vector2(961.334, 539)
+scale = Vector2(1.01296, 1.01296)
 texture = ExtResource("2_qn1xv")
 
 [node name="Play" parent="." instance=ExtResource("3_678qp")]
