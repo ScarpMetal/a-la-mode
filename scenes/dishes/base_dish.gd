@@ -35,8 +35,9 @@ func destroy() -> void:
 func stick_on(scoop: FallingScoop) -> void:
 	scoop.monitorable = false
 	scoop.freeze()
+	scoop.get_node("ScoopSprite").flip_v = true
 	scoop.call_deferred("reparent", self)
-	
+
 	var scoop_flavor: String = scoop.get_node("ScoopSprite").flavor
 	scoop_plate_player.play()
 	if required_flavors.find(scoop_flavor) == -1:
