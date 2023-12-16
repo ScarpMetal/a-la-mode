@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqs3r54fx7vmx"]
+[gd_scene load_steps=13 format=3 uid="uid://bqs3r54fx7vmx"]
 
 [ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_0heso"]
 [ext_resource type="PackedScene" uid="uid://ddlfij2ghida2" path="res://scenes/plating_screen.tscn" id="2_l8i3v"]
 [ext_resource type="PackedScene" uid="uid://1gxfsts8uruw" path="res://scenes/ui/pause_screen.tscn" id="3_c2fa0"]
+[ext_resource type="Script" path="res://scenes/AudioManager.gd" id="4_g5hsn"]
+[ext_resource type="AudioStream" uid="uid://ek6h0544jrbp" path="res://assets/audio/music/Speed 1 (Clean).wav" id="5_03b2c"]
+[ext_resource type="AudioStream" uid="uid://bhspvj178es77" path="res://assets/audio/music/Speed 2 (Clean).wav" id="6_shsrt"]
+[ext_resource type="AudioStream" uid="uid://dokcx0vnlss33" path="res://assets/audio/music/Speed 3 (Clean).wav" id="7_v8fqr"]
+[ext_resource type="AudioStream" uid="uid://lkiv6aggjg0b" path="res://assets/audio/music/Speed 4 (Clean).wav" id="8_dus1w"]
+[ext_resource type="AudioStream" uid="uid://oqicvqpx84lm" path="res://assets/audio/music/Speed 1 (Indoor).wav" id="9_8s2l5"]
+[ext_resource type="AudioStream" uid="uid://b6e677nm5bive" path="res://assets/audio/music/Speed 2 (Indoor).wav" id="10_p2dey"]
+[ext_resource type="AudioStream" uid="uid://41dsykvvv6eh" path="res://assets/audio/music/Speed 3 (Indoor).wav" id="11_nrc0m"]
+[ext_resource type="AudioStream" uid="uid://bjo17p8x20sol" path="res://assets/audio/music/Speed 4 (Indoor).wav" id="12_lfv6k"]
 
 [node name="GameManager" type="Node"]
 process_mode = 3
@@ -16,3 +25,30 @@ script = ExtResource("1_0heso")
 process_mode = 3
 visible = false
 game_manager = NodePath("../..")
+
+[node name="AudioManger" type="Node" parent="."]
+script = ExtResource("4_g5hsn")
+
+[node name="Speed1Player" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("5_03b2c")
+
+[node name="Speed2Player" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("6_shsrt")
+
+[node name="Speed3Player" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("7_v8fqr")
+
+[node name="Speed4Player" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("8_dus1w")
+
+[node name="Speed1IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("9_8s2l5")
+
+[node name="Speed2IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("10_p2dey")
+
+[node name="Speed3IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("11_nrc0m")
+
+[node name="Speed4IndoorPlayer" type="AudioStreamPlayer" parent="AudioManger"]
+stream = ExtResource("12_lfv6k")
