@@ -1,7 +1,7 @@
 @tool
 extends EditorExportPlugin
 
-const JS_FILE = "coi-serviceworker.min.js"
+const JS_FILE = "./coi-serviceworker.min.js"
 
 var plugin_path: String = get_script().resource_path.get_base_dir()
 var exporting_web := false
