@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bbvlsueqqrwlv" path="res://assets/CURSOR_DUMP.png" id="2_8fmh3"]
 [ext_resource type="Texture2D" uid="uid://cf0lcxnpmwwjy" path="res://assets/CURSOR_EMPTY.png" id="3_ntndb"]
 [ext_resource type="AudioStream" uid="uid://2o0lqpb8voct" path="res://assets/audio/sfx/Scoop_Leave.wav" id="5_ackbl"]
-[ext_resource type="Texture2D" uid="uid://bii4dbgp115sw" path="res://assets/ice-cream/SCOOP_WHITE.png" id="5_7pp6n"]
 [ext_resource type="PackedScene" uid="uid://c3fv4xyswwsy7" path="res://scenes/scoop_sprite.tscn" id="6_funy4"]
 
 [sub_resource type="Animation" id="Animation_y5ysc"]
@@ -318,7 +317,7 @@ states/idle_with_scoop/position = Vector2(424.25, 100)
 states/scooping/node = SubResource("AnimationNodeAnimation_ae1yv")
 states/scooping/position = Vector2(242.25, -1)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_mdgpp"), "idle", "scooping", SubResource("AnimationNodeStateMachineTransition_466ja"), "dumping_scoop", "idle", SubResource("AnimationNodeStateMachineTransition_3s7l5"), "scooping", "idle", SubResource("AnimationNodeStateMachineTransition_h7nc1"), "idle", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_aht8d"), "scooping", "idle_with_scoop", SubResource("AnimationNodeStateMachineTransition_vef3j"), "idle_with_scoop", "dumping_scoop", SubResource("AnimationNodeStateMachineTransition_32gcp")]
-graph_offset = Vector2(-133.75, -43.7172)
+graph_offset = Vector2(-330.717, -35.2668)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f4hm6"]
 size = Vector2(1113.03, 745.269)
@@ -332,27 +331,26 @@ collision_mask = 2
 script = ExtResource("1_jquy8")
 
 [node name="DumpingScoopSprite" type="Sprite2D" parent="."]
-position = Vector2(133.554, 331.976)
+position = Vector2(526.583, 255.66)
 scale = Vector2(0.181983, 0.170703)
 texture = ExtResource("2_8fmh3")
 
 [node name="IdleSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(270.923, 270.923)
+position = Vector2(503.688, 297.634)
 scale = Vector2(0.181163, 0.181163)
 texture = ExtResource("3_ntndb")
 
 [node name="ScoopingSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(122.106, 343.424)
+position = Vector2(496.056, 228.949)
 scale = Vector2(0.18096, 0.18096)
 texture = ExtResource("2_8fmh3")
 
 [node name="ScoopSprite" parent="." instance=ExtResource("6_funy4")]
 visible = false
-position = Vector2(-114.475, -122.106)
+position = Vector2(122.106, -87.7639)
 scale = Vector2(0.0855484, 0.0855484)
-texture = ExtResource("5_7pp6n")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
