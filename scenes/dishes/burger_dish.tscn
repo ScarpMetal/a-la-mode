@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd5hm0i7tyfh8"]
+
+[ext_resource type="PackedScene" uid="uid://bq7omtq0fmhoq" path="res://scenes/dishes/base_dish.tscn" id="1_7fcmt"]
+[ext_resource type="Texture2D" uid="uid://rblpbt0soakn" path="res://assets/dishes/DISH_BURGER.png" id="2_0f1nh"]
+
+[node name="BurgerDish" instance=ExtResource("1_7fcmt")]
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(-6, -58)
+scale = Vector2(0.0327222, 0.0327222)
+texture = ExtResource("2_0f1nh")

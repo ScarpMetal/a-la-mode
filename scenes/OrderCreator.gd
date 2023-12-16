@@ -5,7 +5,7 @@ class_name OrderCreator
 signal difficulty_changed(new_difficulty_level: int)
 signal active_flavors_changed(new_flavors: Array[String])
 
-@export var dish_names: Array[String] = ["steak", "veggies", "salmon"]
+@export var dish_names: Array[String] = ["steak", "veggies", "sandwich"]
 @export var ice_cream_flavor_names: Array[String] = [
 	"vanilla", "chocolate", "strawberry", "pistachio", "blueberry"
 ]

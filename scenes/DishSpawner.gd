@@ -15,7 +15,7 @@ var can_spawn: bool = true
 var dish_scenes: Dictionary = {
 	"steak": preload("res://scenes/dishes/steak_dish.tscn"),
 	"veggies": preload("res://scenes/dishes/veggies_dish.tscn"),
-	"salmon": preload("res://scenes/dishes/salmon_dish.tscn"),
+	"sandwich": preload("res://scenes/dishes/sandwich_dish.tscn"),
 }
 
 signal dish_spawned(dish_instance: Dish)

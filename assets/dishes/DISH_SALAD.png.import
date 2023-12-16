@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o5tipy6ctuvy"
-path="res://.godot/imported/salmon.png-1aa05c33ab1b9a1af17856d7edf31329.ctex"
+uid="uid://c7cc0f52ldxmy"
+path="res://.godot/imported/DISH_SALAD.png-d6cbd87f03b57ea46e0f282c750e0d0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dishes/salmon.png"
-dest_files=["res://.godot/imported/salmon.png-1aa05c33ab1b9a1af17856d7edf31329.ctex"]
+source_file="res://assets/dishes/DISH_SALAD.png"
+dest_files=["res://.godot/imported/DISH_SALAD.png-d6cbd87f03b57ea46e0f282c750e0d0b.ctex"]
 
 [params]
 

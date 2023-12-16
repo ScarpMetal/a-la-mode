@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://25728ms3x8vq"
-path="res://.godot/imported/DISH_1.svg-5a25eccf9fc2113263ca4831087470e0.ctex"
+uid="uid://rblpbt0soakn"
+path="res://.godot/imported/DISH_BURGER.png-b098f66acc18b986a50d99dc7a7f5313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dishes/DISH_1.svg"
-dest_files=["res://.godot/imported/DISH_1.svg-5a25eccf9fc2113263ca4831087470e0.ctex"]
+source_file="res://assets/dishes/DISH_BURGER.png"
+dest_files=["res://.godot/imported/DISH_BURGER.png-b098f66acc18b986a50d99dc7a7f5313.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

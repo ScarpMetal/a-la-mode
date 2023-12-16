@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0felxtap0ogl"
-path="res://.godot/imported/DISH_3.svg-94feecb3b5b9d42451144224c467f4e4.ctex"
+uid="uid://m4bouinvunyd"
+path="res://.godot/imported/PLATE.png-d7842010a50742fa723581c0c47d8fd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dishes/DISH_3.svg"
-dest_files=["res://.godot/imported/DISH_3.svg-94feecb3b5b9d42451144224c467f4e4.ctex"]
+source_file="res://assets/dishes/PLATE.png"
+dest_files=["res://.godot/imported/PLATE.png-d7842010a50742fa723581c0c47d8fd2.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
