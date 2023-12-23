@@ -2,6 +2,23 @@ extends Node
 
 class_name OrderCreator
 
+
+class Order:
+	extends Node
+	static var order_id_increment := 0
+
+	var id: int
+	var dish_name: String
+	var flavors: Array[String]
+
+	func _init(p_name: String, p_flavors: Array[String]) -> void:
+		id = order_id_increment
+		order_id_increment += 1
+		name = p_name
+		flavors = p_flavors
+
+
+signal order_created(order: Order)
 signal difficulty_changed(new_difficulty_level: int)
 signal active_flavors_changed(new_flavors: Array[String])
 
@@ -16,8 +33,6 @@ const DIFFICULTY_INTERVALS_SEC: Array[int] = [20, 40, 60]
 var time_since_start := 0.0
 var difficulty_level := 0
 var order_timer := Timer.new()
-
-signal order_created(dish_name: String, flavors: Array[String])
 
 
 func _ready() -> void:
@@ -98,5 +113,6 @@ func generate_order() -> void:
 	for i in randi_range(1, max_flavors):
 		flavors.append(active_flavors[randi_range(0, active_flavors.size() - 1)])
 
-	print("created order: ", dish, flavors)
-	emit_signal("order_created", dish, flavors)
+	var order := Order.new(dish, flavors)
+	print("created order: ", order.name, order.flavors)
+	emit_signal("order_created", order)

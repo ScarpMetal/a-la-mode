@@ -206,6 +206,5 @@ dishes_complete_hud = NodePath("../DishesCompleteHUD")
 [connection signal="order_created" from="OrderCreator" to="OrderDisplaySpawner" method="_on_order_created"]
 [connection signal="order_created" from="OrderCreator" to="ScoreManager" method="_on_order_created"]
 [connection signal="dish_completed" from="OrderChecker" to="OrderDisplaySpawner" method="_on_dish_completed"]
+[connection signal="dish_completed" from="OrderChecker" to="HealthManager" method="_on_dish_completed"]
 [connection signal="dish_completed" from="OrderChecker" to="ScoreManager" method="_on_dish_completed"]
-[connection signal="dish_failed" from="OrderChecker" to="OrderDisplaySpawner" method="_on_dish_failed"]
-[connection signal="dish_failed" from="OrderChecker" to="HealthManager" method="_on_dish_failed"]

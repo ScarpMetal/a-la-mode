@@ -3,12 +3,13 @@ extends Area2D
 class_name Dish
 
 @export var speed := 200.0
-@export var required_flavors: Array[String] = []
+@export var order: OrderCreator.Order
 
 signal ice_cream_hit(hit_flavor: String, required_flavors: Array[String])
-signal destroyed(current_flavors: Array[String], required_flavors: Array[String])
+signal destroyed(current_flavors: Array[String], required_flavors: Array[String], order_id: int)
 
 var current_flavors: Array[String] = []
+
 var scoop_incorrect_player: AudioStreamPlayer
 var scoop_correct_player: AudioStreamPlayer
 var scoop_plate_player: AudioStreamPlayer
@@ -27,8 +28,8 @@ func _physics_process(delta: float) -> void:
 
 
 func destroy() -> void:
+	emit_signal("destroyed", current_flavors, order.flavors, order.id)
 	queue_free()
-	emit_signal("destroyed", current_flavors, required_flavors)
 
 
 # temp stick the scoop to the dish
@@ -40,7 +41,7 @@ func stick_on(scoop: FallingScoop) -> void:
 
 	var scoop_flavor: String = scoop.get_node("ScoopSprite").flavor
 	scoop_plate_player.play()
-	if required_flavors.find(scoop_flavor) == -1:
+	if order.flavors.find(scoop_flavor) == -1:
 		scoop_incorrect_player.play()
 	else:
 		scoop_correct_player.play()
@@ -58,4 +59,4 @@ func _on_area_entered(maybe_scoop: Area2D) -> void:
 
 		var flavor: String = maybe_scoop.get_node("ScoopSprite").flavor
 		current_flavors.append(flavor)
-		emit_signal("ice_cream_hit", flavor, required_flavors)
+		emit_signal("ice_cream_hit", flavor, order.flavors)

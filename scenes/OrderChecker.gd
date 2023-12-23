@@ -1,7 +1,6 @@
 extends Node
 
-signal dish_completed
-signal dish_failed
+signal dish_completed(success: bool, order_id: int)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,22 +14,31 @@ func _process(_delta: float) -> void:
 
 
 func _on_dish_spawned(dish_instance: Dish) -> void:
-	dish_instance.connect("ice_cream_hit", _on_dish_ice_cream_hit)
 	dish_instance.connect("destroyed", _on_dish_destroy)
 
 
-func _on_dish_ice_cream_hit(hit_flavor: String, required_flavors: Array[String]) -> void:
-	if hit_flavor not in required_flavors:
-		emit_signal("dish_failed")
+func make_count_dict(arr: Array) -> Dictionary:
+	var dict := {}
+	for val: Variant in arr:
+		if dict.has(val):
+			dict[val] += 1
+		else:
+			dict[val] = 1
+
+	return dict
 
 
-func _on_dish_destroy(current_flavors: Array[String], required_flavors: Array[String]) -> void:
-	if (
-		len(current_flavors)
-		and current_flavors.all(func(flavor: String) -> bool: return flavor in required_flavors)
-	):
-		print("dish completed")
-		emit_signal("dish_completed")
-	else:
-		print("dish failed")
-		emit_signal("dish_failed")
+func is_dish_success(current_flavors: Array[String], required_flavors: Array[String]) -> bool:
+	var current_flavors_count := make_count_dict(current_flavors)
+	var required_flavors_count := make_count_dict(required_flavors)
+
+	var unique_flavors: Array = required_flavors_count.keys()
+	return unique_flavors.all(
+		func(flavor: String) -> bool: return (
+			current_flavors_count.get(flavor, 0) >= required_flavors_count.get(flavor, 0)
+		)
+	)
+
+
+func _on_dish_destroy(current_flavors: Array[String], required_flavors: Array[String], order_id: int) -> void:
+	emit_signal("dish_completed", is_dish_success(current_flavors, required_flavors), order_id)

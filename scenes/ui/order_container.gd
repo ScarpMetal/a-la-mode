@@ -2,8 +2,7 @@ extends Sprite2D
 
 class_name OrderContainer
 
-@export var dish_name: String = ""
-@export var flavors: Array[String] = []
+@export var order: OrderCreator.Order
 
 @onready var scoop_left := $ScoopLeft
 @onready var scoop_middle := $ScoopMiddle
@@ -21,13 +20,13 @@ class_name OrderContainer
 
 
 func _ready() -> void:
-	dish_map[dish_name].visible = true
+	dish_map[order.name].visible = true
 
-	scoop_left.texture = flavor_map[flavors[0]].texture
+	scoop_left.texture = flavor_map[order.flavors[0]].texture
 	scoop_left.visible = true
-	if len(flavors) > 1:
-		scoop_middle.texture = flavor_map[flavors[1]].texture
+	if len(order.flavors) > 1:
+		scoop_middle.texture = flavor_map[order.flavors[1]].texture
 		scoop_middle.visible = true
-	if len(flavors) > 2:
-		scoop_right.texture = flavor_map[flavors[2]].texture
+	if len(order.flavors) > 2:
+		scoop_right.texture = flavor_map[order.flavors[2]].texture
 		scoop_right.visible = true

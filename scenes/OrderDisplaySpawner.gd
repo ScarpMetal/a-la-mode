@@ -1,75 +1,113 @@
 extends Node2D
 
 var order_container_scene := preload("res://scenes/ui/order_container.tscn")
-
-var displayed_orders: Array[OrderContainer] = []
-var next_orders_queue: Array[OrderContainer] = []
 var max_orders_displayed := 3
-var processing := false
+
+var active_order_displays: Array[OrderContainer] = []
+var operation_queue: Array[Dictionary] = []
+
+func find_custom(method: Callable, arr: Array) -> int:
+	for index: int in range(arr.size()):
+		if method.call(arr[index]):
+			return index
+	return -1
+
+func remove_custom(method: Callable, arr: Array[Variant]) -> Variant:
+	for index: int in range(arr.size()):
+		if method.call(arr[index]):
+			return arr.pop_at(index)
+	return null
+
+func all_signals(coroutines: Array[Signal]) -> Array[Variant]:
+	var result_values: Array[Variant] = []
+	for coroutine in coroutines:
+		result_values.append(await coroutine)
+	return result_values
 
 
-func _on_order_created(dish_name: String, flavors: Array[String]) -> void:
-	var order_container: OrderContainer = order_container_scene.instantiate()
-	order_container.dish_name = dish_name
-	order_container.flavors = flavors
-	order_container.position = Vector2(0, -500)
-	next_orders_queue.append(order_container)
-	if not len(displayed_orders) >= max_orders_displayed:
-		process_order_displays()
-
-
-func process_order_displays() -> void:
-	if processing:
+func process_operation_queue() -> void:
+	if len(operation_queue) == 0:
 		return
-	processing = true
-	if len(displayed_orders) == max_orders_displayed:
-		var first_order: OrderContainer = displayed_orders.pop_front()
-		(
-			create_tween()
-			. tween_property(first_order, "position", Vector2(0, first_order.position.y - 500), 1)
-			. set_trans(Tween.TRANS_SPRING)
-			. connect("finished", func() -> void: free_it(first_order))
+
+	var operation_queue_item: Dictionary = operation_queue.pop_front()
+	var operation: String = operation_queue_item.get("operation")
+	var order: OrderCreator.Order = operation_queue_item.get("order")
+
+	if operation == "remove":
+		var tween_signals: Array[Signal] = []
+		var order_display_index := find_custom(
+			func(order_display: OrderContainer) -> bool: return order.id == order_display.order.id,
+			active_order_displays
 		)
+		if order_display_index != -1:
+			for i in range(order_display_index + 1, min(max_orders_displayed - 1, len(active_order_displays))):
+				(
+					tween_signals.append(create_tween()
+					. tween_property(active_order_displays[i], "position", Vector2(active_order_displays[i].position.x - 250, 0), 1)
+					. set_trans(Tween.TRANS_SPRING)
+					. finished)
+				)
 
-	for index in range(len(displayed_orders)):
-		var order := displayed_orders[index]
-		(
-			create_tween()
-			. tween_property(order, "position", Vector2(order.position.x - 250, 0), 1)
-			. set_trans(Tween.TRANS_SPRING)
-		)
+			var order_display: OrderContainer = active_order_displays.pop_at(order_display_index)
+			var tween_and_free := func() -> void:
+				(
+					await create_tween()
+					. tween_property(
+						order_display,
+						"position",
+						Vector2(0, order_display.position.y - 500), 1
+					)
+					. set_trans(Tween.TRANS_SPRING)
+					. finished
+				)
+				order_display.queue_free()
 
-	if len(next_orders_queue) > 0:
-		var incoming_order: OrderContainer = next_orders_queue.pop_front()
-		displayed_orders.append(incoming_order)
-		create_tween().tween_property(incoming_order, "position", Vector2.ZERO, 1).set_trans(
-			Tween.TRANS_SPRING
-		)
-		add_child(incoming_order)
+			tween_signals.append(tween_and_free.call())
 
-	processing = false
+		await all_signals(tween_signals)
+
+	if operation == "add":
+		var tween_signals: Array[Signal] = []
+		if len(active_order_displays) < max_orders_displayed:
+			for order_display in active_order_displays:
+				tween_signals.append(create_tween()
+				. tween_property(order_display, "position", Vector2(order_display.position.x - 250, 0), 1)
+				. set_trans(Tween.TRANS_SPRING)
+				. finished)
+
+			tween_signals.append(create_tween()
+				.tween_property(order, "position", Vector2.ZERO, 1)
+				.set_trans(Tween.TRANS_SPRING)
+				.finished)
+
+		active_order_displays.append(order)
+		await all_signals(tween_signals)
+
+	process_operation_queue()
 
 
-func free_it(order: OrderContainer) -> void:
-	if is_instance_valid(order):
-		order.queue_free()
+func queue_add_order(order: OrderContainer) -> void:
+	operation_queue.append({"operation": "add", order: order})
+	process_operation_queue()
 
 
-func _on_dish_failed() -> void:
-	var first_order: OrderContainer = displayed_orders.pop_front()
-	(
-		create_tween()
-		. tween_property(first_order, "position", Vector2(0, first_order.position.y - 500), 1)
-		. set_trans(Tween.TRANS_SPRING)
-		. connect("finished", func() -> void: free_it(first_order))
+func queue_remove_order(order: OrderContainer) -> void:
+	operation_queue.append({"operation": "remove", order: order})
+	process_operation_queue()
+
+func _on_order_created(order: OrderCreator.Order) -> void:
+	var order_container: OrderContainer = order_container_scene.instantiate()
+	order_container.order = order
+	order_container.position = Vector2(0, -500)
+	print("CREATED!")
+	add_child(order_container)
+	queue_add_order(order_container)
+
+func _on_dish_completed(_success: bool, order_id: int) -> void:
+	var index := find_custom(
+		func(order_display: OrderContainer) -> bool: return order_id == order_display.order.id,
+		active_order_displays
 	)
-
-
-func _on_dish_completed() -> void:
-	var first_order: OrderContainer = displayed_orders.pop_front()
-	(
-		create_tween()
-		. tween_property(first_order, "position", Vector2(0, first_order.position.y - 500), 1)
-		. set_trans(Tween.TRANS_SPRING)
-		. connect("finished", func() -> void: free_it(first_order))
-	)
+	if index == -1:
+		return
+	queue_remove_order(active_order_displays[index])

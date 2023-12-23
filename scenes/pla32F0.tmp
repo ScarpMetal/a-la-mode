@@ -199,4 +199,3 @@ script = ExtResource("23_0jfj4")
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]
 [connection signal="order_created" from="OrderCreator" to="ScoreManager" method="_on_order_created"]
 [connection signal="dish_completed" from="OrderChecker" to="ScoreManager" method="_on_dish_completed"]
-[connection signal="dish_failed" from="OrderChecker" to="HealthManager" method="_on_dish_failed"]

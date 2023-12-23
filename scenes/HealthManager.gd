@@ -14,7 +14,10 @@ func _ready() -> void:
 	hearts.num_active_hearts = health
 
 
-func _on_dish_failed() -> void:
+func _on_dish_completed(success: bool, _order_id: int) -> void:
+	if success:
+		return
+
 	health -= 1
 	hearts.remove_heart()
 	print("emitting health changed", health)
