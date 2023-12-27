@@ -18,35 +18,36 @@ func remove_custom(method: Callable, arr: Array[Variant]) -> Variant:
 			return arr.pop_at(index)
 	return null
 
-func all_promises(promises: Array[Promise]) -> Array[Variant]:
+func all_boxes(boxes: Array[AsyncBox]) -> Array[Variant]:
 	var result_values: Array[Variant] = []
-	for promise in promises:
-		result_values.append(await promise.completed)
+	for box in boxes:
+		result_values.append(await box.result)
 	return result_values
 
-class Promise extends RefCounted:
-	signal _completed_signal(result: Variant)
+class AsyncBox extends RefCounted:
+	signal _result_signal(result: Variant)
+		
+	static func from_signal(p_signal: Signal) -> Callable:
+		return func(resolve: Callable) -> void:
+			resolve.call(await p_signal)
+		
 	var _resolved: bool = false
 	var _result_value: Variant = null
-
-	var completed: Variant:
+		
+	var result: Variant:
 		get:
-			return _completed_signal
-			# if not _resolved:
-			# 	return _completed_signal
-			# else:
-			# return _result_value
-
-	func _init(init: Variant) -> void:
-		if init is Callable:
-			_completed_signal.connect(_on_completed)
-			init.call(_completed_signal)
-		elif init is Signal:
-			init.connect(_on_completed)
-
-	func _on_completed(result: Variant) -> void:
-		_result_value = result
+			return (
+				_result_value if _resolved 
+				else _result_signal
+			)
+		
+	func _init(callable: Callable) -> void:
+		callable.call_deferred(_on_resolved)
+		
+	func _on_resolved(result_value: Variant = null) -> void:
+		_result_value = result_value
 		_resolved = true
+		_result_signal.emit(_result_value)
 
 func process_operation_queue() -> void:
 	if len(operation_queue) == 0:
@@ -57,7 +58,7 @@ func process_operation_queue() -> void:
 	var operation_order_container: OrderContainer = operation_queue_item.get("order_container")
 
 	if operation == "remove":
-		var tween_promises: Array[Promise] = []
+		var async_deps: Array[AsyncBox] = []
 		var order_container_index := find_custom(
 			func(order_container: OrderContainer) -> bool: 
 				return order_container.order.id == operation_order_container.order.id,
@@ -67,22 +68,22 @@ func process_operation_queue() -> void:
 			if len(active_order_containers) > max_orders_displayed:
 				for i in range(order_container_index + 1, min(max_orders_displayed, len(active_order_containers))):
 					(
-						tween_promises.append(Promise.new(create_tween()
+						async_deps.append(AsyncBox.new(AsyncBox.from_signal(create_tween()
 						. tween_property(active_order_containers[i], "position", Vector2(active_order_containers[i].position.x - 250, 0), 1)
 						. set_trans(Tween.TRANS_SPRING)
-						. finished))
+						. finished)))
 					)
 
 			if len(active_order_containers) > max_orders_displayed:
 				var next_order_container: OrderContainer = active_order_containers[max_orders_displayed]
-				tween_promises.append(Promise.new(create_tween()
+				async_deps.append(AsyncBox.new(AsyncBox.from_signal(create_tween()
 					.tween_property(next_order_container, "position", Vector2.ZERO, 1)
 					.set_trans(Tween.TRANS_SPRING)
-					.finished))
+					.finished)))
 
 			var order_container: OrderContainer = active_order_containers.pop_at(order_container_index)
 
-			var tween_and_free := func(completed_signal: Signal) -> void:
+			async_deps.append(AsyncBox.new(func(resolve: Callable) -> void:
 				(
 					await create_tween()
 					. tween_property(
@@ -93,32 +94,29 @@ func process_operation_queue() -> void:
 					. set_trans(Tween.TRANS_SPRING)
 					. finished
 				)
-				print("freeing")
 				order_container.queue_free()
-				completed_signal.emit()
+				resolve.call()
+			))
 
-			var promise: Promise = Promise.new(tween_and_free)
-			tween_promises.append(promise)
-
-		await all_promises(tween_promises)
+		await all_boxes(async_deps)
 
 
 	if operation == "add":
-		var tween_promises: Array[Promise] = []
+		var async_deps: Array[AsyncBox] = []
 		if len(active_order_containers) < max_orders_displayed:
 			for order_container in active_order_containers:
-				tween_promises.append(Promise.new(create_tween()
+				async_deps.append(AsyncBox.new(AsyncBox.from_signal(create_tween()
 					. tween_property(order_container, "position", Vector2(order_container.position.x - 250, 0), 1)
 					. set_trans(Tween.TRANS_SPRING)
-					. finished))
+					. finished)))
 
-			tween_promises.append(Promise.new(create_tween()
+			async_deps.append(AsyncBox.new(AsyncBox.from_signal(create_tween()
 				.tween_property(operation_order_container, "position", Vector2.ZERO, 1)
 				.set_trans(Tween.TRANS_SPRING)
-				.finished))
+				.finished)))
 
 		active_order_containers.append(operation_order_container)
-		await all_promises(tween_promises)
+		await all_boxes(async_deps)
 
 	process_operation_queue()
 
