@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0ei7vy2mlvb2"]
+[gd_scene load_steps=14 format=3 uid="uid://c0ei7vy2mlvb2"]
 
 [ext_resource type="Texture2D" uid="uid://ddon3r17tpqkh" path="res://assets/ui/HUD_CUSTOMER_ORDER.png" id="1_5r23v"]
 [ext_resource type="Texture2D" uid="uid://rblpbt0soakn" path="res://assets/dishes/DISH_BURGER.png" id="2_dwx7k"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://coi4t22qja0gh" path="res://assets/ice-cream/SCOOP_BLUE.png" id="6_4d2wg"]
 [ext_resource type="Texture2D" uid="uid://d3n3wh0xk6xyu" path="res://assets/ice-cream/SCOOP_BROWN.png" id="7_m5v2u"]
 [ext_resource type="Texture2D" uid="uid://bx5s0diiykact" path="res://assets/ice-cream/SCOOP_GREEN.png" id="8_tck6f"]
+[ext_resource type="Texture2D" uid="uid://tgcd8pxp5fob" path="res://assets/ui/CHECK.png" id="8_to2iu"]
 [ext_resource type="Texture2D" uid="uid://bckahn4wba2sd" path="res://assets/ice-cream/SCOOP_PINK.png" id="9_5ogg1"]
+[ext_resource type="Texture2D" uid="uid://crkt84fw2csna" path="res://assets/ui/X.png" id="9_j878l"]
 [ext_resource type="Texture2D" uid="uid://bii4dbgp115sw" path="res://assets/ice-cream/SCOOP_WHITE.png" id="10_2vpkm"]
 
 [node name="OrderContainer" type="Sprite2D"]
@@ -48,17 +50,53 @@ position = Vector2(-282.281, -276.746)
 scale = Vector2(0.0617313, 0.0617313)
 texture = ExtResource("6_4d2wg")
 
+[node name="Check" type="Sprite2D" parent="ScoopLeft"]
+visible = false
+position = Vector2(896.614, -268.987)
+scale = Vector2(3.07362, 3.07362)
+texture = ExtResource("8_to2iu")
+
+[node name="X" type="Sprite2D" parent="ScoopLeft"]
+visible = false
+position = Vector2(179.322, -89.6636)
+scale = Vector2(3.69721, 3.69721)
+texture = ExtResource("9_j878l")
+
 [node name="ScoopMiddle" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-0.000882149, -276.746)
 scale = Vector2(0.0617313, 0.0617313)
 texture = ExtResource("6_4d2wg")
 
+[node name="Check" type="Sprite2D" parent="ScoopMiddle"]
+visible = false
+position = Vector2(896.614, -268.987)
+scale = Vector2(3.07362, 3.07362)
+texture = ExtResource("8_to2iu")
+
+[node name="X" type="Sprite2D" parent="ScoopMiddle"]
+visible = false
+position = Vector2(179.322, -89.6636)
+scale = Vector2(3.69721, 3.69721)
+texture = ExtResource("9_j878l")
+
 [node name="ScoopRight" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(293.35, -276.746)
 scale = Vector2(0.0617313, 0.0617313)
 texture = ExtResource("6_4d2wg")
+
+[node name="Check" type="Sprite2D" parent="ScoopRight"]
+visible = false
+position = Vector2(896.614, -268.987)
+scale = Vector2(3.07362, 3.07362)
+texture = ExtResource("8_to2iu")
+
+[node name="X" type="Sprite2D" parent="ScoopRight"]
+visible = false
+position = Vector2(179.322, -89.6636)
+scale = Vector2(3.69721, 3.69721)
+texture = ExtResource("9_j878l")
 
 [node name="Blue" type="Sprite2D" parent="."]
 visible = false

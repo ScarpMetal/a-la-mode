@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://scenes/HealthManager.gd" id="13_itq5x"]
 [ext_resource type="Texture2D" uid="uid://dvx6tx41vd4lv" path="res://assets/ui/HEART_FULL.png" id="14_p0tsf"]
 [ext_resource type="PackedScene" uid="uid://kwn52rs7xqc" path="res://scenes/bucket.tscn" id="14_xpari"]
-[ext_resource type="Script" path="res://scenes/OrderDisplaySpawner.gd" id="15_hk6qq"]
+[ext_resource type="Script" path="res://scenes/OrderContainerSpawner.gd" id="15_hk6qq"]
 [ext_resource type="Script" path="res://scenes/ScoreManager.gd" id="15_i7s2b"]
 [ext_resource type="Texture2D" uid="uid://bhysm3kg8ofi0" path="res://assets/ui/HUD_DISHES_COMPLETE.png" id="18_gok13"]
 [ext_resource type="Texture2D" uid="uid://663y4tihaw7t" path="res://assets/ui/game-background.png" id="21_0u6se"]
@@ -115,7 +115,7 @@ position = Vector2(390.556, 222.75)
 scale = Vector2(0.0533889, 0.0523333)
 texture = ExtResource("14_p0tsf")
 
-[node name="OrderDisplaySpawner" type="Node2D" parent="."]
+[node name="OrderContainerSpawner" type="Node2D" parent="."]
 position = Vector2(541, 150)
 script = ExtResource("15_hk6qq")
 
@@ -204,8 +204,9 @@ dishes_complete_hud = NodePath("../DishesCompleteHUD")
 [connection signal="area_entered" from="FallingScoopBoundary" to="FallingScoopBoundary" method="_on_area_entered"]
 [connection signal="active_flavors_changed" from="OrderCreator" to="BucketManager" method="_on_active_flavors_changed"]
 [connection signal="order_created" from="OrderCreator" to="DishSpawner" method="_on_order_created"]
-[connection signal="order_created" from="OrderCreator" to="OrderDisplaySpawner" method="_on_order_created"]
+[connection signal="order_created" from="OrderCreator" to="OrderContainerSpawner" method="_on_order_created"]
 [connection signal="order_created" from="OrderCreator" to="ScoreManager" method="_on_order_created"]
-[connection signal="dish_completed" from="OrderChecker" to="OrderDisplaySpawner" method="_on_dish_completed"]
+[connection signal="dish_completed" from="OrderChecker" to="OrderContainerSpawner" method="_on_dish_completed"]
 [connection signal="dish_completed" from="OrderChecker" to="HealthManager" method="_on_dish_completed"]
 [connection signal="dish_completed" from="OrderChecker" to="ScoreManager" method="_on_dish_completed"]
+[connection signal="scoop_added_to_order" from="OrderChecker" to="OrderContainerSpawner" method="_on_scoop_added_to_order"]

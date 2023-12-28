@@ -30,3 +30,38 @@ func _ready() -> void:
 	if len(order.flavors) > 2:
 		scoop_right.texture = flavor_map[order.flavors[2]].texture
 		scoop_right.visible = true
+
+func _set_scoop_child_visible(node_name: String, scoop_position: String) -> void:
+	match scoop_position:
+		"left":
+			scoop_left.get_node(node_name).visible = true
+		"middle":
+			scoop_middle.get_node(node_name).visible = true
+		"right":
+			scoop_right.get_node(node_name).visible = true
+
+func set_check(scoop_position: String) -> void:
+	_set_scoop_child_visible("Check", scoop_position)
+
+func set_x(scoop_position: String) -> void:
+	_set_scoop_child_visible("X", scoop_position)
+
+func is_checked_or_xed(scoop_position: String) -> bool:
+	match scoop_position:
+		"left":
+			return (
+				scoop_left.get_node("Check").visible == true or
+				scoop_left.get_node("X").visible == true
+			)
+		"middle":
+			return (
+				scoop_middle.get_node("Check").visible == true or
+				scoop_middle.get_node("X").visible == true
+			)
+		"right":
+			return (
+				scoop_right.get_node("Check").visible == true or
+				scoop_right.get_node("X").visible == true
+			)
+
+	return false

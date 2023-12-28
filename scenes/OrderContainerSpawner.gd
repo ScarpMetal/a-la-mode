@@ -10,7 +10,7 @@ var processing := false
 func remove_order_container(order_container: OrderContainer) -> void:
 	var async_deps: Array[AsyncBox] = []
 	var order_container_index := ArrayUtils.find_custom(
-		func(active_order_container: OrderContainer) -> bool: 
+		func(active_order_container: OrderContainer, _index: int) -> bool: 
 			return active_order_container.order.id == order_container.order.id,
 		active_order_containers
 	)
@@ -112,9 +112,35 @@ func _on_order_created(order: OrderCreator.Order) -> void:
 
 func _on_dish_completed(_success: bool, order_id: int) -> void:
 	var index := ArrayUtils.find_custom(
-		func(order_container: OrderContainer) -> bool: return order_id == order_container.order.id,
+		func(order_container: OrderContainer, _index: int) -> bool: return order_id == order_container.order.id,
 		active_order_containers
 	)
 	if index == -1:
 		return
 	queue_remove_order(active_order_containers[index])
+
+func _on_scoop_added_to_order(order_id: int, flavor: String, is_correct: bool) -> void:
+	print(order_id, flavor, is_correct)
+	var container_index := ArrayUtils.find_custom(
+		func(oc: OrderContainer, _index: int) -> bool: return order_id == oc.order.id,
+		active_order_containers
+	)
+	print(container_index)
+	if container_index == -1:
+		return
+
+	var order_container := active_order_containers[container_index]
+	var positions := ["left", "middle", "right"]
+	var first_available_position_index := ArrayUtils.find_custom(func(scoop_position: String, _index: int) -> bool:
+		return not order_container.is_checked_or_xed(scoop_position)
+	, positions)
+
+	if first_available_position_index == -1:
+		return
+
+	var flavor_index := order_container.order.flavors.find(flavor, first_available_position_index)
+
+	if flavor_index != -1 and is_correct:
+		order_container.set_check(positions[flavor_index])
+	else:
+		order_container.set_x(positions[first_available_position_index])
