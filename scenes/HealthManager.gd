@@ -15,6 +15,7 @@ func _ready() -> void:
 
 
 func _on_dish_completed(success: bool, _order_id: int) -> void:
+	return
 	if success:
 		return
 

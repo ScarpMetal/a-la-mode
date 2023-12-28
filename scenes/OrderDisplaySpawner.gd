@@ -1,10 +1,11 @@
 extends Node2D
 
 var order_container_scene := preload("res://scenes/ui/order_container.tscn")
-var max_orders_displayed := 3
+var max_orders_displayed := 4
 
 var active_order_containers: Array[OrderContainer] = []
 var operation_queue: Array[Dictionary] = []
+var processing := false
 
 func remove_order_container(order_container: OrderContainer) -> void:
 	var async_deps: Array[AsyncBox] = []
@@ -20,7 +21,7 @@ func remove_order_container(order_container: OrderContainer) -> void:
 		for i in range(order_container_index + 1, min(max_orders_displayed, len(active_order_containers))):
 			(
 				async_deps.append(AsyncBox.new(AsyncBox.from_signal(create_tween()
-				. tween_property(active_order_containers[i], "position", Vector2(active_order_containers[i].position.x - 250, 0), 1)
+				. tween_property(active_order_containers[i], "position", Vector2(active_order_containers[i].position.x + 250, 0), 1)
 				. set_trans(Tween.TRANS_SPRING)
 				. finished)))
 			)
@@ -56,7 +57,7 @@ func add_order_container(order_container: OrderContainer) -> void:
 	if len(active_order_containers) < max_orders_displayed:
 		for active_order_container in active_order_containers:
 			async_deps.append(AsyncBox.new(AsyncBox.from_signal(create_tween()
-				. tween_property(active_order_container, "position", Vector2(active_order_container.position.x - 250, 0), 1)
+				. tween_property(active_order_container, "position", Vector2(active_order_container.position.x + 250, 0), 1)
 				. set_trans(Tween.TRANS_SPRING)
 				. finished)))
 
@@ -68,31 +69,40 @@ func add_order_container(order_container: OrderContainer) -> void:
 	active_order_containers.append(order_container)
 	await AsyncBox.all_boxes(async_deps)
 
+func try_processing() -> void:
+	if processing:
+		return
+	process_operation_queue()
+	
+
 func process_operation_queue() -> void:
 	if len(operation_queue) == 0:
+		processing = false
 		return
+
+	processing = true
 
 	var operation_queue_item: Dictionary = operation_queue.pop_front()
 	var operation: String = operation_queue_item.get("operation")
 	var operation_order_container: OrderContainer = operation_queue_item.get("order_container")
 
 	if operation == "remove":
-		remove_order_container(operation_order_container)
+		await remove_order_container(operation_order_container)
 
 	if operation == "add":
-		add_order_container(operation_order_container)
+		await add_order_container(operation_order_container)
 
 	process_operation_queue()
 
 
 func queue_add_order(order_container: OrderContainer) -> void:
 	operation_queue.append({"operation": "add", "order_container": order_container})
-	process_operation_queue()
+	try_processing()
 
 
 func queue_remove_order(order_container: OrderContainer) -> void:
 	operation_queue.append({"operation": "remove", "order_container": order_container})
-	process_operation_queue()
+	try_processing()
 
 func _on_order_created(order: OrderCreator.Order) -> void:
 	var order_container: OrderContainer = order_container_scene.instantiate()

@@ -96,6 +96,7 @@ scale = Vector2(0.1895, 0.24)
 texture = ExtResource("13_0bnd4")
 
 [node name="Hearts" type="Node2D" parent="."]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("3_e1km0")
 num_active_hearts = null
 
@@ -115,7 +116,7 @@ scale = Vector2(0.0533889, 0.0523333)
 texture = ExtResource("14_p0tsf")
 
 [node name="OrderDisplaySpawner" type="Node2D" parent="."]
-position = Vector2(1295, 156)
+position = Vector2(541, 150)
 script = ExtResource("15_hk6qq")
 
 [node name="DishesCompleteHUD" type="TextureRect" parent="."]
