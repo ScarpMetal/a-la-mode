@@ -25,7 +25,6 @@ func _ready() -> void:
 
 
 func tween_to_position(value: Vector2) -> void:
-	print("setting bucket position", value, flavor)
 	entered_position = value
 	create_tween().tween_property(self, "global_position", value, 1).set_trans(Tween.TRANS_SPRING)
 

@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity = Vector2(0, 0)
 
-	var scale_factor := map_value(
+	var scale_factor := Utils.map_value(
 		mouse_position.y, min_physics_y, max_physics_y, min_scale, max_scale
 	)
 	scale = Vector2(scale_factor, scale_factor)
@@ -88,10 +88,3 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			animationStateMachine.travel("idle_with_scoop")
 		else:
 			animationStateMachine.travel("idle")
-
-
-func map_value(
-	value: float, from_min: float, from_max: float, to_min: float, to_max: float
-) -> float:
-	var clamped_value := clampf(value, from_min, from_max)
-	return to_min + (to_max - to_min) * ((clamped_value - from_min) / (from_max - from_min))

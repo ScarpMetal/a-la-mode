@@ -6,52 +6,9 @@ var max_orders_displayed := 3
 var active_order_containers: Array[OrderContainer] = []
 var operation_queue: Array[Dictionary] = []
 
-func find_custom(method: Callable, arr: Array) -> int:
-	for index: int in range(arr.size()):
-		if method.call(arr[index]):
-			return index
-	return -1
-
-func remove_custom(method: Callable, arr: Array[Variant]) -> Variant:
-	for index: int in range(arr.size()):
-		if method.call(arr[index]):
-			return arr.pop_at(index)
-	return null
-
-func all_boxes(boxes: Array[AsyncBox]) -> Array[Variant]:
-	var result_values: Array[Variant] = []
-	for box in boxes:
-		result_values.append(await box.result)
-	return result_values
-
-class AsyncBox extends RefCounted:
-	signal _result_signal(result: Variant)
-		
-	static func from_signal(p_signal: Signal) -> Callable:
-		return func(resolve: Callable) -> void:
-			resolve.call(await p_signal)
-		
-	var _resolved: bool = false
-	var _result_value: Variant = null
-		
-	var result: Variant:
-		get:
-			return (
-				_result_value if _resolved 
-				else _result_signal
-			)
-		
-	func _init(callable: Callable) -> void:
-		callable.call_deferred(_on_resolved)
-		
-	func _on_resolved(result_value: Variant = null) -> void:
-		_result_value = result_value
-		_resolved = true
-		_result_signal.emit(_result_value)
-
 func remove_order_container(order_container: OrderContainer) -> void:
 	var async_deps: Array[AsyncBox] = []
-	var order_container_index := find_custom(
+	var order_container_index := ArrayUtils.find_custom(
 		func(active_order_container: OrderContainer) -> bool: 
 			return active_order_container.order.id == order_container.order.id,
 		active_order_containers
@@ -91,7 +48,7 @@ func remove_order_container(order_container: OrderContainer) -> void:
 		resolve.call()
 	))
 
-	await all_boxes(async_deps)
+	await AsyncBox.all_boxes(async_deps)
 
 func add_order_container(order_container: OrderContainer) -> void:
 	add_child(order_container)
@@ -109,7 +66,7 @@ func add_order_container(order_container: OrderContainer) -> void:
 			.finished)))
 
 	active_order_containers.append(order_container)
-	await all_boxes(async_deps)
+	await AsyncBox.all_boxes(async_deps)
 
 func process_operation_queue() -> void:
 	if len(operation_queue) == 0:
@@ -144,7 +101,7 @@ func _on_order_created(order: OrderCreator.Order) -> void:
 	queue_add_order(order_container)
 
 func _on_dish_completed(_success: bool, order_id: int) -> void:
-	var index := find_custom(
+	var index := ArrayUtils.find_custom(
 		func(order_container: OrderContainer) -> bool: return order_id == order_container.order.id,
 		active_order_containers
 	)
